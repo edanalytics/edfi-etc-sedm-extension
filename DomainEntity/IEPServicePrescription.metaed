@@ -1,0 +1,27 @@
+Domain Entity IEPServicePrescription
+    documentation "The service prescribed to a student as part of their IEP."
+    association StudentIEPAssociation
+        documentation "The student IEP for which the service is prescribed."
+        is part of identity
+    date BeginDate 
+        documentation "The effective date when service is to begin."
+        is part of identity
+    descriptor ServicePrescription
+        documentation "The type of service prescribed. Examples include: Auditory Specialist, Vocational Therapy."
+        is part of identity
+    date ServicePrescriptionDate
+        documentation "The date the service was prescribed."
+        is required
+    date EndDate 
+        documentation "The effective date when the prescribed service ended."
+        is optional
+    descriptor ServiceReason
+        documentation "Reason service was prescribed. Examples include: Counselor Assigned, IEP Team Determination."
+        is optional
+    descriptor ServiceCompliance
+        documentation "Indicates the service is compliant with a stated policy or law. Examples include: State Law, District Policy."
+        is optional
+    domain entity IDEAEvent
+        documentation "The IDEA event related to the prescribed service."
+        is optional
+        merge IDEAEvent.Student.StudentUniqueId with StudentIEPAssociation.Student.StudentUniqueId

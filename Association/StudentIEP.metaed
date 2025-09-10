@@ -1,0 +1,57 @@
+Association StudentIEPAssociation
+    documentation "This association describes summary IEP data for a student receiving special education services."
+    domain entity EdFi.EducationOrganization
+        documentation "The identifier assigned to the organization providing IEP Services."
+        role name IEPServicing
+    domain entity EdFi.Student
+        documentation "A reference to the student."
+    string StudentIEPAssociationID
+        documentation "A unique identifier assigned by the provider of IEP services."
+        is part of identity
+        is queryable field
+        max length 30
+    date IEPFinalizedDate
+        documentation "The date the most recent IEP was finalized.  Note: Date interpretation may vary. Ed-Fi recommends inclusive dates, but states may define dates as inclusive or exclusive. For calculations, align with local guidelines."
+        is part of identity
+    date IEPBeginDate
+        documentation "The effective date of the most recent IEP.  Note: Date interpretation may vary. Ed-Fi recommends inclusive dates, but states may define dates as inclusive or exclusive. For calculations, align with local guidelines."
+        is required
+    date IEPEndDate
+        documentation "The end date of the most recent IEP.  Note: Date interpretation may vary. Ed-Fi recommends inclusive dates, but states may define dates as inclusive or exclusive. For calculations, align with local guidelines."
+        is required
+    descriptor IEPStatus
+        documentation "The current status of the most recent IEP."
+        is required
+    date IEPAmendedDate
+        documentation "The date when the most recent IEP was last amended, if any.  Note: Date interpretation may vary. Ed-Fi recommends inclusive dates, but states may define dates as inclusive or exclusive. For calculations, align with local guidelines."
+        is optional
+    association EdFi.StudentSpecialEducationProgramAssociation
+        documentation "The associated StudentSpecialEducationProgram record on which this IEP record is based."
+        is optional
+    association EdFi.StudentSpecialEducationProgramEligibilityAssociation
+        documentation "The associated eligibility record on which this IEP record is based."
+        is optional
+        merge StudentSpecialEducationProgramEligibilityAssociation.Student.StudentUniqueId with Student.StudentUniqueId
+    bool MedicallyFragile
+        documentation "Indicates whether the student receiving special education and related services is: 1) in the age range of birth to 22 years, and 2) has a serious, ongoing illness or a chronic condition that has lasted or is anticipated to last at least 12 or more months or has required at least one month of hospitalization, and that requires daily, ongoing medical treatments and monitoring by appropriately trained personnel which may include parents or other family members, and 3) requires the routine use of medical device or of assistive technology to compensate for the loss of usefulness of a body function needed to participate in activities of daily living, and 4) lives with ongoing threat to his or her continued well-being. Aligns with federal requirements."
+        is optional
+    bool MultiplyDisabled
+        documentation "Indicates whether the student receiving special education and related services has been designated as multiply disabled by the admission, review, and dismissal committee as aligned with federal requirements."
+        is optional
+    descriptor EdFi.ReasonExited
+        documentation "The reason the student left and stop receiving special education services."
+        is optional
+    shared decimal EdFi.HoursPerWeek named SchoolHoursPerWeek
+        documentation "Indicates the total number of hours of instructional time per week for the school that the student attends."
+        is optional
+    descriptor EdFi.SpecialEducationSetting
+        documentation "The major instructional setting (more than 50 percent of a student's special education program)."
+        is optional
+    shared decimal EdFi.HoursPerWeek named SpecialEducationHoursPerWeek
+        documentation "Indicates the total number of hours of time per week specific to special education related services."
+        is optional    
+    domain entity IDEAEvent
+        documentation "A reference to one or more student IDEA events."
+        is optional collection
+        merge IDEAEvent.Student.StudentUniqueId with Student.StudentUniqueId
+ 

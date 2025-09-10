@@ -1,0 +1,27 @@
+Domain Entity IEPGoal
+    documentation "A goal prescribed to a student as part of their IEP."
+    association StudentIEPAssociation
+        documentation "The student IEP for which the goal is prescribed."
+        is part of identity
+    string IEPGoalID
+        documentation "A unique identifier assigned by the provider of IEP services."
+       is part of identity
+        max length 30
+    descriptor IEPGoal
+        documentation "A focused goal prescribed as part of the IEP. Examples include Academic Goal, Behavioral Goal, Attendance Goal."
+        is required
+    string IEPGoalDetails
+        documentation "Instructions or other details specific to the student and/or provider for achieving the stated goal."
+        is required
+        max length 2048
+    date GoalAchievementPeriodBeginDate 
+        documentation "The first date of the period assigned for achieving the stated goal."
+        is optional
+    date GoalAchievementPeriodEndDate 
+        documentation "The last date of the period assigned for achieving the stated goal."
+        is optional
+    domain entity IDEAEvent
+        documentation "The IDEA event related to setting and achieving this goal."
+        is optional
+        merge IDEAEvent.Student.StudentUniqueId with StudentIEPAssociation.Student.StudentUniqueId
+

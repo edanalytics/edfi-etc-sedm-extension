@@ -1,0 +1,2 @@
+Descriptor EventReason
+    documentation "Reason the event occured."

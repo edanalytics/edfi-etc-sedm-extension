@@ -1,0 +1,26 @@
+Domain Entity IEPServiceDelivery
+    documentation "Services delivered to a student as prescribed by their IEP."
+    association StudentIEPAssociation
+        documentation "The student and IEP associated with the delivery of prescribed services."
+        is part of identity
+    date ServiceDeliveryDate 
+        documentation "The date when prescribed services were delivered for a student."
+        is part of identity
+    descriptor ServiceDelivery 
+        documentation "The type of services delivered to the student."
+        is part of identity
+    domain entity IEPServicePrescription
+        documentation "Identifies the service prescribed for the student."
+        is optional
+        merge IEPServicePrescription.StudentIEPAssociation.Student.StudentUniqueId with StudentIEPAssociation.Student.StudentUniqueId
+    descriptor ServiceProvider
+        documentation "Indicates service provider type, including specialist, internal staff, external staff, etc."
+        is optional
+    domain entity EdFi.Staff
+        documentation "The staff member related to the delivery of the prescribed service."
+        is optional
+        role name ServiceDelivery
+    domain entity IDEAEvent
+        documentation "The IDEA Event related to the delivery of the prescribed service."
+        is optional
+        merge IDEAEvent.Student.StudentUniqueId with StudentIEPAssociation.Student.StudentUniqueId

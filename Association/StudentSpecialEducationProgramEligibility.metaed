@@ -1,0 +1,5 @@
+Association EdFi.StudentSpecialEducationProgramEligibilityAssociation additions
+    domain entity IDEAEvent
+        documentation "A reference to one or more related student IDEA events."
+        is optional collection
+        merge IDEAEvent.Student.StudentUniqueId with Student.StudentUniqueId

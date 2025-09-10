@@ -1,0 +1,2 @@
+Descriptor ServicePrescription
+    documentation "The type of service prescribed."

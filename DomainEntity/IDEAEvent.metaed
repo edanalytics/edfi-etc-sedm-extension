@@ -1,0 +1,36 @@
+Domain Entity IDEAEvent
+    documentation "An IDEA related student event describing status, dates and narrative."
+    domain entity EdFi.Student
+        documentation "A reference to the student."
+        is part of identity
+    string IDEAEventID
+        documentation "A unique identifier for the event record as assigned by the provider of IEP services."
+        is part of identity
+        max length 30
+     descriptor IDEAEvent
+        documentation "The IDEA event recorded for the student."
+        is part of identity
+    date EventBeginDate
+        documentation "The date when the IDEA related event started."
+        is required
+    date EventEndDate
+        documentation "The date when the IDEA event concluded."
+        is required
+    association EdFi.StudentSpecialEducationProgramEligibilityAssociation
+        documentation "A reference to one or more related student special education eligibility records."
+        is optional collection 
+        merge StudentSpecialEducationProgramEligibilityAssociation.Student.StudentUniqueId with Student.StudentUniqueId
+    descriptor EventReason
+        documentation "The reason why the IDEA event occured."
+        is optional
+    descriptor EventCompliance
+        documentation "The type of compliance represented by this event."
+        is optional
+    string EventNarrative
+        documentation "Detailed and summary notes recorded during the event."
+        is optional
+        max length 2048
+    association StudentIEPAssociation
+        documentation "A reference to one or more student IEPs."
+        is optional collection
+        merge StudentIEPAssociation.Student.StudentUniqueId with Student.StudentUniqueId
