@@ -1,0 +1,883 @@
+{
+  "apiSchemaVersion": "1.0.0",
+  "projectNameMapping": {
+    "SEDM": "sedm"
+  },
+  "projectSchemas": {
+    "sedm": {
+      "abstractResources": {
+      },
+      "caseInsensitiveEndpointNameMapping": {
+        "eventcompliancedescriptors": "eventComplianceDescriptors",
+        "eventreasondescriptors": "eventReasonDescriptors",
+        "ideaeventdescriptors": "iDEAEventDescriptors",
+        "iepgoaldescriptors": "iEPGoalDescriptors",
+        "iepstatusdescriptors": "iEPStatusDescriptors",
+        "servicecompliancedescriptors": "serviceComplianceDescriptors",
+        "servicedeliverydescriptors": "serviceDeliveryDescriptors",
+        "serviceprescriptiondescriptors": "servicePrescriptionDescriptors",
+        "serviceproviderdescriptors": "serviceProviderDescriptors",
+        "servicereasondescriptors": "serviceReasonDescriptors"
+      },
+      "compatibleDsRange": "5.2.0",
+      "description": "",
+      "isExtensionProject": true,
+      "projectName": "SEDM",
+      "projectVersion": "1.0.0",
+      "resourceNameMapping": {
+        "EventCompliance": "eventComplianceDescriptors",
+        "EventReason": "eventReasonDescriptors",
+        "IDEAEvent": "iDEAEventDescriptors",
+        "IEPGoal": "iEPGoalDescriptors",
+        "IEPStatus": "iEPStatusDescriptors",
+        "ServiceCompliance": "serviceComplianceDescriptors",
+        "ServiceDelivery": "serviceDeliveryDescriptors",
+        "ServicePrescription": "servicePrescriptionDescriptors",
+        "ServiceProvider": "serviceProviderDescriptors",
+        "ServiceReason": "serviceReasonDescriptors"
+      },
+      "resourceSchemas": {
+        "eventComplianceDescriptors": {
+          "allowIdentityUpdates": false,
+          "booleanJsonPaths": [
+          ],
+          "dateTimeJsonPaths": [
+          ],
+          "documentPathsMapping": {
+          },
+          "equalityConstraints": [
+          ],
+          "identityJsonPaths": [
+          ],
+          "isDescriptor": true,
+          "isResourceExtension": false,
+          "isSchoolYearEnumeration": false,
+          "isSubclass": false,
+          "jsonSchemaForInsert": {
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "additionalProperties": false,
+            "description": "An Ed-Fi Descriptor",
+            "properties": {
+              "codeValue": {
+                "description": "The descriptor code value",
+                "maxLength": 50,
+                "minLength": 1,
+                "pattern": "^(?!\\s).*(?<!\\s)$",
+                "type": "string"
+              },
+              "description": {
+                "description": "The descriptor description",
+                "maxLength": 1024,
+                "type": "string"
+              },
+              "effectiveBeginDate": {
+                "description": "The descriptor effective begin date",
+                "format": "date",
+                "type": "string"
+              },
+              "effectiveEndDate": {
+                "description": "The descriptor effective end date",
+                "format": "date",
+                "type": "string"
+              },
+              "namespace": {
+                "description": "The descriptor namespace as a URI",
+                "maxLength": 255,
+                "minLength": 1,
+                "pattern": "^(?!\\s).*(?<!\\s)$",
+                "type": "string"
+              },
+              "shortDescription": {
+                "description": "The descriptor short description",
+                "maxLength": 75,
+                "minLength": 1,
+                "pattern": "^(?!\\s).*(?<!\\s)$",
+                "type": "string"
+              }
+            },
+            "required": [
+              "namespace",
+              "codeValue",
+              "shortDescription"
+            ],
+            "title": "EdFi.Descriptor",
+            "type": "object"
+          },
+          "numericJsonPaths": [
+          ],
+          "queryFieldMapping": {
+            "codeValue": [
+              {
+                "path": "$.codeValue",
+                "type": "string"
+              }
+            ],
+            "namespace": [
+              {
+                "path": "$.namespace",
+                "type": "string"
+              }
+            ]
+          },
+          "resourceName": "EventComplianceDescriptor"
+        },
+        "eventReasonDescriptors": {
+          "allowIdentityUpdates": false,
+          "booleanJsonPaths": [
+          ],
+          "dateTimeJsonPaths": [
+          ],
+          "documentPathsMapping": {
+          },
+          "equalityConstraints": [
+          ],
+          "identityJsonPaths": [
+          ],
+          "isDescriptor": true,
+          "isResourceExtension": false,
+          "isSchoolYearEnumeration": false,
+          "isSubclass": false,
+          "jsonSchemaForInsert": {
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "additionalProperties": false,
+            "description": "An Ed-Fi Descriptor",
+            "properties": {
+              "codeValue": {
+                "description": "The descriptor code value",
+                "maxLength": 50,
+                "minLength": 1,
+                "pattern": "^(?!\\s).*(?<!\\s)$",
+                "type": "string"
+              },
+              "description": {
+                "description": "The descriptor description",
+                "maxLength": 1024,
+                "type": "string"
+              },
+              "effectiveBeginDate": {
+                "description": "The descriptor effective begin date",
+                "format": "date",
+                "type": "string"
+              },
+              "effectiveEndDate": {
+                "description": "The descriptor effective end date",
+                "format": "date",
+                "type": "string"
+              },
+              "namespace": {
+                "description": "The descriptor namespace as a URI",
+                "maxLength": 255,
+                "minLength": 1,
+                "pattern": "^(?!\\s).*(?<!\\s)$",
+                "type": "string"
+              },
+              "shortDescription": {
+                "description": "The descriptor short description",
+                "maxLength": 75,
+                "minLength": 1,
+                "pattern": "^(?!\\s).*(?<!\\s)$",
+                "type": "string"
+              }
+            },
+            "required": [
+              "namespace",
+              "codeValue",
+              "shortDescription"
+            ],
+            "title": "EdFi.Descriptor",
+            "type": "object"
+          },
+          "numericJsonPaths": [
+          ],
+          "queryFieldMapping": {
+            "codeValue": [
+              {
+                "path": "$.codeValue",
+                "type": "string"
+              }
+            ],
+            "namespace": [
+              {
+                "path": "$.namespace",
+                "type": "string"
+              }
+            ]
+          },
+          "resourceName": "EventReasonDescriptor"
+        },
+        "iDEAEventDescriptors": {
+          "allowIdentityUpdates": false,
+          "booleanJsonPaths": [
+          ],
+          "dateTimeJsonPaths": [
+          ],
+          "documentPathsMapping": {
+          },
+          "equalityConstraints": [
+          ],
+          "identityJsonPaths": [
+          ],
+          "isDescriptor": true,
+          "isResourceExtension": false,
+          "isSchoolYearEnumeration": false,
+          "isSubclass": false,
+          "jsonSchemaForInsert": {
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "additionalProperties": false,
+            "description": "An Ed-Fi Descriptor",
+            "properties": {
+              "codeValue": {
+                "description": "The descriptor code value",
+                "maxLength": 50,
+                "minLength": 1,
+                "pattern": "^(?!\\s).*(?<!\\s)$",
+                "type": "string"
+              },
+              "description": {
+                "description": "The descriptor description",
+                "maxLength": 1024,
+                "type": "string"
+              },
+              "effectiveBeginDate": {
+                "description": "The descriptor effective begin date",
+                "format": "date",
+                "type": "string"
+              },
+              "effectiveEndDate": {
+                "description": "The descriptor effective end date",
+                "format": "date",
+                "type": "string"
+              },
+              "namespace": {
+                "description": "The descriptor namespace as a URI",
+                "maxLength": 255,
+                "minLength": 1,
+                "pattern": "^(?!\\s).*(?<!\\s)$",
+                "type": "string"
+              },
+              "shortDescription": {
+                "description": "The descriptor short description",
+                "maxLength": 75,
+                "minLength": 1,
+                "pattern": "^(?!\\s).*(?<!\\s)$",
+                "type": "string"
+              }
+            },
+            "required": [
+              "namespace",
+              "codeValue",
+              "shortDescription"
+            ],
+            "title": "EdFi.Descriptor",
+            "type": "object"
+          },
+          "numericJsonPaths": [
+          ],
+          "queryFieldMapping": {
+            "codeValue": [
+              {
+                "path": "$.codeValue",
+                "type": "string"
+              }
+            ],
+            "namespace": [
+              {
+                "path": "$.namespace",
+                "type": "string"
+              }
+            ]
+          },
+          "resourceName": "IDEAEventDescriptor"
+        },
+        "iEPGoalDescriptors": {
+          "allowIdentityUpdates": false,
+          "booleanJsonPaths": [
+          ],
+          "dateTimeJsonPaths": [
+          ],
+          "documentPathsMapping": {
+          },
+          "equalityConstraints": [
+          ],
+          "identityJsonPaths": [
+          ],
+          "isDescriptor": true,
+          "isResourceExtension": false,
+          "isSchoolYearEnumeration": false,
+          "isSubclass": false,
+          "jsonSchemaForInsert": {
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "additionalProperties": false,
+            "description": "An Ed-Fi Descriptor",
+            "properties": {
+              "codeValue": {
+                "description": "The descriptor code value",
+                "maxLength": 50,
+                "minLength": 1,
+                "pattern": "^(?!\\s).*(?<!\\s)$",
+                "type": "string"
+              },
+              "description": {
+                "description": "The descriptor description",
+                "maxLength": 1024,
+                "type": "string"
+              },
+              "effectiveBeginDate": {
+                "description": "The descriptor effective begin date",
+                "format": "date",
+                "type": "string"
+              },
+              "effectiveEndDate": {
+                "description": "The descriptor effective end date",
+                "format": "date",
+                "type": "string"
+              },
+              "namespace": {
+                "description": "The descriptor namespace as a URI",
+                "maxLength": 255,
+                "minLength": 1,
+                "pattern": "^(?!\\s).*(?<!\\s)$",
+                "type": "string"
+              },
+              "shortDescription": {
+                "description": "The descriptor short description",
+                "maxLength": 75,
+                "minLength": 1,
+                "pattern": "^(?!\\s).*(?<!\\s)$",
+                "type": "string"
+              }
+            },
+            "required": [
+              "namespace",
+              "codeValue",
+              "shortDescription"
+            ],
+            "title": "EdFi.Descriptor",
+            "type": "object"
+          },
+          "numericJsonPaths": [
+          ],
+          "queryFieldMapping": {
+            "codeValue": [
+              {
+                "path": "$.codeValue",
+                "type": "string"
+              }
+            ],
+            "namespace": [
+              {
+                "path": "$.namespace",
+                "type": "string"
+              }
+            ]
+          },
+          "resourceName": "IEPGoalDescriptor"
+        },
+        "iEPStatusDescriptors": {
+          "allowIdentityUpdates": false,
+          "booleanJsonPaths": [
+          ],
+          "dateTimeJsonPaths": [
+          ],
+          "documentPathsMapping": {
+          },
+          "equalityConstraints": [
+          ],
+          "identityJsonPaths": [
+          ],
+          "isDescriptor": true,
+          "isResourceExtension": false,
+          "isSchoolYearEnumeration": false,
+          "isSubclass": false,
+          "jsonSchemaForInsert": {
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "additionalProperties": false,
+            "description": "An Ed-Fi Descriptor",
+            "properties": {
+              "codeValue": {
+                "description": "The descriptor code value",
+                "maxLength": 50,
+                "minLength": 1,
+                "pattern": "^(?!\\s).*(?<!\\s)$",
+                "type": "string"
+              },
+              "description": {
+                "description": "The descriptor description",
+                "maxLength": 1024,
+                "type": "string"
+              },
+              "effectiveBeginDate": {
+                "description": "The descriptor effective begin date",
+                "format": "date",
+                "type": "string"
+              },
+              "effectiveEndDate": {
+                "description": "The descriptor effective end date",
+                "format": "date",
+                "type": "string"
+              },
+              "namespace": {
+                "description": "The descriptor namespace as a URI",
+                "maxLength": 255,
+                "minLength": 1,
+                "pattern": "^(?!\\s).*(?<!\\s)$",
+                "type": "string"
+              },
+              "shortDescription": {
+                "description": "The descriptor short description",
+                "maxLength": 75,
+                "minLength": 1,
+                "pattern": "^(?!\\s).*(?<!\\s)$",
+                "type": "string"
+              }
+            },
+            "required": [
+              "namespace",
+              "codeValue",
+              "shortDescription"
+            ],
+            "title": "EdFi.Descriptor",
+            "type": "object"
+          },
+          "numericJsonPaths": [
+          ],
+          "queryFieldMapping": {
+            "codeValue": [
+              {
+                "path": "$.codeValue",
+                "type": "string"
+              }
+            ],
+            "namespace": [
+              {
+                "path": "$.namespace",
+                "type": "string"
+              }
+            ]
+          },
+          "resourceName": "IEPStatusDescriptor"
+        },
+        "serviceComplianceDescriptors": {
+          "allowIdentityUpdates": false,
+          "booleanJsonPaths": [
+          ],
+          "dateTimeJsonPaths": [
+          ],
+          "documentPathsMapping": {
+          },
+          "equalityConstraints": [
+          ],
+          "identityJsonPaths": [
+          ],
+          "isDescriptor": true,
+          "isResourceExtension": false,
+          "isSchoolYearEnumeration": false,
+          "isSubclass": false,
+          "jsonSchemaForInsert": {
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "additionalProperties": false,
+            "description": "An Ed-Fi Descriptor",
+            "properties": {
+              "codeValue": {
+                "description": "The descriptor code value",
+                "maxLength": 50,
+                "minLength": 1,
+                "pattern": "^(?!\\s).*(?<!\\s)$",
+                "type": "string"
+              },
+              "description": {
+                "description": "The descriptor description",
+                "maxLength": 1024,
+                "type": "string"
+              },
+              "effectiveBeginDate": {
+                "description": "The descriptor effective begin date",
+                "format": "date",
+                "type": "string"
+              },
+              "effectiveEndDate": {
+                "description": "The descriptor effective end date",
+                "format": "date",
+                "type": "string"
+              },
+              "namespace": {
+                "description": "The descriptor namespace as a URI",
+                "maxLength": 255,
+                "minLength": 1,
+                "pattern": "^(?!\\s).*(?<!\\s)$",
+                "type": "string"
+              },
+              "shortDescription": {
+                "description": "The descriptor short description",
+                "maxLength": 75,
+                "minLength": 1,
+                "pattern": "^(?!\\s).*(?<!\\s)$",
+                "type": "string"
+              }
+            },
+            "required": [
+              "namespace",
+              "codeValue",
+              "shortDescription"
+            ],
+            "title": "EdFi.Descriptor",
+            "type": "object"
+          },
+          "numericJsonPaths": [
+          ],
+          "queryFieldMapping": {
+            "codeValue": [
+              {
+                "path": "$.codeValue",
+                "type": "string"
+              }
+            ],
+            "namespace": [
+              {
+                "path": "$.namespace",
+                "type": "string"
+              }
+            ]
+          },
+          "resourceName": "ServiceComplianceDescriptor"
+        },
+        "serviceDeliveryDescriptors": {
+          "allowIdentityUpdates": false,
+          "booleanJsonPaths": [
+          ],
+          "dateTimeJsonPaths": [
+          ],
+          "documentPathsMapping": {
+          },
+          "equalityConstraints": [
+          ],
+          "identityJsonPaths": [
+          ],
+          "isDescriptor": true,
+          "isResourceExtension": false,
+          "isSchoolYearEnumeration": false,
+          "isSubclass": false,
+          "jsonSchemaForInsert": {
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "additionalProperties": false,
+            "description": "An Ed-Fi Descriptor",
+            "properties": {
+              "codeValue": {
+                "description": "The descriptor code value",
+                "maxLength": 50,
+                "minLength": 1,
+                "pattern": "^(?!\\s).*(?<!\\s)$",
+                "type": "string"
+              },
+              "description": {
+                "description": "The descriptor description",
+                "maxLength": 1024,
+                "type": "string"
+              },
+              "effectiveBeginDate": {
+                "description": "The descriptor effective begin date",
+                "format": "date",
+                "type": "string"
+              },
+              "effectiveEndDate": {
+                "description": "The descriptor effective end date",
+                "format": "date",
+                "type": "string"
+              },
+              "namespace": {
+                "description": "The descriptor namespace as a URI",
+                "maxLength": 255,
+                "minLength": 1,
+                "pattern": "^(?!\\s).*(?<!\\s)$",
+                "type": "string"
+              },
+              "shortDescription": {
+                "description": "The descriptor short description",
+                "maxLength": 75,
+                "minLength": 1,
+                "pattern": "^(?!\\s).*(?<!\\s)$",
+                "type": "string"
+              }
+            },
+            "required": [
+              "namespace",
+              "codeValue",
+              "shortDescription"
+            ],
+            "title": "EdFi.Descriptor",
+            "type": "object"
+          },
+          "numericJsonPaths": [
+          ],
+          "queryFieldMapping": {
+            "codeValue": [
+              {
+                "path": "$.codeValue",
+                "type": "string"
+              }
+            ],
+            "namespace": [
+              {
+                "path": "$.namespace",
+                "type": "string"
+              }
+            ]
+          },
+          "resourceName": "ServiceDeliveryDescriptor"
+        },
+        "servicePrescriptionDescriptors": {
+          "allowIdentityUpdates": false,
+          "booleanJsonPaths": [
+          ],
+          "dateTimeJsonPaths": [
+          ],
+          "documentPathsMapping": {
+          },
+          "equalityConstraints": [
+          ],
+          "identityJsonPaths": [
+          ],
+          "isDescriptor": true,
+          "isResourceExtension": false,
+          "isSchoolYearEnumeration": false,
+          "isSubclass": false,
+          "jsonSchemaForInsert": {
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "additionalProperties": false,
+            "description": "An Ed-Fi Descriptor",
+            "properties": {
+              "codeValue": {
+                "description": "The descriptor code value",
+                "maxLength": 50,
+                "minLength": 1,
+                "pattern": "^(?!\\s).*(?<!\\s)$",
+                "type": "string"
+              },
+              "description": {
+                "description": "The descriptor description",
+                "maxLength": 1024,
+                "type": "string"
+              },
+              "effectiveBeginDate": {
+                "description": "The descriptor effective begin date",
+                "format": "date",
+                "type": "string"
+              },
+              "effectiveEndDate": {
+                "description": "The descriptor effective end date",
+                "format": "date",
+                "type": "string"
+              },
+              "namespace": {
+                "description": "The descriptor namespace as a URI",
+                "maxLength": 255,
+                "minLength": 1,
+                "pattern": "^(?!\\s).*(?<!\\s)$",
+                "type": "string"
+              },
+              "shortDescription": {
+                "description": "The descriptor short description",
+                "maxLength": 75,
+                "minLength": 1,
+                "pattern": "^(?!\\s).*(?<!\\s)$",
+                "type": "string"
+              }
+            },
+            "required": [
+              "namespace",
+              "codeValue",
+              "shortDescription"
+            ],
+            "title": "EdFi.Descriptor",
+            "type": "object"
+          },
+          "numericJsonPaths": [
+          ],
+          "queryFieldMapping": {
+            "codeValue": [
+              {
+                "path": "$.codeValue",
+                "type": "string"
+              }
+            ],
+            "namespace": [
+              {
+                "path": "$.namespace",
+                "type": "string"
+              }
+            ]
+          },
+          "resourceName": "ServicePrescriptionDescriptor"
+        },
+        "serviceProviderDescriptors": {
+          "allowIdentityUpdates": false,
+          "booleanJsonPaths": [
+          ],
+          "dateTimeJsonPaths": [
+          ],
+          "documentPathsMapping": {
+          },
+          "equalityConstraints": [
+          ],
+          "identityJsonPaths": [
+          ],
+          "isDescriptor": true,
+          "isResourceExtension": false,
+          "isSchoolYearEnumeration": false,
+          "isSubclass": false,
+          "jsonSchemaForInsert": {
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "additionalProperties": false,
+            "description": "An Ed-Fi Descriptor",
+            "properties": {
+              "codeValue": {
+                "description": "The descriptor code value",
+                "maxLength": 50,
+                "minLength": 1,
+                "pattern": "^(?!\\s).*(?<!\\s)$",
+                "type": "string"
+              },
+              "description": {
+                "description": "The descriptor description",
+                "maxLength": 1024,
+                "type": "string"
+              },
+              "effectiveBeginDate": {
+                "description": "The descriptor effective begin date",
+                "format": "date",
+                "type": "string"
+              },
+              "effectiveEndDate": {
+                "description": "The descriptor effective end date",
+                "format": "date",
+                "type": "string"
+              },
+              "namespace": {
+                "description": "The descriptor namespace as a URI",
+                "maxLength": 255,
+                "minLength": 1,
+                "pattern": "^(?!\\s).*(?<!\\s)$",
+                "type": "string"
+              },
+              "shortDescription": {
+                "description": "The descriptor short description",
+                "maxLength": 75,
+                "minLength": 1,
+                "pattern": "^(?!\\s).*(?<!\\s)$",
+                "type": "string"
+              }
+            },
+            "required": [
+              "namespace",
+              "codeValue",
+              "shortDescription"
+            ],
+            "title": "EdFi.Descriptor",
+            "type": "object"
+          },
+          "numericJsonPaths": [
+          ],
+          "queryFieldMapping": {
+            "codeValue": [
+              {
+                "path": "$.codeValue",
+                "type": "string"
+              }
+            ],
+            "namespace": [
+              {
+                "path": "$.namespace",
+                "type": "string"
+              }
+            ]
+          },
+          "resourceName": "ServiceProviderDescriptor"
+        },
+        "serviceReasonDescriptors": {
+          "allowIdentityUpdates": false,
+          "booleanJsonPaths": [
+          ],
+          "dateTimeJsonPaths": [
+          ],
+          "documentPathsMapping": {
+          },
+          "equalityConstraints": [
+          ],
+          "identityJsonPaths": [
+          ],
+          "isDescriptor": true,
+          "isResourceExtension": false,
+          "isSchoolYearEnumeration": false,
+          "isSubclass": false,
+          "jsonSchemaForInsert": {
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "additionalProperties": false,
+            "description": "An Ed-Fi Descriptor",
+            "properties": {
+              "codeValue": {
+                "description": "The descriptor code value",
+                "maxLength": 50,
+                "minLength": 1,
+                "pattern": "^(?!\\s).*(?<!\\s)$",
+                "type": "string"
+              },
+              "description": {
+                "description": "The descriptor description",
+                "maxLength": 1024,
+                "type": "string"
+              },
+              "effectiveBeginDate": {
+                "description": "The descriptor effective begin date",
+                "format": "date",
+                "type": "string"
+              },
+              "effectiveEndDate": {
+                "description": "The descriptor effective end date",
+                "format": "date",
+                "type": "string"
+              },
+              "namespace": {
+                "description": "The descriptor namespace as a URI",
+                "maxLength": 255,
+                "minLength": 1,
+                "pattern": "^(?!\\s).*(?<!\\s)$",
+                "type": "string"
+              },
+              "shortDescription": {
+                "description": "The descriptor short description",
+                "maxLength": 75,
+                "minLength": 1,
+                "pattern": "^(?!\\s).*(?<!\\s)$",
+                "type": "string"
+              }
+            },
+            "required": [
+              "namespace",
+              "codeValue",
+              "shortDescription"
+            ],
+            "title": "EdFi.Descriptor",
+            "type": "object"
+          },
+          "numericJsonPaths": [
+          ],
+          "queryFieldMapping": {
+            "codeValue": [
+              {
+                "path": "$.codeValue",
+                "type": "string"
+              }
+            ],
+            "namespace": [
+              {
+                "path": "$.namespace",
+                "type": "string"
+              }
+            ]
+          },
+          "resourceName": "ServiceReasonDescriptor"
+        }
+      }
+    }
+  }
+}
