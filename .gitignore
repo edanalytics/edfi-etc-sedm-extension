@@ -1,0 +1,2 @@
+# Ignore all .identifier files due to file name issues on Windows
+*.identifier
