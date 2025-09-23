@@ -9,7 +9,7 @@ Association StudentIEPAssociation
         documentation "A unique identifier assigned by the provider of IEP services."
         is part of identity
         is queryable field
-        max length 30
+        max length 1024
     date IEPFinalizedDate
         documentation "The date the most recent IEP was finalized.  Note: Date interpretation may vary. Ed-Fi recommends inclusive dates, but states may define dates as inclusive or exclusive. For calculations, align with local guidelines."
         is part of identity
