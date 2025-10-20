@@ -1,23 +1,24 @@
 Association StudentIEPAssociation
     documentation "This association describes summary IEP data for a student receiving special education services."
     domain entity EdFi.EducationOrganization
-        documentation "The identifier assigned to the organization providing IEP Services."
+        documentation "The identifier assigned to the education organization (usually District/LEA) providing IEP Services."
         role name IEPServicing
+        is part of identity
     domain entity EdFi.Student
         documentation "A reference to the student."
-    string StudentIEPAssociationID
-        documentation "A unique identifier assigned by the provider of IEP services."
         is part of identity
-        is queryable field
+    string StudentIEPAssociationID
+        documentation "A unique identifier assigned by the provider or source system of IEP services."
+        is part of identity
         max length 1024
     date IEPFinalizedDate
         documentation "The date the most recent IEP was finalized.  Note: Date interpretation may vary. Ed-Fi recommends inclusive dates, but states may define dates as inclusive or exclusive. For calculations, align with local guidelines."
         is part of identity
     date IEPBeginDate
-        documentation "The effective date of the most recent IEP.  Note: Date interpretation may vary. Ed-Fi recommends inclusive dates, but states may define dates as inclusive or exclusive. For calculations, align with local guidelines."
+        documentation "The effective start date of the most recent IEP.  Note: Date interpretation may vary. Ed-Fi recommends inclusive dates, but states may define dates as inclusive or exclusive. For calculations, align with local guidelines."
         is required
     date IEPEndDate
-        documentation "The end date of the most recent IEP.  Note: Date interpretation may vary. Ed-Fi recommends inclusive dates, but states may define dates as inclusive or exclusive. For calculations, align with local guidelines."
+        documentation "The effective end date of the most recent IEP.  Note: Date interpretation may vary. Ed-Fi recommends inclusive dates, but states may define dates as inclusive or exclusive. For calculations, align with local guidelines."
         is required
     descriptor IEPStatus
         documentation "The current status of the most recent IEP."
@@ -26,8 +27,9 @@ Association StudentIEPAssociation
         documentation "The date when the most recent IEP was last amended, if any.  Note: Date interpretation may vary. Ed-Fi recommends inclusive dates, but states may define dates as inclusive or exclusive. For calculations, align with local guidelines."
         is optional
     association EdFi.StudentSpecialEducationProgramAssociation
-        documentation "The associated StudentSpecialEducationProgram record on which this IEP record is based."
+        documentation "The associated StudentSpecialEducationProgram record under which this IEP is managed."
         is optional
+        merge StudentSpecialEducationProgramAssociation.Student.StudentUniqueId with Student.StudentUniqueId
     association EdFi.StudentSpecialEducationProgramEligibilityAssociation
         documentation "The associated eligibility record on which this IEP record is based."
         is optional

@@ -1,0 +1,17 @@
+Common ExternalServiceProvider
+    documentation "A service provider that is external to the education organization and is not present in the Staffs resource."
+    string ProviderCode
+        documentation "A code assigned to the external service provider."
+        is part of identity
+    string ProviderFirstName
+        documentation "The first name of the external service provider."
+        is part of identity
+    string ProviderLastSurname
+        documentation "The last name of the external service provider."
+        is part of identity
+    string providerMiddleName
+        documentation "The middle name of the external service provider."
+        is optional
+    bool PrimaryProvider
+        documentation "Primary External Service Provider."
+        is optional

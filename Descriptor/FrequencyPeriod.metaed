@@ -1,0 +1,2 @@
+Descriptor FrequencyPeriod
+    documentation "The frequency period for the prescribed service. Examples include: Session, Week, Month."
