@@ -5,7 +5,7 @@ Domain Entity IEPGoal
         is part of identity
     string IEPGoalID
         documentation "A unique identifier assigned by the provider of IEP services."
-       is part of identity
+        is part of identity
         max length 30
     descriptor IEPGoal
         documentation "A focused goal prescribed as part of the IEP. Examples include Academic Goal, Behavioral Goal, Attendance Goal."
