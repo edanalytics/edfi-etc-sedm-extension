@@ -1,0 +1,15 @@
+Domain Entity StudentIEPAccommodation
+    documentation "The accommodations prescribed to a student as part of their IEP."
+    association StudentIEPAssociation
+        documentation "The student IEP for which the accommodations are prescribed."
+        is part of identity
+    domain entity EdFi.Student
+        documentation "A reference to the student."
+        is part of identity
+    domain entity EdFi.EducationOrganization
+        documentation "The identifier assigned to the education organization (usually District/LEA) providing IEP Services."
+        role name IEPServicing
+        is part of identity
+    descriptor Accommodation
+        documentation "The special variation(s) to be used in how various services (in general) are presented, how they are administered, or how the student is allowed to respond. This generally refers to changes that do not substantially alter the content that the service renders. The proper use of accommodations does not substantially change academic level or performance criteria."
+        is required collection

@@ -1,0 +1,2 @@
+Descriptor ServiceLocationType
+    documentation "The location type where the prescribed service is to be provided. Examples include: Home, Hospital, School."
