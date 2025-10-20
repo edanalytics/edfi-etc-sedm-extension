@@ -1,8 +1,0 @@
-Association StudentSpecialEducationProgramEligibilityIDEAEventAssociation
-    documentation "This association connects a series of IDEA events with a StudentSpecialEducationProgramEligibility record."
-    domain entity IDEAEvent
-        documentation "A reference to one or more related student IDEA events."
-        is required
-    association EdFi.StudentSpecialEducationProgramEligibilityAssociation
-        documentation "A reference to the related student special education eligibility record."
-        is required

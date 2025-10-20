@@ -3,15 +3,19 @@ Common ExternalServiceProvider
     string ProviderCode
         documentation "A code assigned to the external service provider."
         is part of identity
+        max length 1024
     string ProviderFirstName
         documentation "The first name of the external service provider."
         is part of identity
+        max length 1024
     string ProviderLastSurname
         documentation "The last name of the external service provider."
         is part of identity
-    string providerMiddleName
+        max length 1024
+    string ProviderMiddleName
         documentation "The middle name of the external service provider."
         is optional
+        max length 1024
     bool PrimaryProvider
         documentation "Primary External Service Provider."
         is optional

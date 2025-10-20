@@ -19,15 +19,19 @@ Domain Entity IEPServicePrescription
         documentation "The IDEA event related to the prescribed service."
         is optional
         merge IDEAEvent.Student.StudentUniqueId with StudentIEPAssociation.Student.StudentUniqueId
-    double DurationMinutes
+    decimal DurationMinutes
         documentation "The length of time for the prescribed service in minutes."
         is required
+        total digits 5
+        decimal places 2
     descriptor DurationPeriod
         documentation "The frequency period for the prescribed service duration. Examples include: Per Session, Per Week, Per Month."
         is required
-    double FrequencyValue
+    decimal FrequencyValue
         documentation "The number of times the prescribed service is to be provided within the specified duration period."
         is required
+        total digits 5
+        decimal places 2
     descriptor FrequencyPeriod
         documentation "The frequency period for the prescribed service. Examples include: Session, Week, Month."
         is required     
@@ -36,8 +40,8 @@ Domain Entity IEPServicePrescription
         is required
     domain entity EdFi.EducationOrganization
         documentation "The identifier assigned to the education organization (usually District/LEA) providing prescribed services."
-        role name ServiceProviding
         is optional
+        role name ServiceProviding
     domain entity EdFi.Staff
         documentation "A reference to the staff member providing the prescribed service."
         is optional

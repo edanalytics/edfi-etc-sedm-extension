@@ -3,13 +3,14 @@ Domain Entity StudentIEPDisability
     association StudentIEPAssociation
         documentation "The student IEP for which the disability is prescribed."
         is part of identity
+        merge StudentIEPAssociation.Student.StudentUniqueId with Student.StudentUniqueId
     domain entity EdFi.Student
         documentation "A reference to the student."
         is part of identity
     domain entity EdFi.EducationOrganization
         documentation "The identifier assigned to the education organization (usually District/LEA) providing IEP Services."
-        role name IEPServicing
         is part of identity
-    common Disability
+        role name IEPServicing
+    common EdFi.Disability
         documentation "The disability condition(s) that best describes an individual's impairment, as related to special education services received."
         is required collection
