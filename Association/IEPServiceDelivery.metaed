@@ -1,0 +1,34 @@
+Association StudentIEPServiceDelivery
+    documentation "Services delivered to a student as prescribed by their IEP."
+    domain entity EdFi.Student
+        documentation "A reference to the student."
+    domain entity StudentIEP
+        documentation "The student and IEP associated with the delivery of prescribed services."
+        merge StudentIEP.Student with Student
+    string IEPServiceDeliveryID
+        documentation "A unique identifier assigned by the provider of IEP services for the delivery record."
+        is part of identity
+        max length 1024
+    descriptor ServiceDelivery 
+        documentation "The type of services delivered to the student."
+        is part of identity
+    date ServiceDeliveryDate 
+        documentation "The date when prescribed services were delivered for a student."
+        is part of identity
+    association IEPServicePrescription
+        documentation "Identifies the service prescribed for the student."
+        is optional
+        merge IEPServicePrescription.Student with Student
+    descriptor ServiceProviderType
+        documentation "Indicates service provider type, including specialist, internal staff, external staff, etc."
+        is optional
+    common EdFi.ServiceProvider
+        documentation "The internal service provider that delivered the prescribed service to the student."
+        is optional collection
+    common ExternalServiceProvider
+        documentation "The external service provider that delivered the prescribed service to the student."
+        is optional collection
+    domain entity IDEAEvent
+        documentation "A reference to one or more student IDEA events."
+        is optional collection
+        merge IDEAEvent.Student with Student

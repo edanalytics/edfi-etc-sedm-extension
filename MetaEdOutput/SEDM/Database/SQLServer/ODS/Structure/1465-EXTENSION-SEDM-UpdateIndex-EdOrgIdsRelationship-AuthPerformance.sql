@@ -7,36 +7,6 @@ BEGIN
     CREATE INDEX IX_IDEAEvent_StudentUSI ON [sedm].[IDEAEvent](StudentUSI) INCLUDE (AggregateId)
 END;
 
-DROP INDEX IF EXISTS IX_IEPGoal_EducationOrganizationId ON [sedm].[IEPGoal];
-CREATE INDEX IX_IEPGoal_EducationOrganizationId ON [sedm].[IEPGoal](EducationOrganizationId) INCLUDE (AggregateId);
-
-DROP INDEX IF EXISTS IX_IEPGoal_IEPServicingEducationOrganizationId ON [sedm].[IEPGoal];
-CREATE INDEX IX_IEPGoal_IEPServicingEducationOrganizationId ON [sedm].[IEPGoal](IEPServicingEducationOrganizationId) INCLUDE (AggregateId);
-
-IF NOT EXISTS(SELECT * FROM sys.indexes WHERE name='IX_IEPGoal_StudentUSI' AND object_id = OBJECT_ID('sedm.IEPGoal')) 
-BEGIN
-    CREATE INDEX IX_IEPGoal_StudentUSI ON [sedm].[IEPGoal](StudentUSI) INCLUDE (AggregateId)
-END;
-
-DROP INDEX IF EXISTS IX_IEPServiceDelivery_EducationOrganizationId ON [sedm].[IEPServiceDelivery];
-CREATE INDEX IX_IEPServiceDelivery_EducationOrganizationId ON [sedm].[IEPServiceDelivery](EducationOrganizationId) INCLUDE (AggregateId);
-
-DROP INDEX IF EXISTS IX_IEPServiceDelivery_IEPServicingEducationOrganizationId ON [sedm].[IEPServiceDelivery];
-CREATE INDEX IX_IEPServiceDelivery_IEPServicingEducationOrganizationId ON [sedm].[IEPServiceDelivery](IEPServicingEducationOrganizationId) INCLUDE (AggregateId);
-
-IF NOT EXISTS(SELECT * FROM sys.indexes WHERE name='IX_IEPServiceDelivery_StudentUSI' AND object_id = OBJECT_ID('sedm.IEPServiceDelivery')) 
-BEGIN
-    CREATE INDEX IX_IEPServiceDelivery_StudentUSI ON [sedm].[IEPServiceDelivery](StudentUSI) INCLUDE (AggregateId)
-END;
-
-IF NOT EXISTS(SELECT * FROM sys.indexes WHERE name='IX_IEPServiceDelivery_ServiceDeliveryStaffUSI' AND object_id = OBJECT_ID('sedm.IEPServiceDelivery')) 
-BEGIN
-    CREATE INDEX IX_IEPServiceDelivery_ServiceDeliveryStaffUSI ON [sedm].[IEPServiceDelivery](ServiceDeliveryStaffUSI) INCLUDE (AggregateId)
-END;
-
-DROP INDEX IF EXISTS IX_IEPServicePrescription_EducationOrganizationId ON [sedm].[IEPServicePrescription];
-CREATE INDEX IX_IEPServicePrescription_EducationOrganizationId ON [sedm].[IEPServicePrescription](EducationOrganizationId) INCLUDE (AggregateId);
-
 DROP INDEX IF EXISTS IX_IEPServicePrescription_IEPServicingEducationOrganizationId ON [sedm].[IEPServicePrescription];
 CREATE INDEX IX_IEPServicePrescription_IEPServicingEducationOrganizationId ON [sedm].[IEPServicePrescription](IEPServicingEducationOrganizationId) INCLUDE (AggregateId);
 
@@ -50,17 +20,33 @@ BEGIN
     CREATE INDEX IX_IEPServicePrescription_StaffUSI ON [sedm].[IEPServicePrescription](StaffUSI) INCLUDE (AggregateId)
 END;
 
+IF NOT EXISTS(SELECT * FROM sys.indexes WHERE name='IX_StudentIEP_StudentUSI' AND object_id = OBJECT_ID('sedm.StudentIEP')) 
+BEGIN
+    CREATE INDEX IX_StudentIEP_StudentUSI ON [sedm].[StudentIEP](StudentUSI) INCLUDE (AggregateId)
+END;
+
 IF NOT EXISTS(SELECT * FROM sys.indexes WHERE name='IX_StudentIEPAccommodation_StudentUSI' AND object_id = OBJECT_ID('sedm.StudentIEPAccommodation')) 
 BEGIN
     CREATE INDEX IX_StudentIEPAccommodation_StudentUSI ON [sedm].[StudentIEPAccommodation](StudentUSI) INCLUDE (AggregateId)
 END;
 
-IF NOT EXISTS(SELECT * FROM sys.indexes WHERE name='IX_StudentIEPAssociation_StudentUSI' AND object_id = OBJECT_ID('sedm.StudentIEPAssociation')) 
-BEGIN
-    CREATE INDEX IX_StudentIEPAssociation_StudentUSI ON [sedm].[StudentIEPAssociation](StudentUSI) INCLUDE (AggregateId)
-END;
-
 IF NOT EXISTS(SELECT * FROM sys.indexes WHERE name='IX_StudentIEPDisability_StudentUSI' AND object_id = OBJECT_ID('sedm.StudentIEPDisability')) 
 BEGIN
     CREATE INDEX IX_StudentIEPDisability_StudentUSI ON [sedm].[StudentIEPDisability](StudentUSI) INCLUDE (AggregateId)
+END;
+
+DROP INDEX IF EXISTS IX_StudentIEPGoal_IEPServicingEducationOrganizationId ON [sedm].[StudentIEPGoal];
+CREATE INDEX IX_StudentIEPGoal_IEPServicingEducationOrganizationId ON [sedm].[StudentIEPGoal](IEPServicingEducationOrganizationId) INCLUDE (AggregateId);
+
+IF NOT EXISTS(SELECT * FROM sys.indexes WHERE name='IX_StudentIEPGoal_StudentUSI' AND object_id = OBJECT_ID('sedm.StudentIEPGoal')) 
+BEGIN
+    CREATE INDEX IX_StudentIEPGoal_StudentUSI ON [sedm].[StudentIEPGoal](StudentUSI) INCLUDE (AggregateId)
+END;
+
+DROP INDEX IF EXISTS IX_StudentIEPServiceDelivery_IEPServicingEducationOrganizationId ON [sedm].[StudentIEPServiceDelivery];
+CREATE INDEX IX_StudentIEPServiceDelivery_IEPServicingEducationOrganizationId ON [sedm].[StudentIEPServiceDelivery](IEPServicingEducationOrganizationId) INCLUDE (AggregateId);
+
+IF NOT EXISTS(SELECT * FROM sys.indexes WHERE name='IX_StudentIEPServiceDelivery_StudentUSI' AND object_id = OBJECT_ID('sedm.StudentIEPServiceDelivery')) 
+BEGIN
+    CREATE INDEX IX_StudentIEPServiceDelivery_StudentUSI ON [sedm].[StudentIEPServiceDelivery](StudentUSI) INCLUDE (AggregateId)
 END;

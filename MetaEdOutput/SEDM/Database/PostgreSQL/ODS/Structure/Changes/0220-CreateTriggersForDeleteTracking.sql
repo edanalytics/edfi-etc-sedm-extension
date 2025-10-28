@@ -112,30 +112,6 @@ CREATE TRIGGER TrackDeletes AFTER DELETE ON sedm.ideaeventdescriptor
     FOR EACH ROW EXECUTE PROCEDURE tracked_changes_sedm.ideaeventdescriptor_deleted();
 END IF;
 
-CREATE OR REPLACE FUNCTION tracked_changes_sedm.iepgoal_deleted()
-    RETURNS trigger AS
-$BODY$
-DECLARE
-    dj0 edfi.student%ROWTYPE;
-BEGIN
-    SELECT INTO dj0 * FROM edfi.student j0 WHERE studentusi = old.studentusi;
-
-    INSERT INTO tracked_changes_sedm.iepgoal(
-        oldiepgoalid, oldstudentusi, oldstudentuniqueid,
-        id, discriminator, changeversion)
-    VALUES (
-        OLD.iepgoalid, OLD.studentusi, dj0.studentuniqueid, 
-        OLD.id, OLD.discriminator, nextval('changes.changeversionsequence'));
-
-    RETURN NULL;
-END;
-$BODY$ LANGUAGE plpgsql;
-
-IF NOT EXISTS(SELECT 1 FROM information_schema.triggers WHERE trigger_name = 'trackdeletes' AND event_object_schema = 'sedm' AND event_object_table = 'iepgoal') THEN
-CREATE TRIGGER TrackDeletes AFTER DELETE ON sedm.iepgoal 
-    FOR EACH ROW EXECUTE PROCEDURE tracked_changes_sedm.iepgoal_deleted();
-END IF;
-
 CREATE OR REPLACE FUNCTION tracked_changes_sedm.iepgoaldescriptor_deleted()
     RETURNS trigger AS
 $BODY$
@@ -153,33 +129,6 @@ CREATE TRIGGER TrackDeletes AFTER DELETE ON sedm.iepgoaldescriptor
     FOR EACH ROW EXECUTE PROCEDURE tracked_changes_sedm.iepgoaldescriptor_deleted();
 END IF;
 
-CREATE OR REPLACE FUNCTION tracked_changes_sedm.iepservicedelivery_deleted()
-    RETURNS trigger AS
-$BODY$
-DECLARE
-    dj0 edfi.descriptor%ROWTYPE;
-    dj1 edfi.student%ROWTYPE;
-BEGIN
-    SELECT INTO dj0 * FROM edfi.descriptor j0 WHERE descriptorid = old.servicedeliverydescriptorid;
-
-    SELECT INTO dj1 * FROM edfi.student j1 WHERE studentusi = old.studentusi;
-
-    INSERT INTO tracked_changes_sedm.iepservicedelivery(
-        oldiepservicedeliveryid, oldservicedeliverydate, oldservicedeliverydescriptorid, oldservicedeliverydescriptornamespace, oldservicedeliverydescriptorcodevalue, oldstudentusi, oldstudentuniqueid,
-        id, discriminator, changeversion)
-    VALUES (
-        OLD.iepservicedeliveryid, OLD.servicedeliverydate, OLD.servicedeliverydescriptorid, dj0.namespace, dj0.codevalue, OLD.studentusi, dj1.studentuniqueid, 
-        OLD.id, OLD.discriminator, nextval('changes.changeversionsequence'));
-
-    RETURN NULL;
-END;
-$BODY$ LANGUAGE plpgsql;
-
-IF NOT EXISTS(SELECT 1 FROM information_schema.triggers WHERE trigger_name = 'trackdeletes' AND event_object_schema = 'sedm' AND event_object_table = 'iepservicedelivery') THEN
-CREATE TRIGGER TrackDeletes AFTER DELETE ON sedm.iepservicedelivery 
-    FOR EACH ROW EXECUTE PROCEDURE tracked_changes_sedm.iepservicedelivery_deleted();
-END IF;
-
 CREATE OR REPLACE FUNCTION tracked_changes_sedm.iepserviceprescription_deleted()
     RETURNS trigger AS
 $BODY$
@@ -192,10 +141,10 @@ BEGIN
     SELECT INTO dj1 * FROM edfi.student j1 WHERE studentusi = old.studentusi;
 
     INSERT INTO tracked_changes_sedm.iepserviceprescription(
-        oldserviceprescriptiondate, oldserviceprescriptiondescriptorid, oldserviceprescriptiondescriptornamespace, oldserviceprescriptiondescriptorcodevalue, oldstudentusi, oldstudentuniqueid,
+        oldiepfinalizeddate, oldiepservicingeducationorganizationid, oldserviceprescriptiondate, oldserviceprescriptiondescriptorid, oldserviceprescriptiondescriptornamespace, oldserviceprescriptiondescriptorcodevalue, oldstudentiepassociationid, oldstudentusi, oldstudentuniqueid,
         id, discriminator, changeversion)
     VALUES (
-        OLD.serviceprescriptiondate, OLD.serviceprescriptiondescriptorid, dj0.namespace, dj0.codevalue, OLD.studentusi, dj1.studentuniqueid, 
+        OLD.iepfinalizeddate, OLD.iepservicingeducationorganizationid, OLD.serviceprescriptiondate, OLD.serviceprescriptiondescriptorid, dj0.namespace, dj0.codevalue, OLD.studentiepassociationid, OLD.studentusi, dj1.studentuniqueid, 
         OLD.id, OLD.discriminator, nextval('changes.changeversionsequence'));
 
     RETURN NULL;
@@ -292,21 +241,21 @@ CREATE TRIGGER TrackDeletes AFTER DELETE ON sedm.serviceprescriptiondescriptor
     FOR EACH ROW EXECUTE PROCEDURE tracked_changes_sedm.serviceprescriptiondescriptor_deleted();
 END IF;
 
-CREATE OR REPLACE FUNCTION tracked_changes_sedm.serviceproviderdescriptor_deleted()
+CREATE OR REPLACE FUNCTION tracked_changes_sedm.serviceprovidertypedescriptor_deleted()
     RETURNS trigger AS
 $BODY$
 BEGIN
     INSERT INTO tracked_changes_edfi.descriptor(olddescriptorid, oldcodevalue, oldnamespace, id, discriminator, changeversion)
-    SELECT OLD.ServiceProviderDescriptorId, b.codevalue, b.namespace, b.id, 'sedm.ServiceProviderDescriptor', nextval('changes.ChangeVersionSequence')
-    FROM edfi.descriptor b WHERE old.ServiceProviderDescriptorId = b.descriptorid ;
+    SELECT OLD.ServiceProviderTypeDescriptorId, b.codevalue, b.namespace, b.id, 'sedm.ServiceProviderTypeDescriptor', nextval('changes.ChangeVersionSequence')
+    FROM edfi.descriptor b WHERE old.ServiceProviderTypeDescriptorId = b.descriptorid ;
 
     RETURN NULL;
 END;
 $BODY$ LANGUAGE plpgsql;
 
-IF NOT EXISTS(SELECT 1 FROM information_schema.triggers WHERE trigger_name = 'trackdeletes' AND event_object_schema = 'sedm' AND event_object_table = 'serviceproviderdescriptor') THEN
-CREATE TRIGGER TrackDeletes AFTER DELETE ON sedm.serviceproviderdescriptor 
-    FOR EACH ROW EXECUTE PROCEDURE tracked_changes_sedm.serviceproviderdescriptor_deleted();
+IF NOT EXISTS(SELECT 1 FROM information_schema.triggers WHERE trigger_name = 'trackdeletes' AND event_object_schema = 'sedm' AND event_object_table = 'serviceprovidertypedescriptor') THEN
+CREATE TRIGGER TrackDeletes AFTER DELETE ON sedm.serviceprovidertypedescriptor 
+    FOR EACH ROW EXECUTE PROCEDURE tracked_changes_sedm.serviceprovidertypedescriptor_deleted();
 END IF;
 
 CREATE OR REPLACE FUNCTION tracked_changes_sedm.servicereasondescriptor_deleted()
@@ -326,6 +275,30 @@ CREATE TRIGGER TrackDeletes AFTER DELETE ON sedm.servicereasondescriptor
     FOR EACH ROW EXECUTE PROCEDURE tracked_changes_sedm.servicereasondescriptor_deleted();
 END IF;
 
+CREATE OR REPLACE FUNCTION tracked_changes_sedm.studentiep_deleted()
+    RETURNS trigger AS
+$BODY$
+DECLARE
+    dj0 edfi.student%ROWTYPE;
+BEGIN
+    SELECT INTO dj0 * FROM edfi.student j0 WHERE studentusi = old.studentusi;
+
+    INSERT INTO tracked_changes_sedm.studentiep(
+        oldiepfinalizeddate, oldiepservicingeducationorganizationid, oldstudentiepassociationid, oldstudentusi, oldstudentuniqueid,
+        id, discriminator, changeversion)
+    VALUES (
+        OLD.iepfinalizeddate, OLD.iepservicingeducationorganizationid, OLD.studentiepassociationid, OLD.studentusi, dj0.studentuniqueid, 
+        OLD.id, OLD.discriminator, nextval('changes.changeversionsequence'));
+
+    RETURN NULL;
+END;
+$BODY$ LANGUAGE plpgsql;
+
+IF NOT EXISTS(SELECT 1 FROM information_schema.triggers WHERE trigger_name = 'trackdeletes' AND event_object_schema = 'sedm' AND event_object_table = 'studentiep') THEN
+CREATE TRIGGER TrackDeletes AFTER DELETE ON sedm.studentiep 
+    FOR EACH ROW EXECUTE PROCEDURE tracked_changes_sedm.studentiep_deleted();
+END IF;
+
 CREATE OR REPLACE FUNCTION tracked_changes_sedm.studentiepaccommodation_deleted()
     RETURNS trigger AS
 $BODY$
@@ -335,10 +308,10 @@ BEGIN
     SELECT INTO dj0 * FROM edfi.student j0 WHERE studentusi = old.studentusi;
 
     INSERT INTO tracked_changes_sedm.studentiepaccommodation(
-        oldiepservicingeducationorganizationid, oldstudentusi, oldstudentuniqueid,
+        oldiepfinalizeddate, oldiepservicingeducationorganizationid, oldstudentiepassociationid, oldstudentusi, oldstudentuniqueid,
         id, discriminator, changeversion)
     VALUES (
-        OLD.iepservicingeducationorganizationid, OLD.studentusi, dj0.studentuniqueid, 
+        OLD.iepfinalizeddate, OLD.iepservicingeducationorganizationid, OLD.studentiepassociationid, OLD.studentusi, dj0.studentuniqueid, 
         OLD.id, OLD.discriminator, nextval('changes.changeversionsequence'));
 
     RETURN NULL;
@@ -350,7 +323,7 @@ CREATE TRIGGER TrackDeletes AFTER DELETE ON sedm.studentiepaccommodation
     FOR EACH ROW EXECUTE PROCEDURE tracked_changes_sedm.studentiepaccommodation_deleted();
 END IF;
 
-CREATE OR REPLACE FUNCTION tracked_changes_sedm.studentiepassociation_deleted()
+CREATE OR REPLACE FUNCTION tracked_changes_sedm.studentiepdisability_deleted()
     RETURNS trigger AS
 $BODY$
 DECLARE
@@ -358,7 +331,7 @@ DECLARE
 BEGIN
     SELECT INTO dj0 * FROM edfi.student j0 WHERE studentusi = old.studentusi;
 
-    INSERT INTO tracked_changes_sedm.studentiepassociation(
+    INSERT INTO tracked_changes_sedm.studentiepdisability(
         oldiepfinalizeddate, oldiepservicingeducationorganizationid, oldstudentiepassociationid, oldstudentusi, oldstudentuniqueid,
         id, discriminator, changeversion)
     VALUES (
@@ -369,12 +342,12 @@ BEGIN
 END;
 $BODY$ LANGUAGE plpgsql;
 
-IF NOT EXISTS(SELECT 1 FROM information_schema.triggers WHERE trigger_name = 'trackdeletes' AND event_object_schema = 'sedm' AND event_object_table = 'studentiepassociation') THEN
-CREATE TRIGGER TrackDeletes AFTER DELETE ON sedm.studentiepassociation 
-    FOR EACH ROW EXECUTE PROCEDURE tracked_changes_sedm.studentiepassociation_deleted();
+IF NOT EXISTS(SELECT 1 FROM information_schema.triggers WHERE trigger_name = 'trackdeletes' AND event_object_schema = 'sedm' AND event_object_table = 'studentiepdisability') THEN
+CREATE TRIGGER TrackDeletes AFTER DELETE ON sedm.studentiepdisability 
+    FOR EACH ROW EXECUTE PROCEDURE tracked_changes_sedm.studentiepdisability_deleted();
 END IF;
 
-CREATE OR REPLACE FUNCTION tracked_changes_sedm.studentiepdisability_deleted()
+CREATE OR REPLACE FUNCTION tracked_changes_sedm.studentiepgoal_deleted()
     RETURNS trigger AS
 $BODY$
 DECLARE
@@ -382,20 +355,47 @@ DECLARE
 BEGIN
     SELECT INTO dj0 * FROM edfi.student j0 WHERE studentusi = old.studentusi;
 
-    INSERT INTO tracked_changes_sedm.studentiepdisability(
-        oldiepservicingeducationorganizationid, oldstudentusi, oldstudentuniqueid,
+    INSERT INTO tracked_changes_sedm.studentiepgoal(
+        oldiepfinalizeddate, oldiepgoalid, oldiepservicingeducationorganizationid, oldstudentiepassociationid, oldstudentusi, oldstudentuniqueid,
         id, discriminator, changeversion)
     VALUES (
-        OLD.iepservicingeducationorganizationid, OLD.studentusi, dj0.studentuniqueid, 
+        OLD.iepfinalizeddate, OLD.iepgoalid, OLD.iepservicingeducationorganizationid, OLD.studentiepassociationid, OLD.studentusi, dj0.studentuniqueid, 
         OLD.id, OLD.discriminator, nextval('changes.changeversionsequence'));
 
     RETURN NULL;
 END;
 $BODY$ LANGUAGE plpgsql;
 
-IF NOT EXISTS(SELECT 1 FROM information_schema.triggers WHERE trigger_name = 'trackdeletes' AND event_object_schema = 'sedm' AND event_object_table = 'studentiepdisability') THEN
-CREATE TRIGGER TrackDeletes AFTER DELETE ON sedm.studentiepdisability 
-    FOR EACH ROW EXECUTE PROCEDURE tracked_changes_sedm.studentiepdisability_deleted();
+IF NOT EXISTS(SELECT 1 FROM information_schema.triggers WHERE trigger_name = 'trackdeletes' AND event_object_schema = 'sedm' AND event_object_table = 'studentiepgoal') THEN
+CREATE TRIGGER TrackDeletes AFTER DELETE ON sedm.studentiepgoal 
+    FOR EACH ROW EXECUTE PROCEDURE tracked_changes_sedm.studentiepgoal_deleted();
+END IF;
+
+CREATE OR REPLACE FUNCTION tracked_changes_sedm.studentiepservicedelivery_deleted()
+    RETURNS trigger AS
+$BODY$
+DECLARE
+    dj0 edfi.descriptor%ROWTYPE;
+    dj1 edfi.student%ROWTYPE;
+BEGIN
+    SELECT INTO dj0 * FROM edfi.descriptor j0 WHERE descriptorid = old.servicedeliverydescriptorid;
+
+    SELECT INTO dj1 * FROM edfi.student j1 WHERE studentusi = old.studentusi;
+
+    INSERT INTO tracked_changes_sedm.studentiepservicedelivery(
+        oldiepfinalizeddate, oldiepservicedeliveryid, oldiepservicingeducationorganizationid, oldservicedeliverydate, oldservicedeliverydescriptorid, oldservicedeliverydescriptornamespace, oldservicedeliverydescriptorcodevalue, oldstudentiepassociationid, oldstudentusi, oldstudentuniqueid,
+        id, discriminator, changeversion)
+    VALUES (
+        OLD.iepfinalizeddate, OLD.iepservicedeliveryid, OLD.iepservicingeducationorganizationid, OLD.servicedeliverydate, OLD.servicedeliverydescriptorid, dj0.namespace, dj0.codevalue, OLD.studentiepassociationid, OLD.studentusi, dj1.studentuniqueid, 
+        OLD.id, OLD.discriminator, nextval('changes.changeversionsequence'));
+
+    RETURN NULL;
+END;
+$BODY$ LANGUAGE plpgsql;
+
+IF NOT EXISTS(SELECT 1 FROM information_schema.triggers WHERE trigger_name = 'trackdeletes' AND event_object_schema = 'sedm' AND event_object_table = 'studentiepservicedelivery') THEN
+CREATE TRIGGER TrackDeletes AFTER DELETE ON sedm.studentiepservicedelivery 
+    FOR EACH ROW EXECUTE PROCEDURE tracked_changes_sedm.studentiepservicedelivery_deleted();
 END IF;
 
 END

@@ -11,32 +11,6 @@ BEGIN
 END	
 GO
 
-DROP TRIGGER IF EXISTS [sedm].[sedm_IEPGoal_TR_UpdateChangeVersion]
-GO
-
-CREATE TRIGGER [sedm].[sedm_IEPGoal_TR_UpdateChangeVersion] ON [sedm].[IEPGoal] AFTER UPDATE AS
-BEGIN
-    SET NOCOUNT ON;
-    UPDATE [sedm].[IEPGoal]
-    SET ChangeVersion = (NEXT VALUE FOR [changes].[ChangeVersionSequence])
-    FROM [sedm].[IEPGoal] u
-    WHERE EXISTS (SELECT 1 FROM inserted i WHERE i.id = u.id);
-END	
-GO
-
-DROP TRIGGER IF EXISTS [sedm].[sedm_IEPServiceDelivery_TR_UpdateChangeVersion]
-GO
-
-CREATE TRIGGER [sedm].[sedm_IEPServiceDelivery_TR_UpdateChangeVersion] ON [sedm].[IEPServiceDelivery] AFTER UPDATE AS
-BEGIN
-    SET NOCOUNT ON;
-    UPDATE [sedm].[IEPServiceDelivery]
-    SET ChangeVersion = (NEXT VALUE FOR [changes].[ChangeVersionSequence])
-    FROM [sedm].[IEPServiceDelivery] u
-    WHERE EXISTS (SELECT 1 FROM inserted i WHERE i.id = u.id);
-END	
-GO
-
 DROP TRIGGER IF EXISTS [sedm].[sedm_IEPServicePrescription_TR_UpdateChangeVersion]
 GO
 
@@ -46,6 +20,19 @@ BEGIN
     UPDATE [sedm].[IEPServicePrescription]
     SET ChangeVersion = (NEXT VALUE FOR [changes].[ChangeVersionSequence])
     FROM [sedm].[IEPServicePrescription] u
+    WHERE EXISTS (SELECT 1 FROM inserted i WHERE i.id = u.id);
+END	
+GO
+
+DROP TRIGGER IF EXISTS [sedm].[sedm_StudentIEP_TR_UpdateChangeVersion]
+GO
+
+CREATE TRIGGER [sedm].[sedm_StudentIEP_TR_UpdateChangeVersion] ON [sedm].[StudentIEP] AFTER UPDATE AS
+BEGIN
+    SET NOCOUNT ON;
+    UPDATE [sedm].[StudentIEP]
+    SET ChangeVersion = (NEXT VALUE FOR [changes].[ChangeVersionSequence])
+    FROM [sedm].[StudentIEP] u
     WHERE EXISTS (SELECT 1 FROM inserted i WHERE i.id = u.id);
 END	
 GO
@@ -63,19 +50,6 @@ BEGIN
 END	
 GO
 
-DROP TRIGGER IF EXISTS [sedm].[sedm_StudentIEPAssociation_TR_UpdateChangeVersion]
-GO
-
-CREATE TRIGGER [sedm].[sedm_StudentIEPAssociation_TR_UpdateChangeVersion] ON [sedm].[StudentIEPAssociation] AFTER UPDATE AS
-BEGIN
-    SET NOCOUNT ON;
-    UPDATE [sedm].[StudentIEPAssociation]
-    SET ChangeVersion = (NEXT VALUE FOR [changes].[ChangeVersionSequence])
-    FROM [sedm].[StudentIEPAssociation] u
-    WHERE EXISTS (SELECT 1 FROM inserted i WHERE i.id = u.id);
-END	
-GO
-
 DROP TRIGGER IF EXISTS [sedm].[sedm_StudentIEPDisability_TR_UpdateChangeVersion]
 GO
 
@@ -85,6 +59,32 @@ BEGIN
     UPDATE [sedm].[StudentIEPDisability]
     SET ChangeVersion = (NEXT VALUE FOR [changes].[ChangeVersionSequence])
     FROM [sedm].[StudentIEPDisability] u
+    WHERE EXISTS (SELECT 1 FROM inserted i WHERE i.id = u.id);
+END	
+GO
+
+DROP TRIGGER IF EXISTS [sedm].[sedm_StudentIEPGoal_TR_UpdateChangeVersion]
+GO
+
+CREATE TRIGGER [sedm].[sedm_StudentIEPGoal_TR_UpdateChangeVersion] ON [sedm].[StudentIEPGoal] AFTER UPDATE AS
+BEGIN
+    SET NOCOUNT ON;
+    UPDATE [sedm].[StudentIEPGoal]
+    SET ChangeVersion = (NEXT VALUE FOR [changes].[ChangeVersionSequence])
+    FROM [sedm].[StudentIEPGoal] u
+    WHERE EXISTS (SELECT 1 FROM inserted i WHERE i.id = u.id);
+END	
+GO
+
+DROP TRIGGER IF EXISTS [sedm].[sedm_StudentIEPServiceDelivery_TR_UpdateChangeVersion]
+GO
+
+CREATE TRIGGER [sedm].[sedm_StudentIEPServiceDelivery_TR_UpdateChangeVersion] ON [sedm].[StudentIEPServiceDelivery] AFTER UPDATE AS
+BEGIN
+    SET NOCOUNT ON;
+    UPDATE [sedm].[StudentIEPServiceDelivery]
+    SET ChangeVersion = (NEXT VALUE FOR [changes].[ChangeVersionSequence])
+    FROM [sedm].[StudentIEPServiceDelivery] u
     WHERE EXISTS (SELECT 1 FROM inserted i WHERE i.id = u.id);
 END	
 GO

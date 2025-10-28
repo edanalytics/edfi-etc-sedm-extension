@@ -6,22 +6,15 @@ BEGIN TRANSACTION
 COMMIT
 
 BEGIN TRANSACTION
-    IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'sedm.IEPGoal') AND name = N'UX_IEPGoal_Id')
-    CREATE UNIQUE NONCLUSTERED INDEX UX_IEPGoal_Id ON [sedm].[IEPGoal]
-    (Id) WITH (PAD_INDEX = ON, FILLFACTOR = 75, STATISTICS_NORECOMPUTE = OFF) ON [PRIMARY]
-    GO
-COMMIT
-
-BEGIN TRANSACTION
-    IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'sedm.IEPServiceDelivery') AND name = N'UX_IEPServiceDelivery_Id')
-    CREATE UNIQUE NONCLUSTERED INDEX UX_IEPServiceDelivery_Id ON [sedm].[IEPServiceDelivery]
-    (Id) WITH (PAD_INDEX = ON, FILLFACTOR = 75, STATISTICS_NORECOMPUTE = OFF) ON [PRIMARY]
-    GO
-COMMIT
-
-BEGIN TRANSACTION
     IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'sedm.IEPServicePrescription') AND name = N'UX_IEPServicePrescription_Id')
     CREATE UNIQUE NONCLUSTERED INDEX UX_IEPServicePrescription_Id ON [sedm].[IEPServicePrescription]
+    (Id) WITH (PAD_INDEX = ON, FILLFACTOR = 75, STATISTICS_NORECOMPUTE = OFF) ON [PRIMARY]
+    GO
+COMMIT
+
+BEGIN TRANSACTION
+    IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'sedm.StudentIEP') AND name = N'UX_StudentIEP_Id')
+    CREATE UNIQUE NONCLUSTERED INDEX UX_StudentIEP_Id ON [sedm].[StudentIEP]
     (Id) WITH (PAD_INDEX = ON, FILLFACTOR = 75, STATISTICS_NORECOMPUTE = OFF) ON [PRIMARY]
     GO
 COMMIT
@@ -34,15 +27,22 @@ BEGIN TRANSACTION
 COMMIT
 
 BEGIN TRANSACTION
-    IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'sedm.StudentIEPAssociation') AND name = N'UX_StudentIEPAssociation_Id')
-    CREATE UNIQUE NONCLUSTERED INDEX UX_StudentIEPAssociation_Id ON [sedm].[StudentIEPAssociation]
+    IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'sedm.StudentIEPDisability') AND name = N'UX_StudentIEPDisability_Id')
+    CREATE UNIQUE NONCLUSTERED INDEX UX_StudentIEPDisability_Id ON [sedm].[StudentIEPDisability]
     (Id) WITH (PAD_INDEX = ON, FILLFACTOR = 75, STATISTICS_NORECOMPUTE = OFF) ON [PRIMARY]
     GO
 COMMIT
 
 BEGIN TRANSACTION
-    IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'sedm.StudentIEPDisability') AND name = N'UX_StudentIEPDisability_Id')
-    CREATE UNIQUE NONCLUSTERED INDEX UX_StudentIEPDisability_Id ON [sedm].[StudentIEPDisability]
+    IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'sedm.StudentIEPGoal') AND name = N'UX_StudentIEPGoal_Id')
+    CREATE UNIQUE NONCLUSTERED INDEX UX_StudentIEPGoal_Id ON [sedm].[StudentIEPGoal]
+    (Id) WITH (PAD_INDEX = ON, FILLFACTOR = 75, STATISTICS_NORECOMPUTE = OFF) ON [PRIMARY]
+    GO
+COMMIT
+
+BEGIN TRANSACTION
+    IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'sedm.StudentIEPServiceDelivery') AND name = N'UX_StudentIEPServiceDelivery_Id')
+    CREATE UNIQUE NONCLUSTERED INDEX UX_StudentIEPServiceDelivery_Id ON [sedm].[StudentIEPServiceDelivery]
     (Id) WITH (PAD_INDEX = ON, FILLFACTOR = 75, STATISTICS_NORECOMPUTE = OFF) ON [PRIMARY]
     GO
 COMMIT

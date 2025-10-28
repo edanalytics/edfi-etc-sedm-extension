@@ -15,19 +15,19 @@
         "ideaeventdescriptors": "iDEAEventDescriptors",
         "ideaevents": "iDEAEvents",
         "iepgoaldescriptors": "iEPGoalDescriptors",
-        "iepgoals": "iEPGoals",
-        "iepservicedeliveries": "iEPServiceDeliveries",
         "iepserviceprescriptions": "iEPServicePrescriptions",
         "iepstatusdescriptors": "iEPStatusDescriptors",
         "servicecompliancedescriptors": "serviceComplianceDescriptors",
         "servicedeliverydescriptors": "serviceDeliveryDescriptors",
         "servicelocationtypedescriptors": "serviceLocationTypeDescriptors",
         "serviceprescriptiondescriptors": "servicePrescriptionDescriptors",
-        "serviceproviderdescriptors": "serviceProviderDescriptors",
+        "serviceprovidertypedescriptors": "serviceProviderTypeDescriptors",
         "servicereasondescriptors": "serviceReasonDescriptors",
         "studentiepaccommodations": "studentIEPAccommodations",
-        "studentiepassociations": "studentIEPAssociations",
-        "studentiepdisabilities": "studentIEPDisabilities"
+        "studentiepdisabilities": "studentIEPDisabilities",
+        "studentiepgoals": "studentIEPGoals",
+        "studentieps": "studentIEPs",
+        "studentiepservicedeliveries": "studentIEPServiceDeliveries"
       },
       "compatibleDsRange": "5.2.0",
       "description": "",
@@ -41,18 +41,19 @@
         "FrequencyPeriod": "frequencyPeriodDescriptors",
         "IDEAEvent": "iDEAEventDescriptors",
         "IEPGoal": "iEPGoalDescriptors",
-        "IEPServiceDelivery": "iEPServiceDeliveries",
         "IEPServicePrescription": "iEPServicePrescriptions",
         "IEPStatus": "iEPStatusDescriptors",
         "ServiceCompliance": "serviceComplianceDescriptors",
         "ServiceDelivery": "serviceDeliveryDescriptors",
         "ServiceLocationType": "serviceLocationTypeDescriptors",
         "ServicePrescription": "servicePrescriptionDescriptors",
-        "ServiceProvider": "serviceProviderDescriptors",
+        "ServiceProviderType": "serviceProviderTypeDescriptors",
         "ServiceReason": "serviceReasonDescriptors",
+        "StudentIEP": "studentIEPs",
         "StudentIEPAccommodation": "studentIEPAccommodations",
-        "StudentIEPAssociation": "studentIEPAssociations",
-        "StudentIEPDisability": "studentIEPDisabilities"
+        "StudentIEPDisability": "studentIEPDisabilities",
+        "StudentIEPGoal": "studentIEPGoals",
+        "StudentIEPServiceDelivery": "studentIEPServiceDeliveries"
       },
       "resourceSchemas": {
         "durationPeriodDescriptors": {
@@ -788,799 +789,6 @@
           },
           "resourceName": "IEPGoalDescriptor"
         },
-        "iEPGoals": {
-          "allowIdentityUpdates": false,
-          "booleanJsonPaths": [
-          ],
-          "dateTimeJsonPaths": [
-          ],
-          "documentPathsMapping": {
-            "GoalAchievementPeriodBeginDate": {
-              "isReference": false,
-              "path": "$.goalAchievementPeriodBeginDate",
-              "type": "date"
-            },
-            "GoalAchievementPeriodEndDate": {
-              "isReference": false,
-              "path": "$.goalAchievementPeriodEndDate",
-              "type": "date"
-            },
-            "IDEAEvent": {
-              "isDescriptor": false,
-              "isReference": true,
-              "projectName": "SEDM",
-              "referenceJsonPaths": [
-                {
-                  "identityJsonPath": "$.educationOrganizationReference.educationOrganizationId",
-                  "referenceJsonPath": "$.ideaEventReference.educationOrganizationId",
-                  "type": "number"
-                },
-                {
-                  "identityJsonPath": "$.ideaEventDescriptor",
-                  "referenceJsonPath": "$.ideaEventReference.ideaEventDescriptor",
-                  "type": "string"
-                },
-                {
-                  "identityJsonPath": "$.ideaEventID",
-                  "referenceJsonPath": "$.ideaEventReference.ideaEventID",
-                  "type": "string"
-                },
-                {
-                  "identityJsonPath": "$.studentReference.studentUniqueId",
-                  "referenceJsonPath": "$.ideaEventReference.studentUniqueId",
-                  "type": "string"
-                }
-              ],
-              "resourceName": "IDEAEvent"
-            },
-            "IEPGoalDescriptor": {
-              "isDescriptor": true,
-              "isReference": true,
-              "path": "$.iepGoalDescriptor",
-              "projectName": "SEDM",
-              "resourceName": "IEPGoalDescriptor",
-              "type": "string"
-            },
-            "IEPGoalDetails": {
-              "isReference": false,
-              "path": "$.iepGoalDetails",
-              "type": "string"
-            },
-            "IEPGoalID": {
-              "isReference": false,
-              "path": "$.iepGoalID",
-              "type": "string"
-            },
-            "Student": {
-              "isDescriptor": false,
-              "isReference": true,
-              "projectName": "SEDM",
-              "referenceJsonPaths": [
-                {
-                  "identityJsonPath": "$.studentUniqueId",
-                  "referenceJsonPath": "$.studentReference.studentUniqueId",
-                  "type": "string"
-                }
-              ],
-              "resourceName": "Student"
-            },
-            "StudentIEPAssociation": {
-              "isDescriptor": false,
-              "isReference": true,
-              "projectName": "SEDM",
-              "referenceJsonPaths": [
-                {
-                  "identityJsonPath": "$.iepFinalizedDate",
-                  "referenceJsonPath": "$.studentIEPAssociationReference.iepFinalizedDate",
-                  "type": "date"
-                },
-                {
-                  "identityJsonPath": "$.iepServicingEducationOrganizationReference.educationOrganizationId",
-                  "referenceJsonPath": "$.studentIEPAssociationReference.educationOrganizationId",
-                  "type": "number"
-                },
-                {
-                  "identityJsonPath": "$.studentIEPAssociationID",
-                  "referenceJsonPath": "$.studentIEPAssociationReference.studentIEPAssociationID",
-                  "type": "string"
-                },
-                {
-                  "identityJsonPath": "$.studentReference.studentUniqueId",
-                  "referenceJsonPath": "$.studentIEPAssociationReference.studentUniqueId",
-                  "type": "string"
-                }
-              ],
-              "resourceName": "StudentIEPAssociation"
-            }
-          },
-          "equalityConstraints": [
-            {
-              "sourceJsonPath": "$.studentIEPAssociationReference.studentUniqueId",
-              "targetJsonPath": "$.studentReference.studentUniqueId"
-            },
-            {
-              "sourceJsonPath": "$.ideaEventReference.studentUniqueId",
-              "targetJsonPath": "$.studentReference.studentUniqueId"
-            }
-          ],
-          "identityJsonPaths": [
-            "$.iepGoalID",
-            "$.studentReference.studentUniqueId"
-          ],
-          "isDescriptor": false,
-          "isResourceExtension": false,
-          "isSchoolYearEnumeration": false,
-          "isSubclass": false,
-          "jsonSchemaForInsert": {
-            "$schema": "https://json-schema.org/draft/2020-12/schema",
-            "additionalProperties": false,
-            "description": "A goal prescribed to a student as part of their IEP.",
-            "properties": {
-              "goalAchievementPeriodBeginDate": {
-                "description": "The first date of the period assigned for achieving the stated goal.",
-                "format": "date",
-                "type": "string"
-              },
-              "goalAchievementPeriodEndDate": {
-                "description": "The last date of the period assigned for achieving the stated goal.",
-                "format": "date",
-                "type": "string"
-              },
-              "ideaEventReference": {
-                "additionalProperties": false,
-                "properties": {
-                  "educationOrganizationId": {
-                    "description": "The identifier assigned to an education organization.",
-                    "type": "integer"
-                  },
-                  "ideaEventDescriptor": {
-                    "description": "The IDEA event recorded for the student.",
-                    "type": "string"
-                  },
-                  "ideaEventID": {
-                    "description": "A unique identifier for the event record as assigned by the provider of IEP services.",
-                    "maxLength": 1024,
-                    "pattern": "^(?!\\s)(.*\\S)$",
-                    "type": "string"
-                  },
-                  "studentUniqueId": {
-                    "description": "A unique alphanumeric code assigned to a student.",
-                    "maxLength": 32,
-                    "pattern": "^(?!\\s)(.*\\S)$",
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "educationOrganizationId",
-                  "ideaEventDescriptor",
-                  "ideaEventID",
-                  "studentUniqueId"
-                ],
-                "type": "object"
-              },
-              "iepGoalDescriptor": {
-                "description": "A focused goal prescribed as part of the IEP. Examples include Academic Goal, Behavioral Goal, Attendance Goal.",
-                "type": "string"
-              },
-              "iepGoalDetails": {
-                "description": "Instructions or other details specific to the student and/or provider for achieving the stated goal.",
-                "maxLength": 2048,
-                "pattern": "^(?!\\s*$).+",
-                "type": "string"
-              },
-              "iepGoalID": {
-                "description": "A unique identifier assigned by the provider of IEP services.",
-                "maxLength": 256,
-                "pattern": "^(?!\\s)(.*\\S)$",
-                "type": "string"
-              },
-              "studentIEPAssociationReference": {
-                "additionalProperties": false,
-                "properties": {
-                  "educationOrganizationId": {
-                    "description": "The identifier assigned to an education organization.",
-                    "type": "integer"
-                  },
-                  "iepFinalizedDate": {
-                    "description": "The date the most recent IEP was finalized.  Note: Date interpretation may vary. Ed-Fi recommends inclusive dates, but states may define dates as inclusive or exclusive. For calculations, align with local guidelines.",
-                    "format": "date",
-                    "type": "string"
-                  },
-                  "studentIEPAssociationID": {
-                    "description": "A unique identifier assigned by the provider or source system of IEP services.",
-                    "maxLength": 1024,
-                    "pattern": "^(?!\\s)(.*\\S)$",
-                    "type": "string"
-                  },
-                  "studentUniqueId": {
-                    "description": "A unique alphanumeric code assigned to a student.",
-                    "maxLength": 32,
-                    "pattern": "^(?!\\s)(.*\\S)$",
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "iepFinalizedDate",
-                  "educationOrganizationId",
-                  "studentUniqueId",
-                  "studentIEPAssociationID"
-                ],
-                "type": "object"
-              },
-              "studentReference": {
-                "additionalProperties": false,
-                "properties": {
-                  "studentUniqueId": {
-                    "description": "A unique alphanumeric code assigned to a student.",
-                    "maxLength": 32,
-                    "pattern": "^(?!\\s)(.*\\S)$",
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "studentUniqueId"
-                ],
-                "type": "object"
-              }
-            },
-            "required": [
-              "studentReference",
-              "iepGoalID",
-              "studentIEPAssociationReference",
-              "iepGoalDescriptor",
-              "iepGoalDetails"
-            ],
-            "title": "SEDM.IEPGoal",
-            "type": "object"
-          },
-          "numericJsonPaths": [
-            "$.ideaEventReference.educationOrganizationId",
-            "$.studentIEPAssociationReference.educationOrganizationId"
-          ],
-          "queryFieldMapping": {
-            "educationOrganizationId": [
-              {
-                "path": "$.ideaEventReference.educationOrganizationId",
-                "type": "number"
-              }
-            ],
-            "goalAchievementPeriodBeginDate": [
-              {
-                "path": "$.goalAchievementPeriodBeginDate",
-                "type": "date"
-              }
-            ],
-            "goalAchievementPeriodEndDate": [
-              {
-                "path": "$.goalAchievementPeriodEndDate",
-                "type": "date"
-              }
-            ],
-            "ideaEventDescriptor": [
-              {
-                "path": "$.ideaEventReference.ideaEventDescriptor",
-                "type": "string"
-              }
-            ],
-            "ideaEventID": [
-              {
-                "path": "$.ideaEventReference.ideaEventID",
-                "type": "string"
-              }
-            ],
-            "iepFinalizedDate": [
-              {
-                "path": "$.studentIEPAssociationReference.iepFinalizedDate",
-                "type": "date"
-              }
-            ],
-            "iepGoalDescriptor": [
-              {
-                "path": "$.iepGoalDescriptor",
-                "type": "string"
-              }
-            ],
-            "iepGoalDetails": [
-              {
-                "path": "$.iepGoalDetails",
-                "type": "string"
-              }
-            ],
-            "iepGoalID": [
-              {
-                "path": "$.iepGoalID",
-                "type": "string"
-              }
-            ],
-            "studentIEPAssociationID": [
-              {
-                "path": "$.studentIEPAssociationReference.studentIEPAssociationID",
-                "type": "string"
-              }
-            ],
-            "studentUniqueId": [
-              {
-                "path": "$.ideaEventReference.studentUniqueId",
-                "type": "string"
-              }
-            ]
-          },
-          "resourceName": "IEPGoal"
-        },
-        "iEPServiceDeliveries": {
-          "allowIdentityUpdates": false,
-          "booleanJsonPaths": [
-            "$.externalServiceProviders[*].primaryProvider"
-          ],
-          "dateTimeJsonPaths": [
-          ],
-          "documentPathsMapping": {
-            "ExternalServiceProvider.PrimaryProvider": {
-              "isReference": false,
-              "path": "$.externalServiceProviders[*].primaryProvider",
-              "type": "boolean"
-            },
-            "ExternalServiceProvider.ProviderCode": {
-              "isReference": false,
-              "path": "$.externalServiceProviders[*].providerCode",
-              "type": "string"
-            },
-            "ExternalServiceProvider.ProviderFirstName": {
-              "isReference": false,
-              "path": "$.externalServiceProviders[*].providerFirstName",
-              "type": "string"
-            },
-            "ExternalServiceProvider.ProviderLastSurname": {
-              "isReference": false,
-              "path": "$.externalServiceProviders[*].providerLastSurname",
-              "type": "string"
-            },
-            "ExternalServiceProvider.ProviderMiddleName": {
-              "isReference": false,
-              "path": "$.externalServiceProviders[*].providerMiddleName",
-              "type": "string"
-            },
-            "IDEAEvent": {
-              "isDescriptor": false,
-              "isReference": true,
-              "projectName": "SEDM",
-              "referenceJsonPaths": [
-                {
-                  "identityJsonPath": "$.educationOrganizationReference.educationOrganizationId",
-                  "referenceJsonPath": "$.ideaEventReference.educationOrganizationId",
-                  "type": "number"
-                },
-                {
-                  "identityJsonPath": "$.ideaEventDescriptor",
-                  "referenceJsonPath": "$.ideaEventReference.ideaEventDescriptor",
-                  "type": "string"
-                },
-                {
-                  "identityJsonPath": "$.ideaEventID",
-                  "referenceJsonPath": "$.ideaEventReference.ideaEventID",
-                  "type": "string"
-                },
-                {
-                  "identityJsonPath": "$.studentReference.studentUniqueId",
-                  "referenceJsonPath": "$.ideaEventReference.studentUniqueId",
-                  "type": "string"
-                }
-              ],
-              "resourceName": "IDEAEvent"
-            },
-            "IEPServiceDeliveryID": {
-              "isReference": false,
-              "path": "$.iepServiceDeliveryID",
-              "type": "string"
-            },
-            "IEPServicePrescription": {
-              "isDescriptor": false,
-              "isReference": true,
-              "projectName": "SEDM",
-              "referenceJsonPaths": [
-                {
-                  "identityJsonPath": "$.servicePrescriptionDate",
-                  "referenceJsonPath": "$.iepServicePrescriptionReference.servicePrescriptionDate",
-                  "type": "date"
-                },
-                {
-                  "identityJsonPath": "$.servicePrescriptionDescriptor",
-                  "referenceJsonPath": "$.iepServicePrescriptionReference.servicePrescriptionDescriptor",
-                  "type": "string"
-                },
-                {
-                  "identityJsonPath": "$.studentReference.studentUniqueId",
-                  "referenceJsonPath": "$.iepServicePrescriptionReference.studentUniqueId",
-                  "type": "string"
-                }
-              ],
-              "resourceName": "IEPServicePrescription"
-            },
-            "ServiceDeliveryDate": {
-              "isReference": false,
-              "path": "$.serviceDeliveryDate",
-              "type": "date"
-            },
-            "ServiceDeliveryDescriptor": {
-              "isDescriptor": true,
-              "isReference": true,
-              "path": "$.serviceDeliveryDescriptor",
-              "projectName": "SEDM",
-              "resourceName": "ServiceDeliveryDescriptor",
-              "type": "string"
-            },
-            "ServiceDeliveryStaff": {
-              "isDescriptor": false,
-              "isReference": true,
-              "projectName": "SEDM",
-              "referenceJsonPaths": [
-                {
-                  "identityJsonPath": "$.staffUniqueId",
-                  "referenceJsonPath": "$.serviceDeliveryStaffReference.staffUniqueId",
-                  "type": "string"
-                }
-              ],
-              "resourceName": "Staff"
-            },
-            "ServiceProviderDescriptor": {
-              "isDescriptor": true,
-              "isReference": true,
-              "path": "$.serviceProviderDescriptor",
-              "projectName": "SEDM",
-              "resourceName": "ServiceProviderDescriptor",
-              "type": "string"
-            },
-            "Student": {
-              "isDescriptor": false,
-              "isReference": true,
-              "projectName": "SEDM",
-              "referenceJsonPaths": [
-                {
-                  "identityJsonPath": "$.studentUniqueId",
-                  "referenceJsonPath": "$.studentReference.studentUniqueId",
-                  "type": "string"
-                }
-              ],
-              "resourceName": "Student"
-            },
-            "StudentIEPAssociation": {
-              "isDescriptor": false,
-              "isReference": true,
-              "projectName": "SEDM",
-              "referenceJsonPaths": [
-                {
-                  "identityJsonPath": "$.iepFinalizedDate",
-                  "referenceJsonPath": "$.studentIEPAssociationReference.iepFinalizedDate",
-                  "type": "date"
-                },
-                {
-                  "identityJsonPath": "$.iepServicingEducationOrganizationReference.educationOrganizationId",
-                  "referenceJsonPath": "$.studentIEPAssociationReference.educationOrganizationId",
-                  "type": "number"
-                },
-                {
-                  "identityJsonPath": "$.studentIEPAssociationID",
-                  "referenceJsonPath": "$.studentIEPAssociationReference.studentIEPAssociationID",
-                  "type": "string"
-                },
-                {
-                  "identityJsonPath": "$.studentReference.studentUniqueId",
-                  "referenceJsonPath": "$.studentIEPAssociationReference.studentUniqueId",
-                  "type": "string"
-                }
-              ],
-              "resourceName": "StudentIEPAssociation"
-            }
-          },
-          "equalityConstraints": [
-            {
-              "sourceJsonPath": "$.studentIEPAssociationReference.studentUniqueId",
-              "targetJsonPath": "$.studentReference.studentUniqueId"
-            },
-            {
-              "sourceJsonPath": "$.iepServicePrescriptionReference.studentUniqueId",
-              "targetJsonPath": "$.studentReference.studentUniqueId"
-            },
-            {
-              "sourceJsonPath": "$.ideaEventReference.studentUniqueId",
-              "targetJsonPath": "$.studentReference.studentUniqueId"
-            }
-          ],
-          "identityJsonPaths": [
-            "$.iepServiceDeliveryID",
-            "$.serviceDeliveryDate",
-            "$.serviceDeliveryDescriptor",
-            "$.studentReference.studentUniqueId"
-          ],
-          "isDescriptor": false,
-          "isResourceExtension": false,
-          "isSchoolYearEnumeration": false,
-          "isSubclass": false,
-          "jsonSchemaForInsert": {
-            "$schema": "https://json-schema.org/draft/2020-12/schema",
-            "additionalProperties": false,
-            "description": "Services delivered to a student as prescribed by their IEP.",
-            "properties": {
-              "externalServiceProviders": {
-                "items": {
-                  "additionalProperties": false,
-                  "properties": {
-                    "primaryProvider": {
-                      "description": "Primary External Service Provider.",
-                      "type": "boolean"
-                    },
-                    "providerCode": {
-                      "description": "A code assigned to the external service provider.",
-                      "maxLength": 1024,
-                      "pattern": "^(?!\\s)(.*\\S)$",
-                      "type": "string"
-                    },
-                    "providerFirstName": {
-                      "description": "The first name of the external service provider.",
-                      "maxLength": 1024,
-                      "pattern": "^(?!\\s)(.*\\S)$",
-                      "type": "string"
-                    },
-                    "providerLastSurname": {
-                      "description": "The last name of the external service provider.",
-                      "maxLength": 1024,
-                      "pattern": "^(?!\\s)(.*\\S)$",
-                      "type": "string"
-                    },
-                    "providerMiddleName": {
-                      "description": "The middle name of the external service provider.",
-                      "maxLength": 1024,
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "providerCode",
-                    "providerFirstName",
-                    "providerLastSurname"
-                  ],
-                  "type": "object"
-                },
-                "minItems": 0,
-                "type": "array",
-                "uniqueItems": false
-              },
-              "ideaEventReference": {
-                "additionalProperties": false,
-                "properties": {
-                  "educationOrganizationId": {
-                    "description": "The identifier assigned to an education organization.",
-                    "type": "integer"
-                  },
-                  "ideaEventDescriptor": {
-                    "description": "The IDEA event recorded for the student.",
-                    "type": "string"
-                  },
-                  "ideaEventID": {
-                    "description": "A unique identifier for the event record as assigned by the provider of IEP services.",
-                    "maxLength": 1024,
-                    "pattern": "^(?!\\s)(.*\\S)$",
-                    "type": "string"
-                  },
-                  "studentUniqueId": {
-                    "description": "A unique alphanumeric code assigned to a student.",
-                    "maxLength": 32,
-                    "pattern": "^(?!\\s)(.*\\S)$",
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "educationOrganizationId",
-                  "ideaEventDescriptor",
-                  "ideaEventID",
-                  "studentUniqueId"
-                ],
-                "type": "object"
-              },
-              "iepServiceDeliveryID": {
-                "description": "A unique identifier assigned by the provider of IEP services for the delivery record.",
-                "maxLength": 1024,
-                "pattern": "^(?!\\s)(.*\\S)$",
-                "type": "string"
-              },
-              "iepServicePrescriptionReference": {
-                "additionalProperties": false,
-                "properties": {
-                  "servicePrescriptionDate": {
-                    "description": "The date the service was prescribed.",
-                    "format": "date",
-                    "type": "string"
-                  },
-                  "servicePrescriptionDescriptor": {
-                    "description": "The type of service prescribed. Examples include: Auditory Specialist, Vocational Therapy.",
-                    "type": "string"
-                  },
-                  "studentUniqueId": {
-                    "description": "A unique alphanumeric code assigned to a student.",
-                    "maxLength": 32,
-                    "pattern": "^(?!\\s)(.*\\S)$",
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "servicePrescriptionDescriptor",
-                  "servicePrescriptionDate",
-                  "studentUniqueId"
-                ],
-                "type": "object"
-              },
-              "serviceDeliveryDate": {
-                "description": "The date when prescribed services were delivered for a student.",
-                "format": "date",
-                "type": "string"
-              },
-              "serviceDeliveryDescriptor": {
-                "description": "The type of services delivered to the student.",
-                "type": "string"
-              },
-              "serviceDeliveryStaffReference": {
-                "additionalProperties": false,
-                "properties": {
-                  "staffUniqueId": {
-                    "description": "A unique alphanumeric code assigned to a staff.",
-                    "maxLength": 32,
-                    "pattern": "^(?!\\s)(.*\\S)$",
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "staffUniqueId"
-                ],
-                "type": "object"
-              },
-              "serviceProviderDescriptor": {
-                "description": "Indicates service provider type, including specialist, internal staff, external staff, etc.",
-                "type": "string"
-              },
-              "studentIEPAssociationReference": {
-                "additionalProperties": false,
-                "properties": {
-                  "educationOrganizationId": {
-                    "description": "The identifier assigned to an education organization.",
-                    "type": "integer"
-                  },
-                  "iepFinalizedDate": {
-                    "description": "The date the most recent IEP was finalized.  Note: Date interpretation may vary. Ed-Fi recommends inclusive dates, but states may define dates as inclusive or exclusive. For calculations, align with local guidelines.",
-                    "format": "date",
-                    "type": "string"
-                  },
-                  "studentIEPAssociationID": {
-                    "description": "A unique identifier assigned by the provider or source system of IEP services.",
-                    "maxLength": 1024,
-                    "pattern": "^(?!\\s)(.*\\S)$",
-                    "type": "string"
-                  },
-                  "studentUniqueId": {
-                    "description": "A unique alphanumeric code assigned to a student.",
-                    "maxLength": 32,
-                    "pattern": "^(?!\\s)(.*\\S)$",
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "iepFinalizedDate",
-                  "educationOrganizationId",
-                  "studentUniqueId",
-                  "studentIEPAssociationID"
-                ],
-                "type": "object"
-              },
-              "studentReference": {
-                "additionalProperties": false,
-                "properties": {
-                  "studentUniqueId": {
-                    "description": "A unique alphanumeric code assigned to a student.",
-                    "maxLength": 32,
-                    "pattern": "^(?!\\s)(.*\\S)$",
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "studentUniqueId"
-                ],
-                "type": "object"
-              }
-            },
-            "required": [
-              "studentReference",
-              "iepServiceDeliveryID",
-              "studentIEPAssociationReference",
-              "serviceDeliveryDescriptor",
-              "serviceDeliveryDate"
-            ],
-            "title": "SEDM.IEPServiceDelivery",
-            "type": "object"
-          },
-          "numericJsonPaths": [
-            "$.ideaEventReference.educationOrganizationId",
-            "$.studentIEPAssociationReference.educationOrganizationId"
-          ],
-          "queryFieldMapping": {
-            "educationOrganizationId": [
-              {
-                "path": "$.ideaEventReference.educationOrganizationId",
-                "type": "number"
-              }
-            ],
-            "ideaEventDescriptor": [
-              {
-                "path": "$.ideaEventReference.ideaEventDescriptor",
-                "type": "string"
-              }
-            ],
-            "ideaEventID": [
-              {
-                "path": "$.ideaEventReference.ideaEventID",
-                "type": "string"
-              }
-            ],
-            "iepFinalizedDate": [
-              {
-                "path": "$.studentIEPAssociationReference.iepFinalizedDate",
-                "type": "date"
-              }
-            ],
-            "iepServiceDeliveryID": [
-              {
-                "path": "$.iepServiceDeliveryID",
-                "type": "string"
-              }
-            ],
-            "serviceDeliveryDate": [
-              {
-                "path": "$.serviceDeliveryDate",
-                "type": "date"
-              }
-            ],
-            "serviceDeliveryDescriptor": [
-              {
-                "path": "$.serviceDeliveryDescriptor",
-                "type": "string"
-              }
-            ],
-            "servicePrescriptionDate": [
-              {
-                "path": "$.iepServicePrescriptionReference.servicePrescriptionDate",
-                "type": "date"
-              }
-            ],
-            "servicePrescriptionDescriptor": [
-              {
-                "path": "$.iepServicePrescriptionReference.servicePrescriptionDescriptor",
-                "type": "string"
-              }
-            ],
-            "serviceProviderDescriptor": [
-              {
-                "path": "$.serviceProviderDescriptor",
-                "type": "string"
-              }
-            ],
-            "staffUniqueId": [
-              {
-                "path": "$.serviceDeliveryStaffReference.staffUniqueId",
-                "type": "string"
-              }
-            ],
-            "studentIEPAssociationID": [
-              {
-                "path": "$.studentIEPAssociationReference.studentIEPAssociationID",
-                "type": "string"
-              }
-            ],
-            "studentUniqueId": [
-              {
-                "path": "$.ideaEventReference.studentUniqueId",
-                "type": "string"
-              }
-            ]
-          },
-          "resourceName": "IEPServiceDelivery"
-        },
         "iEPServicePrescriptions": {
           "allowIdentityUpdates": false,
           "booleanJsonPaths": [
@@ -1631,22 +839,22 @@
               "referenceJsonPaths": [
                 {
                   "identityJsonPath": "$.educationOrganizationReference.educationOrganizationId",
-                  "referenceJsonPath": "$.ideaEventReference.educationOrganizationId",
+                  "referenceJsonPath": "$.ideaEvents[*].ideaEventReference.educationOrganizationId",
                   "type": "number"
                 },
                 {
                   "identityJsonPath": "$.ideaEventDescriptor",
-                  "referenceJsonPath": "$.ideaEventReference.ideaEventDescriptor",
+                  "referenceJsonPath": "$.ideaEvents[*].ideaEventReference.ideaEventDescriptor",
                   "type": "string"
                 },
                 {
                   "identityJsonPath": "$.ideaEventID",
-                  "referenceJsonPath": "$.ideaEventReference.ideaEventID",
+                  "referenceJsonPath": "$.ideaEvents[*].ideaEventReference.ideaEventID",
                   "type": "string"
                 },
                 {
                   "identityJsonPath": "$.studentReference.studentUniqueId",
-                  "referenceJsonPath": "$.ideaEventReference.studentUniqueId",
+                  "referenceJsonPath": "$.ideaEvents[*].ideaEventReference.studentUniqueId",
                   "type": "string"
                 }
               ],
@@ -1712,48 +920,52 @@
               ],
               "resourceName": "Student"
             },
-            "StudentIEPAssociation": {
+            "StudentIEP": {
               "isDescriptor": false,
               "isReference": true,
               "projectName": "SEDM",
               "referenceJsonPaths": [
                 {
                   "identityJsonPath": "$.iepFinalizedDate",
-                  "referenceJsonPath": "$.studentIEPAssociationReference.iepFinalizedDate",
+                  "referenceJsonPath": "$.studentIEPReference.iepFinalizedDate",
                   "type": "date"
                 },
                 {
                   "identityJsonPath": "$.iepServicingEducationOrganizationReference.educationOrganizationId",
-                  "referenceJsonPath": "$.studentIEPAssociationReference.educationOrganizationId",
+                  "referenceJsonPath": "$.studentIEPReference.educationOrganizationId",
                   "type": "number"
                 },
                 {
                   "identityJsonPath": "$.studentIEPAssociationID",
-                  "referenceJsonPath": "$.studentIEPAssociationReference.studentIEPAssociationID",
+                  "referenceJsonPath": "$.studentIEPReference.studentIEPAssociationID",
                   "type": "string"
                 },
                 {
                   "identityJsonPath": "$.studentReference.studentUniqueId",
-                  "referenceJsonPath": "$.studentIEPAssociationReference.studentUniqueId",
+                  "referenceJsonPath": "$.studentIEPReference.studentUniqueId",
                   "type": "string"
                 }
               ],
-              "resourceName": "StudentIEPAssociation"
+              "resourceName": "StudentIEP"
             }
           },
           "equalityConstraints": [
             {
-              "sourceJsonPath": "$.studentIEPAssociationReference.studentUniqueId",
+              "sourceJsonPath": "$.studentIEPReference.studentUniqueId",
               "targetJsonPath": "$.studentReference.studentUniqueId"
             },
             {
-              "sourceJsonPath": "$.ideaEventReference.studentUniqueId",
+              "sourceJsonPath": "$.ideaEvents[*].ideaEventReference.studentUniqueId",
               "targetJsonPath": "$.studentReference.studentUniqueId"
             }
           ],
           "identityJsonPaths": [
             "$.servicePrescriptionDate",
             "$.servicePrescriptionDescriptor",
+            "$.studentIEPReference.educationOrganizationId",
+            "$.studentIEPReference.iepFinalizedDate",
+            "$.studentIEPReference.studentIEPAssociationID",
+            "$.studentIEPReference.studentUniqueId",
             "$.studentReference.studentUniqueId"
           ],
           "isDescriptor": false,
@@ -1791,37 +1003,51 @@
                 "description": "The number of times the prescribed service is to be provided within the specified duration period.",
                 "type": "number"
               },
-              "ideaEventReference": {
-                "additionalProperties": false,
-                "properties": {
-                  "educationOrganizationId": {
-                    "description": "The identifier assigned to an education organization.",
-                    "type": "integer"
+              "ideaEvents": {
+                "items": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "ideaEventReference": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "educationOrganizationId": {
+                          "description": "The identifier assigned to an education organization.",
+                          "type": "integer"
+                        },
+                        "ideaEventDescriptor": {
+                          "description": "The IDEA event recorded for the student.",
+                          "type": "string"
+                        },
+                        "ideaEventID": {
+                          "description": "A unique identifier for the event record as assigned by the provider of IEP services.",
+                          "maxLength": 1024,
+                          "pattern": "^(?!\\s)(.*\\S)$",
+                          "type": "string"
+                        },
+                        "studentUniqueId": {
+                          "description": "A unique alphanumeric code assigned to a student.",
+                          "maxLength": 32,
+                          "pattern": "^(?!\\s)(.*\\S)$",
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "educationOrganizationId",
+                        "ideaEventDescriptor",
+                        "ideaEventID",
+                        "studentUniqueId"
+                      ],
+                      "type": "object"
+                    }
                   },
-                  "ideaEventDescriptor": {
-                    "description": "The IDEA event recorded for the student.",
-                    "type": "string"
-                  },
-                  "ideaEventID": {
-                    "description": "A unique identifier for the event record as assigned by the provider of IEP services.",
-                    "maxLength": 1024,
-                    "pattern": "^(?!\\s)(.*\\S)$",
-                    "type": "string"
-                  },
-                  "studentUniqueId": {
-                    "description": "A unique alphanumeric code assigned to a student.",
-                    "maxLength": 32,
-                    "pattern": "^(?!\\s)(.*\\S)$",
-                    "type": "string"
-                  }
+                  "required": [
+                    "ideaEventReference"
+                  ],
+                  "type": "object"
                 },
-                "required": [
-                  "educationOrganizationId",
-                  "ideaEventDescriptor",
-                  "ideaEventID",
-                  "studentUniqueId"
-                ],
-                "type": "object"
+                "minItems": 0,
+                "type": "array",
+                "uniqueItems": false
               },
               "serviceLocationTypeDescriptor": {
                 "description": "The location type where the prescribed service is to be provided. Examples include: Home, Hospital, School.",
@@ -1864,7 +1090,7 @@
                 ],
                 "type": "object"
               },
-              "studentIEPAssociationReference": {
+              "studentIEPReference": {
                 "additionalProperties": false,
                 "properties": {
                   "educationOrganizationId": {
@@ -1915,7 +1141,7 @@
             },
             "required": [
               "studentReference",
-              "studentIEPAssociationReference",
+              "studentIEPReference",
               "servicePrescriptionDescriptor",
               "servicePrescriptionDate",
               "beginDate",
@@ -1931,9 +1157,9 @@
           "numericJsonPaths": [
             "$.durationMinutes",
             "$.frequencyValue",
-            "$.ideaEventReference.educationOrganizationId",
+            "$.ideaEvents[*].ideaEventReference.educationOrganizationId",
             "$.serviceProvidingEducationOrganizationReference.educationOrganizationId",
-            "$.studentIEPAssociationReference.educationOrganizationId"
+            "$.studentIEPReference.educationOrganizationId"
           ],
           "queryFieldMapping": {
             "beginDate": [
@@ -1978,21 +1204,9 @@
                 "type": "number"
               }
             ],
-            "ideaEventDescriptor": [
-              {
-                "path": "$.ideaEventReference.ideaEventDescriptor",
-                "type": "string"
-              }
-            ],
-            "ideaEventID": [
-              {
-                "path": "$.ideaEventReference.ideaEventID",
-                "type": "string"
-              }
-            ],
             "iepFinalizedDate": [
               {
-                "path": "$.studentIEPAssociationReference.iepFinalizedDate",
+                "path": "$.studentIEPReference.iepFinalizedDate",
                 "type": "date"
               }
             ],
@@ -2022,13 +1236,13 @@
             ],
             "studentIEPAssociationID": [
               {
-                "path": "$.studentIEPAssociationReference.studentIEPAssociationID",
+                "path": "$.studentIEPReference.studentIEPAssociationID",
                 "type": "string"
               }
             ],
             "studentUniqueId": [
               {
-                "path": "$.ideaEventReference.studentUniqueId",
+                "path": "$.studentIEPReference.studentUniqueId",
                 "type": "string"
               }
             ]
@@ -2455,7 +1669,7 @@
           },
           "resourceName": "ServicePrescriptionDescriptor"
         },
-        "serviceProviderDescriptors": {
+        "serviceProviderTypeDescriptors": {
           "allowIdentityUpdates": false,
           "booleanJsonPaths": [
           ],
@@ -2537,7 +1751,7 @@
               }
             ]
           },
-          "resourceName": "ServiceProviderDescriptor"
+          "resourceName": "ServiceProviderTypeDescriptor"
         },
         "serviceReasonDescriptors": {
           "allowIdentityUpdates": false,
@@ -2664,47 +1878,51 @@
               ],
               "resourceName": "Student"
             },
-            "StudentIEPAssociation": {
+            "StudentIEP": {
               "isDescriptor": false,
               "isReference": true,
               "projectName": "SEDM",
               "referenceJsonPaths": [
                 {
                   "identityJsonPath": "$.iepFinalizedDate",
-                  "referenceJsonPath": "$.studentIEPAssociationReference.iepFinalizedDate",
+                  "referenceJsonPath": "$.studentIEPReference.iepFinalizedDate",
                   "type": "date"
                 },
                 {
                   "identityJsonPath": "$.iepServicingEducationOrganizationReference.educationOrganizationId",
-                  "referenceJsonPath": "$.studentIEPAssociationReference.educationOrganizationId",
+                  "referenceJsonPath": "$.studentIEPReference.educationOrganizationId",
                   "type": "number"
                 },
                 {
                   "identityJsonPath": "$.studentIEPAssociationID",
-                  "referenceJsonPath": "$.studentIEPAssociationReference.studentIEPAssociationID",
+                  "referenceJsonPath": "$.studentIEPReference.studentIEPAssociationID",
                   "type": "string"
                 },
                 {
                   "identityJsonPath": "$.studentReference.studentUniqueId",
-                  "referenceJsonPath": "$.studentIEPAssociationReference.studentUniqueId",
+                  "referenceJsonPath": "$.studentIEPReference.studentUniqueId",
                   "type": "string"
                 }
               ],
-              "resourceName": "StudentIEPAssociation"
+              "resourceName": "StudentIEP"
             }
           },
           "equalityConstraints": [
             {
-              "sourceJsonPath": "$.studentIEPAssociationReference.studentUniqueId",
+              "sourceJsonPath": "$.studentIEPReference.studentUniqueId",
               "targetJsonPath": "$.studentReference.studentUniqueId"
             },
             {
-              "sourceJsonPath": "$.studentIEPAssociationReference.educationOrganizationId",
+              "sourceJsonPath": "$.studentIEPReference.educationOrganizationId",
               "targetJsonPath": "$.iepServicingEducationOrganizationReference.educationOrganizationId"
             }
           ],
           "identityJsonPaths": [
             "$.iepServicingEducationOrganizationReference.educationOrganizationId",
+            "$.studentIEPReference.educationOrganizationId",
+            "$.studentIEPReference.iepFinalizedDate",
+            "$.studentIEPReference.studentIEPAssociationID",
+            "$.studentIEPReference.studentUniqueId",
             "$.studentReference.studentUniqueId"
           ],
           "isDescriptor": false,
@@ -2747,7 +1965,7 @@
                 "type": "array",
                 "uniqueItems": false
               },
-              "studentIEPAssociationReference": {
+              "studentIEPReference": {
                 "additionalProperties": false,
                 "properties": {
                   "educationOrganizationId": {
@@ -2798,7 +2016,7 @@
             },
             "required": [
               "studentReference",
-              "studentIEPAssociationReference",
+              "studentIEPReference",
               "iepServicingEducationOrganizationReference",
               "s"
             ],
@@ -2807,7 +2025,7 @@
           },
           "numericJsonPaths": [
             "$.iepServicingEducationOrganizationReference.educationOrganizationId",
-            "$.studentIEPAssociationReference.educationOrganizationId"
+            "$.studentIEPReference.educationOrganizationId"
           ],
           "queryFieldMapping": {
             "educationOrganizationId": [
@@ -2818,26 +2036,1176 @@
             ],
             "iepFinalizedDate": [
               {
-                "path": "$.studentIEPAssociationReference.iepFinalizedDate",
+                "path": "$.studentIEPReference.iepFinalizedDate",
                 "type": "date"
               }
             ],
             "studentIEPAssociationID": [
               {
-                "path": "$.studentIEPAssociationReference.studentIEPAssociationID",
+                "path": "$.studentIEPReference.studentIEPAssociationID",
                 "type": "string"
               }
             ],
             "studentUniqueId": [
               {
-                "path": "$.studentIEPAssociationReference.studentUniqueId",
+                "path": "$.studentIEPReference.studentUniqueId",
                 "type": "string"
               }
             ]
           },
           "resourceName": "StudentIEPAccommodation"
         },
-        "studentIEPAssociations": {
+        "studentIEPDisabilities": {
+          "allowIdentityUpdates": false,
+          "booleanJsonPaths": [
+          ],
+          "dateTimeJsonPaths": [
+          ],
+          "documentPathsMapping": {
+            "Disability.DisabilityDescriptor": {
+              "isDescriptor": true,
+              "isReference": true,
+              "path": "$.s[*].disabilityDescriptor",
+              "projectName": "Ed-Fi",
+              "resourceName": "DisabilityDescriptor",
+              "type": "string"
+            },
+            "Disability.DisabilityDesignationDescriptor": {
+              "isDescriptor": true,
+              "isReference": true,
+              "path": "$.s[*].designations[*].disabilityDesignationDescriptor",
+              "projectName": "Ed-Fi",
+              "resourceName": "DisabilityDesignationDescriptor",
+              "type": "string"
+            },
+            "Disability.DisabilityDeterminationSourceTypeDescriptor": {
+              "isDescriptor": true,
+              "isReference": true,
+              "path": "$.s[*].disabilityDeterminationSourceTypeDescriptor",
+              "projectName": "Ed-Fi",
+              "resourceName": "DisabilityDeterminationSourceTypeDescriptor",
+              "type": "string"
+            },
+            "Disability.DisabilityDiagnosis": {
+              "isReference": false,
+              "path": "$.s[*].disabilityDiagnosis",
+              "type": "string"
+            },
+            "Disability.OrderOfDisability": {
+              "isReference": false,
+              "path": "$.s[*].orderOfDisability",
+              "type": "number"
+            },
+            "IEPServicingEducationOrganization": {
+              "isDescriptor": false,
+              "isReference": true,
+              "projectName": "SEDM",
+              "referenceJsonPaths": [
+                {
+                  "identityJsonPath": "$.educationOrganizationId",
+                  "referenceJsonPath": "$.iepServicingEducationOrganizationReference.educationOrganizationId",
+                  "type": "number"
+                }
+              ],
+              "resourceName": "EducationOrganization"
+            },
+            "Student": {
+              "isDescriptor": false,
+              "isReference": true,
+              "projectName": "SEDM",
+              "referenceJsonPaths": [
+                {
+                  "identityJsonPath": "$.studentUniqueId",
+                  "referenceJsonPath": "$.studentReference.studentUniqueId",
+                  "type": "string"
+                }
+              ],
+              "resourceName": "Student"
+            },
+            "StudentIEP": {
+              "isDescriptor": false,
+              "isReference": true,
+              "projectName": "SEDM",
+              "referenceJsonPaths": [
+                {
+                  "identityJsonPath": "$.iepFinalizedDate",
+                  "referenceJsonPath": "$.studentIEPReference.iepFinalizedDate",
+                  "type": "date"
+                },
+                {
+                  "identityJsonPath": "$.iepServicingEducationOrganizationReference.educationOrganizationId",
+                  "referenceJsonPath": "$.studentIEPReference.educationOrganizationId",
+                  "type": "number"
+                },
+                {
+                  "identityJsonPath": "$.studentIEPAssociationID",
+                  "referenceJsonPath": "$.studentIEPReference.studentIEPAssociationID",
+                  "type": "string"
+                },
+                {
+                  "identityJsonPath": "$.studentReference.studentUniqueId",
+                  "referenceJsonPath": "$.studentIEPReference.studentUniqueId",
+                  "type": "string"
+                }
+              ],
+              "resourceName": "StudentIEP"
+            }
+          },
+          "equalityConstraints": [
+            {
+              "sourceJsonPath": "$.studentIEPReference.studentUniqueId",
+              "targetJsonPath": "$.studentReference.studentUniqueId"
+            },
+            {
+              "sourceJsonPath": "$.studentIEPReference.educationOrganizationId",
+              "targetJsonPath": "$.iepServicingEducationOrganizationReference.educationOrganizationId"
+            }
+          ],
+          "identityJsonPaths": [
+            "$.iepServicingEducationOrganizationReference.educationOrganizationId",
+            "$.studentIEPReference.educationOrganizationId",
+            "$.studentIEPReference.iepFinalizedDate",
+            "$.studentIEPReference.studentIEPAssociationID",
+            "$.studentIEPReference.studentUniqueId",
+            "$.studentReference.studentUniqueId"
+          ],
+          "isDescriptor": false,
+          "isResourceExtension": false,
+          "isSchoolYearEnumeration": false,
+          "isSubclass": false,
+          "jsonSchemaForInsert": {
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "additionalProperties": false,
+            "description": "The disabilities prescribed to a student as part of their IEP.",
+            "properties": {
+              "iepServicingEducationOrganizationReference": {
+                "additionalProperties": false,
+                "properties": {
+                  "educationOrganizationId": {
+                    "description": "The identifier assigned to an education organization.",
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "educationOrganizationId"
+                ],
+                "type": "object"
+              },
+              "s": {
+                "items": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "designations": {
+                      "items": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "disabilityDesignationDescriptor": {
+                            "description": "An Ed-Fi Descriptor",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "disabilityDesignationDescriptor"
+                        ],
+                        "type": "object"
+                      },
+                      "minItems": 0,
+                      "type": "array",
+                      "uniqueItems": false
+                    },
+                    "disabilityDescriptor": {
+                      "description": "A disability category that describes a individual's impairment.",
+                      "type": "string"
+                    },
+                    "disabilityDeterminationSourceTypeDescriptor": {
+                      "description": "The source that provided the disability determination.",
+                      "type": "string"
+                    },
+                    "disabilityDiagnosis": {
+                      "description": "A description of the disability diagnosis.",
+                      "maxLength": 80,
+                      "type": "string"
+                    },
+                    "orderOfDisability": {
+                      "description": "The order by severity of individual's disabilities: 1- Primary, 2 -  Secondary, 3 - Tertiary, etc.",
+                      "type": "integer"
+                    }
+                  },
+                  "required": [
+                    "disabilityDescriptor"
+                  ],
+                  "type": "object"
+                },
+                "minItems": 0,
+                "type": "array",
+                "uniqueItems": false
+              },
+              "studentIEPReference": {
+                "additionalProperties": false,
+                "properties": {
+                  "educationOrganizationId": {
+                    "description": "The identifier assigned to an education organization.",
+                    "type": "integer"
+                  },
+                  "iepFinalizedDate": {
+                    "description": "The date the most recent IEP was finalized.  Note: Date interpretation may vary. Ed-Fi recommends inclusive dates, but states may define dates as inclusive or exclusive. For calculations, align with local guidelines.",
+                    "format": "date",
+                    "type": "string"
+                  },
+                  "studentIEPAssociationID": {
+                    "description": "A unique identifier assigned by the provider or source system of IEP services.",
+                    "maxLength": 1024,
+                    "pattern": "^(?!\\s)(.*\\S)$",
+                    "type": "string"
+                  },
+                  "studentUniqueId": {
+                    "description": "A unique alphanumeric code assigned to a student.",
+                    "maxLength": 32,
+                    "pattern": "^(?!\\s)(.*\\S)$",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "iepFinalizedDate",
+                  "educationOrganizationId",
+                  "studentUniqueId",
+                  "studentIEPAssociationID"
+                ],
+                "type": "object"
+              },
+              "studentReference": {
+                "additionalProperties": false,
+                "properties": {
+                  "studentUniqueId": {
+                    "description": "A unique alphanumeric code assigned to a student.",
+                    "maxLength": 32,
+                    "pattern": "^(?!\\s)(.*\\S)$",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "studentUniqueId"
+                ],
+                "type": "object"
+              }
+            },
+            "required": [
+              "studentReference",
+              "studentIEPReference",
+              "iepServicingEducationOrganizationReference",
+              "s"
+            ],
+            "title": "SEDM.StudentIEPDisability",
+            "type": "object"
+          },
+          "numericJsonPaths": [
+            "$.iepServicingEducationOrganizationReference.educationOrganizationId",
+            "$.s[*].orderOfDisability",
+            "$.studentIEPReference.educationOrganizationId"
+          ],
+          "queryFieldMapping": {
+            "educationOrganizationId": [
+              {
+                "path": "$.iepServicingEducationOrganizationReference.educationOrganizationId",
+                "type": "number"
+              }
+            ],
+            "iepFinalizedDate": [
+              {
+                "path": "$.studentIEPReference.iepFinalizedDate",
+                "type": "date"
+              }
+            ],
+            "studentIEPAssociationID": [
+              {
+                "path": "$.studentIEPReference.studentIEPAssociationID",
+                "type": "string"
+              }
+            ],
+            "studentUniqueId": [
+              {
+                "path": "$.studentIEPReference.studentUniqueId",
+                "type": "string"
+              }
+            ]
+          },
+          "resourceName": "StudentIEPDisability"
+        },
+        "studentIEPGoals": {
+          "allowIdentityUpdates": false,
+          "booleanJsonPaths": [
+          ],
+          "dateTimeJsonPaths": [
+          ],
+          "documentPathsMapping": {
+            "GoalAchievementPeriodBeginDate": {
+              "isReference": false,
+              "path": "$.goalAchievementPeriodBeginDate",
+              "type": "date"
+            },
+            "GoalAchievementPeriodEndDate": {
+              "isReference": false,
+              "path": "$.goalAchievementPeriodEndDate",
+              "type": "date"
+            },
+            "IDEAEvent": {
+              "isDescriptor": false,
+              "isReference": true,
+              "projectName": "SEDM",
+              "referenceJsonPaths": [
+                {
+                  "identityJsonPath": "$.educationOrganizationReference.educationOrganizationId",
+                  "referenceJsonPath": "$.ideaEvents[*].ideaEventReference.educationOrganizationId",
+                  "type": "number"
+                },
+                {
+                  "identityJsonPath": "$.ideaEventDescriptor",
+                  "referenceJsonPath": "$.ideaEvents[*].ideaEventReference.ideaEventDescriptor",
+                  "type": "string"
+                },
+                {
+                  "identityJsonPath": "$.ideaEventID",
+                  "referenceJsonPath": "$.ideaEvents[*].ideaEventReference.ideaEventID",
+                  "type": "string"
+                },
+                {
+                  "identityJsonPath": "$.studentReference.studentUniqueId",
+                  "referenceJsonPath": "$.ideaEvents[*].ideaEventReference.studentUniqueId",
+                  "type": "string"
+                }
+              ],
+              "resourceName": "IDEAEvent"
+            },
+            "IEPGoalDescriptor": {
+              "isDescriptor": true,
+              "isReference": true,
+              "path": "$.iepGoalDescriptor",
+              "projectName": "SEDM",
+              "resourceName": "IEPGoalDescriptor",
+              "type": "string"
+            },
+            "IEPGoalDetails": {
+              "isReference": false,
+              "path": "$.iepGoalDetails",
+              "type": "string"
+            },
+            "IEPGoalID": {
+              "isReference": false,
+              "path": "$.iepGoalID",
+              "type": "string"
+            },
+            "Student": {
+              "isDescriptor": false,
+              "isReference": true,
+              "projectName": "SEDM",
+              "referenceJsonPaths": [
+                {
+                  "identityJsonPath": "$.studentUniqueId",
+                  "referenceJsonPath": "$.studentReference.studentUniqueId",
+                  "type": "string"
+                }
+              ],
+              "resourceName": "Student"
+            },
+            "StudentIEP": {
+              "isDescriptor": false,
+              "isReference": true,
+              "projectName": "SEDM",
+              "referenceJsonPaths": [
+                {
+                  "identityJsonPath": "$.iepFinalizedDate",
+                  "referenceJsonPath": "$.studentIEPReference.iepFinalizedDate",
+                  "type": "date"
+                },
+                {
+                  "identityJsonPath": "$.iepServicingEducationOrganizationReference.educationOrganizationId",
+                  "referenceJsonPath": "$.studentIEPReference.educationOrganizationId",
+                  "type": "number"
+                },
+                {
+                  "identityJsonPath": "$.studentIEPAssociationID",
+                  "referenceJsonPath": "$.studentIEPReference.studentIEPAssociationID",
+                  "type": "string"
+                },
+                {
+                  "identityJsonPath": "$.studentReference.studentUniqueId",
+                  "referenceJsonPath": "$.studentIEPReference.studentUniqueId",
+                  "type": "string"
+                }
+              ],
+              "resourceName": "StudentIEP"
+            }
+          },
+          "equalityConstraints": [
+            {
+              "sourceJsonPath": "$.studentIEPReference.studentUniqueId",
+              "targetJsonPath": "$.studentReference.studentUniqueId"
+            },
+            {
+              "sourceJsonPath": "$.ideaEvents[*].ideaEventReference.studentUniqueId",
+              "targetJsonPath": "$.studentReference.studentUniqueId"
+            }
+          ],
+          "identityJsonPaths": [
+            "$.iepGoalID",
+            "$.studentIEPReference.educationOrganizationId",
+            "$.studentIEPReference.iepFinalizedDate",
+            "$.studentIEPReference.studentIEPAssociationID",
+            "$.studentIEPReference.studentUniqueId",
+            "$.studentReference.studentUniqueId"
+          ],
+          "isDescriptor": false,
+          "isResourceExtension": false,
+          "isSchoolYearEnumeration": false,
+          "isSubclass": false,
+          "jsonSchemaForInsert": {
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "additionalProperties": false,
+            "description": "A goal prescribed to a student as part of their IEP.",
+            "properties": {
+              "goalAchievementPeriodBeginDate": {
+                "description": "The first date of the period assigned for achieving the stated goal.",
+                "format": "date",
+                "type": "string"
+              },
+              "goalAchievementPeriodEndDate": {
+                "description": "The last date of the period assigned for achieving the stated goal.",
+                "format": "date",
+                "type": "string"
+              },
+              "ideaEvents": {
+                "items": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "ideaEventReference": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "educationOrganizationId": {
+                          "description": "The identifier assigned to an education organization.",
+                          "type": "integer"
+                        },
+                        "ideaEventDescriptor": {
+                          "description": "The IDEA event recorded for the student.",
+                          "type": "string"
+                        },
+                        "ideaEventID": {
+                          "description": "A unique identifier for the event record as assigned by the provider of IEP services.",
+                          "maxLength": 1024,
+                          "pattern": "^(?!\\s)(.*\\S)$",
+                          "type": "string"
+                        },
+                        "studentUniqueId": {
+                          "description": "A unique alphanumeric code assigned to a student.",
+                          "maxLength": 32,
+                          "pattern": "^(?!\\s)(.*\\S)$",
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "educationOrganizationId",
+                        "ideaEventDescriptor",
+                        "ideaEventID",
+                        "studentUniqueId"
+                      ],
+                      "type": "object"
+                    }
+                  },
+                  "required": [
+                    "ideaEventReference"
+                  ],
+                  "type": "object"
+                },
+                "minItems": 0,
+                "type": "array",
+                "uniqueItems": false
+              },
+              "iepGoalDescriptor": {
+                "description": "A focused goal prescribed as part of the IEP. Examples include Academic Goal, Behavioral Goal, Attendance Goal.",
+                "type": "string"
+              },
+              "iepGoalDetails": {
+                "description": "Instructions or other details specific to the student and/or provider for achieving the stated goal.",
+                "maxLength": 2048,
+                "pattern": "^(?!\\s*$).+",
+                "type": "string"
+              },
+              "iepGoalID": {
+                "description": "A unique identifier assigned by the provider of IEP services.",
+                "maxLength": 256,
+                "pattern": "^(?!\\s)(.*\\S)$",
+                "type": "string"
+              },
+              "studentIEPReference": {
+                "additionalProperties": false,
+                "properties": {
+                  "educationOrganizationId": {
+                    "description": "The identifier assigned to an education organization.",
+                    "type": "integer"
+                  },
+                  "iepFinalizedDate": {
+                    "description": "The date the most recent IEP was finalized.  Note: Date interpretation may vary. Ed-Fi recommends inclusive dates, but states may define dates as inclusive or exclusive. For calculations, align with local guidelines.",
+                    "format": "date",
+                    "type": "string"
+                  },
+                  "studentIEPAssociationID": {
+                    "description": "A unique identifier assigned by the provider or source system of IEP services.",
+                    "maxLength": 1024,
+                    "pattern": "^(?!\\s)(.*\\S)$",
+                    "type": "string"
+                  },
+                  "studentUniqueId": {
+                    "description": "A unique alphanumeric code assigned to a student.",
+                    "maxLength": 32,
+                    "pattern": "^(?!\\s)(.*\\S)$",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "iepFinalizedDate",
+                  "educationOrganizationId",
+                  "studentUniqueId",
+                  "studentIEPAssociationID"
+                ],
+                "type": "object"
+              },
+              "studentReference": {
+                "additionalProperties": false,
+                "properties": {
+                  "studentUniqueId": {
+                    "description": "A unique alphanumeric code assigned to a student.",
+                    "maxLength": 32,
+                    "pattern": "^(?!\\s)(.*\\S)$",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "studentUniqueId"
+                ],
+                "type": "object"
+              }
+            },
+            "required": [
+              "studentReference",
+              "studentIEPReference",
+              "iepGoalID",
+              "iepGoalDescriptor",
+              "iepGoalDetails"
+            ],
+            "title": "SEDM.StudentIEPGoal",
+            "type": "object"
+          },
+          "numericJsonPaths": [
+            "$.ideaEvents[*].ideaEventReference.educationOrganizationId",
+            "$.studentIEPReference.educationOrganizationId"
+          ],
+          "queryFieldMapping": {
+            "educationOrganizationId": [
+              {
+                "path": "$.studentIEPReference.educationOrganizationId",
+                "type": "number"
+              }
+            ],
+            "goalAchievementPeriodBeginDate": [
+              {
+                "path": "$.goalAchievementPeriodBeginDate",
+                "type": "date"
+              }
+            ],
+            "goalAchievementPeriodEndDate": [
+              {
+                "path": "$.goalAchievementPeriodEndDate",
+                "type": "date"
+              }
+            ],
+            "iepFinalizedDate": [
+              {
+                "path": "$.studentIEPReference.iepFinalizedDate",
+                "type": "date"
+              }
+            ],
+            "iepGoalDescriptor": [
+              {
+                "path": "$.iepGoalDescriptor",
+                "type": "string"
+              }
+            ],
+            "iepGoalDetails": [
+              {
+                "path": "$.iepGoalDetails",
+                "type": "string"
+              }
+            ],
+            "iepGoalID": [
+              {
+                "path": "$.iepGoalID",
+                "type": "string"
+              }
+            ],
+            "studentIEPAssociationID": [
+              {
+                "path": "$.studentIEPReference.studentIEPAssociationID",
+                "type": "string"
+              }
+            ],
+            "studentUniqueId": [
+              {
+                "path": "$.studentIEPReference.studentUniqueId",
+                "type": "string"
+              }
+            ]
+          },
+          "resourceName": "StudentIEPGoal"
+        },
+        "studentIEPServiceDeliveries": {
+          "allowIdentityUpdates": false,
+          "booleanJsonPaths": [
+            "$.externalServiceProviders[*].primaryProvider",
+            "$.serviceProviders[*].primaryProvider"
+          ],
+          "dateTimeJsonPaths": [
+          ],
+          "documentPathsMapping": {
+            "ExternalServiceProvider.PrimaryProvider": {
+              "isReference": false,
+              "path": "$.externalServiceProviders[*].primaryProvider",
+              "type": "boolean"
+            },
+            "ExternalServiceProvider.ProviderCode": {
+              "isReference": false,
+              "path": "$.externalServiceProviders[*].providerCode",
+              "type": "string"
+            },
+            "ExternalServiceProvider.ProviderFirstName": {
+              "isReference": false,
+              "path": "$.externalServiceProviders[*].providerFirstName",
+              "type": "string"
+            },
+            "ExternalServiceProvider.ProviderLastSurname": {
+              "isReference": false,
+              "path": "$.externalServiceProviders[*].providerLastSurname",
+              "type": "string"
+            },
+            "ExternalServiceProvider.ProviderMiddleName": {
+              "isReference": false,
+              "path": "$.externalServiceProviders[*].providerMiddleName",
+              "type": "string"
+            },
+            "IDEAEvent": {
+              "isDescriptor": false,
+              "isReference": true,
+              "projectName": "SEDM",
+              "referenceJsonPaths": [
+                {
+                  "identityJsonPath": "$.educationOrganizationReference.educationOrganizationId",
+                  "referenceJsonPath": "$.ideaEvents[*].ideaEventReference.educationOrganizationId",
+                  "type": "number"
+                },
+                {
+                  "identityJsonPath": "$.ideaEventDescriptor",
+                  "referenceJsonPath": "$.ideaEvents[*].ideaEventReference.ideaEventDescriptor",
+                  "type": "string"
+                },
+                {
+                  "identityJsonPath": "$.ideaEventID",
+                  "referenceJsonPath": "$.ideaEvents[*].ideaEventReference.ideaEventID",
+                  "type": "string"
+                },
+                {
+                  "identityJsonPath": "$.studentReference.studentUniqueId",
+                  "referenceJsonPath": "$.ideaEvents[*].ideaEventReference.studentUniqueId",
+                  "type": "string"
+                }
+              ],
+              "resourceName": "IDEAEvent"
+            },
+            "IEPServiceDeliveryID": {
+              "isReference": false,
+              "path": "$.iepServiceDeliveryID",
+              "type": "string"
+            },
+            "IEPServicePrescription": {
+              "isDescriptor": false,
+              "isReference": true,
+              "projectName": "SEDM",
+              "referenceJsonPaths": [
+                {
+                  "identityJsonPath": "$.servicePrescriptionDate",
+                  "referenceJsonPath": "$.iepServicePrescriptionReference.servicePrescriptionDate",
+                  "type": "date"
+                },
+                {
+                  "identityJsonPath": "$.servicePrescriptionDescriptor",
+                  "referenceJsonPath": "$.iepServicePrescriptionReference.servicePrescriptionDescriptor",
+                  "type": "string"
+                },
+                {
+                  "identityJsonPath": "$.studentIEPReference.educationOrganizationId",
+                  "referenceJsonPath": "$.iepServicePrescriptionReference.educationOrganizationId",
+                  "type": "number"
+                },
+                {
+                  "identityJsonPath": "$.studentIEPReference.iepFinalizedDate",
+                  "referenceJsonPath": "$.iepServicePrescriptionReference.iepFinalizedDate",
+                  "type": "date"
+                },
+                {
+                  "identityJsonPath": "$.studentIEPReference.studentIEPAssociationID",
+                  "referenceJsonPath": "$.iepServicePrescriptionReference.studentIEPAssociationID",
+                  "type": "string"
+                },
+                {
+                  "identityJsonPath": "$.studentIEPReference.studentUniqueId",
+                  "referenceJsonPath": "$.iepServicePrescriptionReference.studentUniqueId",
+                  "type": "string"
+                },
+                {
+                  "identityJsonPath": "$.studentReference.studentUniqueId",
+                  "referenceJsonPath": "$.iepServicePrescriptionReference.studentUniqueId",
+                  "type": "string"
+                }
+              ],
+              "resourceName": "IEPServicePrescription"
+            },
+            "ServiceDeliveryDate": {
+              "isReference": false,
+              "path": "$.serviceDeliveryDate",
+              "type": "date"
+            },
+            "ServiceDeliveryDescriptor": {
+              "isDescriptor": true,
+              "isReference": true,
+              "path": "$.serviceDeliveryDescriptor",
+              "projectName": "SEDM",
+              "resourceName": "ServiceDeliveryDescriptor",
+              "type": "string"
+            },
+            "ServiceProvider.PrimaryProvider": {
+              "isReference": false,
+              "path": "$.serviceProviders[*].primaryProvider",
+              "type": "boolean"
+            },
+            "ServiceProvider.Staff": {
+              "isDescriptor": false,
+              "isReference": true,
+              "projectName": "Ed-Fi",
+              "referenceJsonPaths": [
+                {
+                  "identityJsonPath": "$.staffUniqueId",
+                  "referenceJsonPath": "$.serviceProviders[*].staffReference.staffUniqueId",
+                  "type": "string"
+                }
+              ],
+              "resourceName": "Staff"
+            },
+            "ServiceProviderTypeDescriptor": {
+              "isDescriptor": true,
+              "isReference": true,
+              "path": "$.serviceProviderTypeDescriptor",
+              "projectName": "SEDM",
+              "resourceName": "ServiceProviderTypeDescriptor",
+              "type": "string"
+            },
+            "Student": {
+              "isDescriptor": false,
+              "isReference": true,
+              "projectName": "SEDM",
+              "referenceJsonPaths": [
+                {
+                  "identityJsonPath": "$.studentUniqueId",
+                  "referenceJsonPath": "$.studentReference.studentUniqueId",
+                  "type": "string"
+                }
+              ],
+              "resourceName": "Student"
+            },
+            "StudentIEP": {
+              "isDescriptor": false,
+              "isReference": true,
+              "projectName": "SEDM",
+              "referenceJsonPaths": [
+                {
+                  "identityJsonPath": "$.iepFinalizedDate",
+                  "referenceJsonPath": "$.studentIEPReference.iepFinalizedDate",
+                  "type": "date"
+                },
+                {
+                  "identityJsonPath": "$.iepServicingEducationOrganizationReference.educationOrganizationId",
+                  "referenceJsonPath": "$.studentIEPReference.educationOrganizationId",
+                  "type": "number"
+                },
+                {
+                  "identityJsonPath": "$.studentIEPAssociationID",
+                  "referenceJsonPath": "$.studentIEPReference.studentIEPAssociationID",
+                  "type": "string"
+                },
+                {
+                  "identityJsonPath": "$.studentReference.studentUniqueId",
+                  "referenceJsonPath": "$.studentIEPReference.studentUniqueId",
+                  "type": "string"
+                }
+              ],
+              "resourceName": "StudentIEP"
+            }
+          },
+          "equalityConstraints": [
+            {
+              "sourceJsonPath": "$.studentIEPReference.studentUniqueId",
+              "targetJsonPath": "$.studentReference.studentUniqueId"
+            },
+            {
+              "sourceJsonPath": "$.iepServicePrescriptionReference.studentUniqueId",
+              "targetJsonPath": "$.studentReference.studentUniqueId"
+            },
+            {
+              "sourceJsonPath": "$.ideaEvents[*].ideaEventReference.studentUniqueId",
+              "targetJsonPath": "$.studentReference.studentUniqueId"
+            },
+            {
+              "sourceJsonPath": "$.studentIEPReference.iepFinalizedDate",
+              "targetJsonPath": "$.iepServicePrescriptionReference.iepFinalizedDate"
+            },
+            {
+              "sourceJsonPath": "$.studentIEPReference.educationOrganizationId",
+              "targetJsonPath": "$.iepServicePrescriptionReference.educationOrganizationId"
+            },
+            {
+              "sourceJsonPath": "$.studentIEPReference.studentIEPAssociationID",
+              "targetJsonPath": "$.iepServicePrescriptionReference.studentIEPAssociationID"
+            }
+          ],
+          "identityJsonPaths": [
+            "$.iepServiceDeliveryID",
+            "$.serviceDeliveryDate",
+            "$.serviceDeliveryDescriptor",
+            "$.studentIEPReference.educationOrganizationId",
+            "$.studentIEPReference.iepFinalizedDate",
+            "$.studentIEPReference.studentIEPAssociationID",
+            "$.studentIEPReference.studentUniqueId",
+            "$.studentReference.studentUniqueId"
+          ],
+          "isDescriptor": false,
+          "isResourceExtension": false,
+          "isSchoolYearEnumeration": false,
+          "isSubclass": false,
+          "jsonSchemaForInsert": {
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "additionalProperties": false,
+            "description": "Services delivered to a student as prescribed by their IEP.",
+            "properties": {
+              "externalServiceProviders": {
+                "items": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "primaryProvider": {
+                      "description": "Primary External Service Provider.",
+                      "type": "boolean"
+                    },
+                    "providerCode": {
+                      "description": "A code assigned to the external service provider.",
+                      "maxLength": 1024,
+                      "pattern": "^(?!\\s)(.*\\S)$",
+                      "type": "string"
+                    },
+                    "providerFirstName": {
+                      "description": "The first name of the external service provider.",
+                      "maxLength": 1024,
+                      "pattern": "^(?!\\s)(.*\\S)$",
+                      "type": "string"
+                    },
+                    "providerLastSurname": {
+                      "description": "The last name of the external service provider.",
+                      "maxLength": 1024,
+                      "pattern": "^(?!\\s)(.*\\S)$",
+                      "type": "string"
+                    },
+                    "providerMiddleName": {
+                      "description": "The middle name of the external service provider.",
+                      "maxLength": 1024,
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "providerCode",
+                    "providerFirstName",
+                    "providerLastSurname"
+                  ],
+                  "type": "object"
+                },
+                "minItems": 0,
+                "type": "array",
+                "uniqueItems": false
+              },
+              "ideaEvents": {
+                "items": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "ideaEventReference": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "educationOrganizationId": {
+                          "description": "The identifier assigned to an education organization.",
+                          "type": "integer"
+                        },
+                        "ideaEventDescriptor": {
+                          "description": "The IDEA event recorded for the student.",
+                          "type": "string"
+                        },
+                        "ideaEventID": {
+                          "description": "A unique identifier for the event record as assigned by the provider of IEP services.",
+                          "maxLength": 1024,
+                          "pattern": "^(?!\\s)(.*\\S)$",
+                          "type": "string"
+                        },
+                        "studentUniqueId": {
+                          "description": "A unique alphanumeric code assigned to a student.",
+                          "maxLength": 32,
+                          "pattern": "^(?!\\s)(.*\\S)$",
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "educationOrganizationId",
+                        "ideaEventDescriptor",
+                        "ideaEventID",
+                        "studentUniqueId"
+                      ],
+                      "type": "object"
+                    }
+                  },
+                  "required": [
+                    "ideaEventReference"
+                  ],
+                  "type": "object"
+                },
+                "minItems": 0,
+                "type": "array",
+                "uniqueItems": false
+              },
+              "iepServiceDeliveryID": {
+                "description": "A unique identifier assigned by the provider of IEP services for the delivery record.",
+                "maxLength": 1024,
+                "pattern": "^(?!\\s)(.*\\S)$",
+                "type": "string"
+              },
+              "iepServicePrescriptionReference": {
+                "additionalProperties": false,
+                "properties": {
+                  "educationOrganizationId": {
+                    "description": "The identifier assigned to an education organization.",
+                    "type": "integer"
+                  },
+                  "iepFinalizedDate": {
+                    "description": "The date the most recent IEP was finalized.  Note: Date interpretation may vary. Ed-Fi recommends inclusive dates, but states may define dates as inclusive or exclusive. For calculations, align with local guidelines.",
+                    "format": "date",
+                    "type": "string"
+                  },
+                  "servicePrescriptionDate": {
+                    "description": "The date the service was prescribed.",
+                    "format": "date",
+                    "type": "string"
+                  },
+                  "servicePrescriptionDescriptor": {
+                    "description": "The type of service prescribed. Examples include: Auditory Specialist, Vocational Therapy.",
+                    "type": "string"
+                  },
+                  "studentIEPAssociationID": {
+                    "description": "A unique identifier assigned by the provider or source system of IEP services.",
+                    "maxLength": 1024,
+                    "pattern": "^(?!\\s)(.*\\S)$",
+                    "type": "string"
+                  },
+                  "studentUniqueId": {
+                    "description": "A unique alphanumeric code assigned to a student.",
+                    "maxLength": 32,
+                    "pattern": "^(?!\\s)(.*\\S)$",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "servicePrescriptionDescriptor",
+                  "servicePrescriptionDate",
+                  "studentUniqueId",
+                  "iepFinalizedDate",
+                  "educationOrganizationId",
+                  "studentIEPAssociationID"
+                ],
+                "type": "object"
+              },
+              "serviceDeliveryDate": {
+                "description": "The date when prescribed services were delivered for a student.",
+                "format": "date",
+                "type": "string"
+              },
+              "serviceDeliveryDescriptor": {
+                "description": "The type of services delivered to the student.",
+                "type": "string"
+              },
+              "serviceProviderTypeDescriptor": {
+                "description": "Indicates service provider type, including specialist, internal staff, external staff, etc.",
+                "type": "string"
+              },
+              "serviceProviders": {
+                "items": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "primaryProvider": {
+                      "description": "Primary ServiceProvider.",
+                      "type": "boolean"
+                    },
+                    "staffReference": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "staffUniqueId": {
+                          "description": "A unique alphanumeric code assigned to a staff.",
+                          "maxLength": 32,
+                          "pattern": "^(?!\\s)(.*\\S)$",
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "staffUniqueId"
+                      ],
+                      "type": "object"
+                    }
+                  },
+                  "required": [
+                    "staffReference"
+                  ],
+                  "type": "object"
+                },
+                "minItems": 0,
+                "type": "array",
+                "uniqueItems": false
+              },
+              "studentIEPReference": {
+                "additionalProperties": false,
+                "properties": {
+                  "educationOrganizationId": {
+                    "description": "The identifier assigned to an education organization.",
+                    "type": "integer"
+                  },
+                  "iepFinalizedDate": {
+                    "description": "The date the most recent IEP was finalized.  Note: Date interpretation may vary. Ed-Fi recommends inclusive dates, but states may define dates as inclusive or exclusive. For calculations, align with local guidelines.",
+                    "format": "date",
+                    "type": "string"
+                  },
+                  "studentIEPAssociationID": {
+                    "description": "A unique identifier assigned by the provider or source system of IEP services.",
+                    "maxLength": 1024,
+                    "pattern": "^(?!\\s)(.*\\S)$",
+                    "type": "string"
+                  },
+                  "studentUniqueId": {
+                    "description": "A unique alphanumeric code assigned to a student.",
+                    "maxLength": 32,
+                    "pattern": "^(?!\\s)(.*\\S)$",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "iepFinalizedDate",
+                  "educationOrganizationId",
+                  "studentUniqueId",
+                  "studentIEPAssociationID"
+                ],
+                "type": "object"
+              },
+              "studentReference": {
+                "additionalProperties": false,
+                "properties": {
+                  "studentUniqueId": {
+                    "description": "A unique alphanumeric code assigned to a student.",
+                    "maxLength": 32,
+                    "pattern": "^(?!\\s)(.*\\S)$",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "studentUniqueId"
+                ],
+                "type": "object"
+              }
+            },
+            "required": [
+              "studentReference",
+              "studentIEPReference",
+              "iepServiceDeliveryID",
+              "serviceDeliveryDescriptor",
+              "serviceDeliveryDate"
+            ],
+            "title": "SEDM.StudentIEPServiceDelivery",
+            "type": "object"
+          },
+          "numericJsonPaths": [
+            "$.ideaEvents[*].ideaEventReference.educationOrganizationId",
+            "$.iepServicePrescriptionReference.educationOrganizationId",
+            "$.studentIEPReference.educationOrganizationId"
+          ],
+          "queryFieldMapping": {
+            "educationOrganizationId": [
+              {
+                "path": "$.iepServicePrescriptionReference.educationOrganizationId",
+                "type": "number"
+              }
+            ],
+            "iepFinalizedDate": [
+              {
+                "path": "$.iepServicePrescriptionReference.iepFinalizedDate",
+                "type": "date"
+              }
+            ],
+            "iepServiceDeliveryID": [
+              {
+                "path": "$.iepServiceDeliveryID",
+                "type": "string"
+              }
+            ],
+            "serviceDeliveryDate": [
+              {
+                "path": "$.serviceDeliveryDate",
+                "type": "date"
+              }
+            ],
+            "serviceDeliveryDescriptor": [
+              {
+                "path": "$.serviceDeliveryDescriptor",
+                "type": "string"
+              }
+            ],
+            "servicePrescriptionDate": [
+              {
+                "path": "$.iepServicePrescriptionReference.servicePrescriptionDate",
+                "type": "date"
+              }
+            ],
+            "servicePrescriptionDescriptor": [
+              {
+                "path": "$.iepServicePrescriptionReference.servicePrescriptionDescriptor",
+                "type": "string"
+              }
+            ],
+            "serviceProviderTypeDescriptor": [
+              {
+                "path": "$.serviceProviderTypeDescriptor",
+                "type": "string"
+              }
+            ],
+            "studentIEPAssociationID": [
+              {
+                "path": "$.iepServicePrescriptionReference.studentIEPAssociationID",
+                "type": "string"
+              }
+            ],
+            "studentUniqueId": [
+              {
+                "path": "$.iepServicePrescriptionReference.studentUniqueId",
+                "type": "string"
+              }
+            ]
+          },
+          "resourceName": "StudentIEPServiceDelivery"
+        },
+        "studentIEPs": {
           "allowIdentityUpdates": false,
           "booleanJsonPaths": [
             "$.medicallyFragile",
@@ -3129,7 +3497,7 @@
               "iepEndDate",
               "iepStatusDescriptor"
             ],
-            "title": "SEDM.StudentIEPAssociation",
+            "title": "SEDM.StudentIEP",
             "type": "object"
           },
           "numericJsonPaths": [
@@ -3224,279 +3592,7 @@
               }
             ]
           },
-          "resourceName": "StudentIEPAssociation"
-        },
-        "studentIEPDisabilities": {
-          "allowIdentityUpdates": false,
-          "booleanJsonPaths": [
-          ],
-          "dateTimeJsonPaths": [
-          ],
-          "documentPathsMapping": {
-            "Disability.DisabilityDescriptor": {
-              "isDescriptor": true,
-              "isReference": true,
-              "path": "$.s[*].disabilityDescriptor",
-              "projectName": "Ed-Fi",
-              "resourceName": "DisabilityDescriptor",
-              "type": "string"
-            },
-            "Disability.DisabilityDesignationDescriptor": {
-              "isDescriptor": true,
-              "isReference": true,
-              "path": "$.s[*].designations[*].disabilityDesignationDescriptor",
-              "projectName": "Ed-Fi",
-              "resourceName": "DisabilityDesignationDescriptor",
-              "type": "string"
-            },
-            "Disability.DisabilityDeterminationSourceTypeDescriptor": {
-              "isDescriptor": true,
-              "isReference": true,
-              "path": "$.s[*].disabilityDeterminationSourceTypeDescriptor",
-              "projectName": "Ed-Fi",
-              "resourceName": "DisabilityDeterminationSourceTypeDescriptor",
-              "type": "string"
-            },
-            "Disability.DisabilityDiagnosis": {
-              "isReference": false,
-              "path": "$.s[*].disabilityDiagnosis",
-              "type": "string"
-            },
-            "Disability.OrderOfDisability": {
-              "isReference": false,
-              "path": "$.s[*].orderOfDisability",
-              "type": "number"
-            },
-            "IEPServicingEducationOrganization": {
-              "isDescriptor": false,
-              "isReference": true,
-              "projectName": "SEDM",
-              "referenceJsonPaths": [
-                {
-                  "identityJsonPath": "$.educationOrganizationId",
-                  "referenceJsonPath": "$.iepServicingEducationOrganizationReference.educationOrganizationId",
-                  "type": "number"
-                }
-              ],
-              "resourceName": "EducationOrganization"
-            },
-            "Student": {
-              "isDescriptor": false,
-              "isReference": true,
-              "projectName": "SEDM",
-              "referenceJsonPaths": [
-                {
-                  "identityJsonPath": "$.studentUniqueId",
-                  "referenceJsonPath": "$.studentReference.studentUniqueId",
-                  "type": "string"
-                }
-              ],
-              "resourceName": "Student"
-            },
-            "StudentIEPAssociation": {
-              "isDescriptor": false,
-              "isReference": true,
-              "projectName": "SEDM",
-              "referenceJsonPaths": [
-                {
-                  "identityJsonPath": "$.iepFinalizedDate",
-                  "referenceJsonPath": "$.studentIEPAssociationReference.iepFinalizedDate",
-                  "type": "date"
-                },
-                {
-                  "identityJsonPath": "$.iepServicingEducationOrganizationReference.educationOrganizationId",
-                  "referenceJsonPath": "$.studentIEPAssociationReference.educationOrganizationId",
-                  "type": "number"
-                },
-                {
-                  "identityJsonPath": "$.studentIEPAssociationID",
-                  "referenceJsonPath": "$.studentIEPAssociationReference.studentIEPAssociationID",
-                  "type": "string"
-                },
-                {
-                  "identityJsonPath": "$.studentReference.studentUniqueId",
-                  "referenceJsonPath": "$.studentIEPAssociationReference.studentUniqueId",
-                  "type": "string"
-                }
-              ],
-              "resourceName": "StudentIEPAssociation"
-            }
-          },
-          "equalityConstraints": [
-            {
-              "sourceJsonPath": "$.studentIEPAssociationReference.studentUniqueId",
-              "targetJsonPath": "$.studentReference.studentUniqueId"
-            },
-            {
-              "sourceJsonPath": "$.studentIEPAssociationReference.educationOrganizationId",
-              "targetJsonPath": "$.iepServicingEducationOrganizationReference.educationOrganizationId"
-            }
-          ],
-          "identityJsonPaths": [
-            "$.iepServicingEducationOrganizationReference.educationOrganizationId",
-            "$.studentReference.studentUniqueId"
-          ],
-          "isDescriptor": false,
-          "isResourceExtension": false,
-          "isSchoolYearEnumeration": false,
-          "isSubclass": false,
-          "jsonSchemaForInsert": {
-            "$schema": "https://json-schema.org/draft/2020-12/schema",
-            "additionalProperties": false,
-            "description": "The disabilities prescribed to a student as part of their IEP.",
-            "properties": {
-              "iepServicingEducationOrganizationReference": {
-                "additionalProperties": false,
-                "properties": {
-                  "educationOrganizationId": {
-                    "description": "The identifier assigned to an education organization.",
-                    "type": "integer"
-                  }
-                },
-                "required": [
-                  "educationOrganizationId"
-                ],
-                "type": "object"
-              },
-              "s": {
-                "items": {
-                  "additionalProperties": false,
-                  "properties": {
-                    "designations": {
-                      "items": {
-                        "additionalProperties": false,
-                        "properties": {
-                          "disabilityDesignationDescriptor": {
-                            "description": "An Ed-Fi Descriptor",
-                            "type": "string"
-                          }
-                        },
-                        "required": [
-                          "disabilityDesignationDescriptor"
-                        ],
-                        "type": "object"
-                      },
-                      "minItems": 0,
-                      "type": "array",
-                      "uniqueItems": false
-                    },
-                    "disabilityDescriptor": {
-                      "description": "A disability category that describes a individual's impairment.",
-                      "type": "string"
-                    },
-                    "disabilityDeterminationSourceTypeDescriptor": {
-                      "description": "The source that provided the disability determination.",
-                      "type": "string"
-                    },
-                    "disabilityDiagnosis": {
-                      "description": "A description of the disability diagnosis.",
-                      "maxLength": 80,
-                      "type": "string"
-                    },
-                    "orderOfDisability": {
-                      "description": "The order by severity of individual's disabilities: 1- Primary, 2 -  Secondary, 3 - Tertiary, etc.",
-                      "type": "integer"
-                    }
-                  },
-                  "required": [
-                    "disabilityDescriptor"
-                  ],
-                  "type": "object"
-                },
-                "minItems": 0,
-                "type": "array",
-                "uniqueItems": false
-              },
-              "studentIEPAssociationReference": {
-                "additionalProperties": false,
-                "properties": {
-                  "educationOrganizationId": {
-                    "description": "The identifier assigned to an education organization.",
-                    "type": "integer"
-                  },
-                  "iepFinalizedDate": {
-                    "description": "The date the most recent IEP was finalized.  Note: Date interpretation may vary. Ed-Fi recommends inclusive dates, but states may define dates as inclusive or exclusive. For calculations, align with local guidelines.",
-                    "format": "date",
-                    "type": "string"
-                  },
-                  "studentIEPAssociationID": {
-                    "description": "A unique identifier assigned by the provider or source system of IEP services.",
-                    "maxLength": 1024,
-                    "pattern": "^(?!\\s)(.*\\S)$",
-                    "type": "string"
-                  },
-                  "studentUniqueId": {
-                    "description": "A unique alphanumeric code assigned to a student.",
-                    "maxLength": 32,
-                    "pattern": "^(?!\\s)(.*\\S)$",
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "iepFinalizedDate",
-                  "educationOrganizationId",
-                  "studentUniqueId",
-                  "studentIEPAssociationID"
-                ],
-                "type": "object"
-              },
-              "studentReference": {
-                "additionalProperties": false,
-                "properties": {
-                  "studentUniqueId": {
-                    "description": "A unique alphanumeric code assigned to a student.",
-                    "maxLength": 32,
-                    "pattern": "^(?!\\s)(.*\\S)$",
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "studentUniqueId"
-                ],
-                "type": "object"
-              }
-            },
-            "required": [
-              "studentReference",
-              "studentIEPAssociationReference",
-              "iepServicingEducationOrganizationReference",
-              "s"
-            ],
-            "title": "SEDM.StudentIEPDisability",
-            "type": "object"
-          },
-          "numericJsonPaths": [
-            "$.iepServicingEducationOrganizationReference.educationOrganizationId",
-            "$.s[*].orderOfDisability",
-            "$.studentIEPAssociationReference.educationOrganizationId"
-          ],
-          "queryFieldMapping": {
-            "educationOrganizationId": [
-              {
-                "path": "$.iepServicingEducationOrganizationReference.educationOrganizationId",
-                "type": "number"
-              }
-            ],
-            "iepFinalizedDate": [
-              {
-                "path": "$.studentIEPAssociationReference.iepFinalizedDate",
-                "type": "date"
-              }
-            ],
-            "studentIEPAssociationID": [
-              {
-                "path": "$.studentIEPAssociationReference.studentIEPAssociationID",
-                "type": "string"
-              }
-            ],
-            "studentUniqueId": [
-              {
-                "path": "$.studentIEPAssociationReference.studentUniqueId",
-                "type": "string"
-              }
-            ]
-          },
-          "resourceName": "StudentIEPDisability"
+          "resourceName": "StudentIEP"
         }
       }
     }

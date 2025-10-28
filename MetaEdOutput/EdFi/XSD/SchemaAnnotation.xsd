@@ -207,7 +207,7 @@
       <xs:enumeration value="ServiceDescriptor" />
       <xs:enumeration value="ServiceLocationTypeDescriptor" />
       <xs:enumeration value="ServicePrescriptionDescriptor" />
-      <xs:enumeration value="ServiceProviderDescriptor" />
+      <xs:enumeration value="ServiceProviderTypeDescriptor" />
       <xs:enumeration value="ServiceReasonDescriptor" />
       <xs:enumeration value="SexDescriptor" />
       <xs:enumeration value="SourceSystemDescriptor" />
