@@ -1,4 +1,4 @@
-Association IEPServicePrescription
+Association StudentIEPServicePrescription
     documentation "The service prescribed to a student as part of their IEP."
     domain entity EdFi.Student
         documentation "A reference to the student."

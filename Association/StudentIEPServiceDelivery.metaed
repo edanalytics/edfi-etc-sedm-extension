@@ -15,10 +15,10 @@ Association StudentIEPServiceDelivery
     date ServiceDeliveryDate 
         documentation "The date when prescribed services were delivered for a student."
         is part of identity
-    association IEPServicePrescription
+    association StudentIEPServicePrescription
         documentation "Identifies the service prescribed for the student."
         is optional
-        merge IEPServicePrescription.Student with Student
+        merge StudentIEPServicePrescription.Student with Student
     descriptor ServiceProviderType
         documentation "Indicates service provider type, including specialist, internal staff, external staff, etc."
         is optional
