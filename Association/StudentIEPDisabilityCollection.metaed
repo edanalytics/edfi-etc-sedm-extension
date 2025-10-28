@@ -1,4 +1,4 @@
-Association StudentIEPDisability
+Association StudentIEPDisabilityCollection
     documentation "The disabilities prescribed to a student as part of their IEP."
     domain entity EdFi.Student
         documentation "A reference to the student."

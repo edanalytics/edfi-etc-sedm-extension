@@ -1,4 +1,4 @@
-Association StudentIEPAccommodation
+Association StudentIEPAccommodationCollection
     documentation "The accommodations prescribed to a student as part of their IEP."
     domain entity EdFi.Student
         documentation "A reference to the student."
@@ -12,3 +12,4 @@ Association StudentIEPAccommodation
     descriptor EdFi.Accommodation
         documentation "The special variation(s) to be used in how various services (in general) are presented, how they are administered, or how the student is allowed to respond. This generally refers to changes that do not substantially alter the content that the service renders. The proper use of accommodations does not substantially change academic level or performance criteria."
         is required collection
+        role name IEPAccommodation
