@@ -71,6 +71,10 @@ CREATE NONCLUSTERED INDEX [FK_IEPGoal_IEPGoalDescriptor]
 ON [sedm].[IEPGoal] ([IEPGoalDescriptorId] ASC)
 GO
 
+ALTER TABLE [sedm].[IEPGoal] WITH CHECK ADD CONSTRAINT [FK_IEPGoal_Student] FOREIGN KEY ([StudentUSI])
+REFERENCES [edfi].[Student] ([StudentUSI])
+GO
+
 ALTER TABLE [sedm].[IEPGoal] WITH CHECK ADD CONSTRAINT [FK_IEPGoal_StudentIEPAssociation] FOREIGN KEY ([IEPFinalizedDate], [IEPServicingEducationOrganizationId], [StudentIEPAssociationID], [StudentUSI])
 REFERENCES [sedm].[StudentIEPAssociation] ([IEPFinalizedDate], [IEPServicingEducationOrganizationId], [StudentIEPAssociationID], [StudentUSI])
 GO
@@ -122,6 +126,14 @@ GO
 
 CREATE NONCLUSTERED INDEX [FK_IEPServiceDelivery_Staff]
 ON [sedm].[IEPServiceDelivery] ([ServiceDeliveryStaffUSI] ASC)
+GO
+
+ALTER TABLE [sedm].[IEPServiceDelivery] WITH CHECK ADD CONSTRAINT [FK_IEPServiceDelivery_Student] FOREIGN KEY ([StudentUSI])
+REFERENCES [edfi].[Student] ([StudentUSI])
+GO
+
+CREATE NONCLUSTERED INDEX [FK_IEPServiceDelivery_Student]
+ON [sedm].[IEPServiceDelivery] ([StudentUSI] ASC)
 GO
 
 ALTER TABLE [sedm].[IEPServiceDelivery] WITH CHECK ADD CONSTRAINT [FK_IEPServiceDelivery_StudentIEPAssociation] FOREIGN KEY ([IEPFinalizedDate], [IEPServicingEducationOrganizationId], [StudentIEPAssociationID], [StudentUSI])
@@ -191,6 +203,14 @@ GO
 
 CREATE NONCLUSTERED INDEX [FK_IEPServicePrescription_Staff]
 ON [sedm].[IEPServicePrescription] ([StaffUSI] ASC)
+GO
+
+ALTER TABLE [sedm].[IEPServicePrescription] WITH CHECK ADD CONSTRAINT [FK_IEPServicePrescription_Student] FOREIGN KEY ([StudentUSI])
+REFERENCES [edfi].[Student] ([StudentUSI])
+GO
+
+CREATE NONCLUSTERED INDEX [FK_IEPServicePrescription_Student]
+ON [sedm].[IEPServicePrescription] ([StudentUSI] ASC)
 GO
 
 ALTER TABLE [sedm].[IEPServicePrescription] WITH CHECK ADD CONSTRAINT [FK_IEPServicePrescription_StudentIEPAssociation] FOREIGN KEY ([IEPFinalizedDate], [IEPServicingEducationOrganizationId], [StudentIEPAssociationID], [StudentUSI])

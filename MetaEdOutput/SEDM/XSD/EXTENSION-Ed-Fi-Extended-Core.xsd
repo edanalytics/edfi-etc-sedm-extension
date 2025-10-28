@@ -85,6 +85,11 @@
     <xs:complexContent>
       <xs:extension base="ComplexObjectType">
         <xs:sequence>
+          <xs:element name="StudentReference" type="StudentReferenceType">
+            <xs:annotation>
+              <xs:documentation>A reference to the student.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
           <xs:element name="StudentIEPAssociationReference" type="EXTENSION-StudentIEPAssociationReferenceType">
             <xs:annotation>
               <xs:documentation>The student IEP for which the goal is prescribed.</xs:documentation>
@@ -137,6 +142,11 @@
     <xs:complexContent>
       <xs:extension base="ComplexObjectType">
         <xs:sequence>
+          <xs:element name="StudentReference" type="StudentReferenceType">
+            <xs:annotation>
+              <xs:documentation>A reference to the student.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
           <xs:element name="IEPServiceDeliveryID" type="EXTENSION-IEPServiceDeliveryID">
             <xs:annotation>
               <xs:documentation>A unique identifier assigned by the provider of IEP services for the delivery record.</xs:documentation>
@@ -202,6 +212,11 @@
     <xs:complexContent>
       <xs:extension base="ComplexObjectType">
         <xs:sequence>
+          <xs:element name="StudentReference" type="StudentReferenceType">
+            <xs:annotation>
+              <xs:documentation>A reference to the student.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
           <xs:element name="StudentIEPAssociationReference" type="EXTENSION-StudentIEPAssociationReferenceType">
             <xs:annotation>
               <xs:documentation>The student IEP for which the service is prescribed.</xs:documentation>
@@ -293,14 +308,14 @@
     <xs:complexContent>
       <xs:extension base="ComplexObjectType">
         <xs:sequence>
-          <xs:element name="StudentIEPAssociationReference" type="EXTENSION-StudentIEPAssociationReferenceType">
-            <xs:annotation>
-              <xs:documentation>The student IEP for which the accommodations are prescribed.</xs:documentation>
-            </xs:annotation>
-          </xs:element>
           <xs:element name="StudentReference" type="StudentReferenceType">
             <xs:annotation>
               <xs:documentation>A reference to the student.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="StudentIEPAssociationReference" type="EXTENSION-StudentIEPAssociationReferenceType">
+            <xs:annotation>
+              <xs:documentation>The student IEP for which the accommodations are prescribed.</xs:documentation>
             </xs:annotation>
           </xs:element>
           <xs:element name="IEPServicingEducationOrganizationReference" type="EducationOrganizationReferenceType">
@@ -330,14 +345,14 @@
     <xs:complexContent>
       <xs:extension base="ComplexObjectType">
         <xs:sequence>
-          <xs:element name="StudentIEPAssociationReference" type="EXTENSION-StudentIEPAssociationReferenceType">
-            <xs:annotation>
-              <xs:documentation>The student IEP for which the disability is prescribed.</xs:documentation>
-            </xs:annotation>
-          </xs:element>
           <xs:element name="StudentReference" type="StudentReferenceType">
             <xs:annotation>
               <xs:documentation>A reference to the student.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="StudentIEPAssociationReference" type="EXTENSION-StudentIEPAssociationReferenceType">
+            <xs:annotation>
+              <xs:documentation>The student IEP for which the disability is prescribed.</xs:documentation>
             </xs:annotation>
           </xs:element>
           <xs:element name="IEPServicingEducationOrganizationReference" type="EducationOrganizationReferenceType">
@@ -664,6 +679,11 @@
       </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
+      <xs:element name="StudentReference" type="StudentReferenceType">
+        <xs:annotation>
+          <xs:documentation>A reference to the student.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
       <xs:element name="StudentIEPAssociationReference" type="EXTENSION-StudentIEPAssociationReferenceType">
         <xs:annotation>
           <xs:documentation>The student IEP for which the goal is prescribed.</xs:documentation>
@@ -703,6 +723,11 @@
       </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
+      <xs:element name="StudentReference" type="StudentReferenceType">
+        <xs:annotation>
+          <xs:documentation>A reference to the student.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
       <xs:element name="IEPServiceDeliveryID" type="EXTENSION-IEPServiceDeliveryID">
         <xs:annotation>
           <xs:documentation>A unique identifier assigned by the provider of IEP services for the delivery record.</xs:documentation>
@@ -755,6 +780,11 @@
       </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
+      <xs:element name="StudentReference" type="StudentReferenceType">
+        <xs:annotation>
+          <xs:documentation>A reference to the student.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
       <xs:element name="StudentIEPAssociationReference" type="EXTENSION-StudentIEPAssociationReferenceType">
         <xs:annotation>
           <xs:documentation>The student IEP for which the service is prescribed.</xs:documentation>
@@ -802,14 +832,14 @@
       </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="StudentIEPAssociationReference" type="EXTENSION-StudentIEPAssociationReferenceType">
-        <xs:annotation>
-          <xs:documentation>The student IEP for which the accommodations are prescribed.</xs:documentation>
-        </xs:annotation>
-      </xs:element>
       <xs:element name="StudentReference" type="StudentReferenceType">
         <xs:annotation>
           <xs:documentation>A reference to the student.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="StudentIEPAssociationReference" type="EXTENSION-StudentIEPAssociationReferenceType">
+        <xs:annotation>
+          <xs:documentation>The student IEP for which the accommodations are prescribed.</xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element name="IEPServicingEducationOrganizationReference" type="EducationOrganizationReferenceType">
@@ -895,14 +925,14 @@
       </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="StudentIEPAssociationReference" type="EXTENSION-StudentIEPAssociationReferenceType">
-        <xs:annotation>
-          <xs:documentation>The student IEP for which the disability is prescribed.</xs:documentation>
-        </xs:annotation>
-      </xs:element>
       <xs:element name="StudentReference" type="StudentReferenceType">
         <xs:annotation>
           <xs:documentation>A reference to the student.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="StudentIEPAssociationReference" type="EXTENSION-StudentIEPAssociationReferenceType">
+        <xs:annotation>
+          <xs:documentation>The student IEP for which the disability is prescribed.</xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element name="IEPServicingEducationOrganizationReference" type="EducationOrganizationReferenceType">

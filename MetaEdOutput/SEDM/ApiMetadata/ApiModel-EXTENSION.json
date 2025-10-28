@@ -2815,6 +2815,66 @@
     {
       "fullName": {
         "schema": "sedm",
+        "name": "FK_IEPGoal_Student"
+      },
+      "cardinality": "OneToZeroOrMore",
+      "primaryEntityFullName": {
+        "schema": "edfi",
+        "name": "Student"
+      },
+      "primaryEntityProperties": [
+        {
+          "propertyName": "StudentUSI",
+          "propertyType": {
+            "dbType": "Int32",
+            "maxLength": 0,
+            "precision": 10,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "A unique alphanumeric code assigned to a student.",
+          "isIdentifying": true,
+          "isServerAssigned": true,
+          "columnNames": {
+            "sqlServer": "StudentUSI",
+            "postgreSql": "StudentUSI"
+          }
+        }
+      ],
+      "secondaryEntityFullName": {
+        "schema": "sedm",
+        "name": "IEPGoal"
+      },
+      "secondaryEntityProperties": [
+        {
+          "propertyName": "StudentUSI",
+          "propertyType": {
+            "dbType": "Int32",
+            "maxLength": 0,
+            "precision": 10,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "A unique alphanumeric code assigned to a student.",
+          "isIdentifying": true,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "StudentUSI",
+            "postgreSql": "StudentUSI"
+          }
+        }
+      ],
+      "isIdentifying": true,
+      "isRequired": true,
+      "constraintNames": {
+        "sqlServer": "FK_IEPGoal_Student",
+        "postgreSql": "FK_dcdf59_Student"
+      },
+      "potentiallyLogical": false
+    },
+    {
+      "fullName": {
+        "schema": "sedm",
         "name": "FK_IEPGoal_StudentIEPAssociation"
       },
       "cardinality": "OneToZeroOrMore",
@@ -3615,6 +3675,66 @@
       "constraintNames": {
         "sqlServer": "FK_IEPServiceDelivery_Staff",
         "postgreSql": "FK_35f795_Staff"
+      },
+      "potentiallyLogical": false
+    },
+    {
+      "fullName": {
+        "schema": "sedm",
+        "name": "FK_IEPServiceDelivery_Student"
+      },
+      "cardinality": "OneToZeroOrMore",
+      "primaryEntityFullName": {
+        "schema": "edfi",
+        "name": "Student"
+      },
+      "primaryEntityProperties": [
+        {
+          "propertyName": "StudentUSI",
+          "propertyType": {
+            "dbType": "Int32",
+            "maxLength": 0,
+            "precision": 10,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "A unique alphanumeric code assigned to a student.",
+          "isIdentifying": true,
+          "isServerAssigned": true,
+          "columnNames": {
+            "sqlServer": "StudentUSI",
+            "postgreSql": "StudentUSI"
+          }
+        }
+      ],
+      "secondaryEntityFullName": {
+        "schema": "sedm",
+        "name": "IEPServiceDelivery"
+      },
+      "secondaryEntityProperties": [
+        {
+          "propertyName": "StudentUSI",
+          "propertyType": {
+            "dbType": "Int32",
+            "maxLength": 0,
+            "precision": 10,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "A unique alphanumeric code assigned to a student.",
+          "isIdentifying": true,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "StudentUSI",
+            "postgreSql": "StudentUSI"
+          }
+        }
+      ],
+      "isIdentifying": true,
+      "isRequired": true,
+      "constraintNames": {
+        "sqlServer": "FK_IEPServiceDelivery_Student",
+        "postgreSql": "FK_35f795_Student"
       },
       "potentiallyLogical": false
     },
@@ -4577,6 +4697,66 @@
       "constraintNames": {
         "sqlServer": "FK_IEPServicePrescription_Staff",
         "postgreSql": "FK_3d4921_Staff"
+      },
+      "potentiallyLogical": false
+    },
+    {
+      "fullName": {
+        "schema": "sedm",
+        "name": "FK_IEPServicePrescription_Student"
+      },
+      "cardinality": "OneToZeroOrMore",
+      "primaryEntityFullName": {
+        "schema": "edfi",
+        "name": "Student"
+      },
+      "primaryEntityProperties": [
+        {
+          "propertyName": "StudentUSI",
+          "propertyType": {
+            "dbType": "Int32",
+            "maxLength": 0,
+            "precision": 10,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "A unique alphanumeric code assigned to a student.",
+          "isIdentifying": true,
+          "isServerAssigned": true,
+          "columnNames": {
+            "sqlServer": "StudentUSI",
+            "postgreSql": "StudentUSI"
+          }
+        }
+      ],
+      "secondaryEntityFullName": {
+        "schema": "sedm",
+        "name": "IEPServicePrescription"
+      },
+      "secondaryEntityProperties": [
+        {
+          "propertyName": "StudentUSI",
+          "propertyType": {
+            "dbType": "Int32",
+            "maxLength": 0,
+            "precision": 10,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "A unique alphanumeric code assigned to a student.",
+          "isIdentifying": true,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "StudentUSI",
+            "postgreSql": "StudentUSI"
+          }
+        }
+      ],
+      "isIdentifying": true,
+      "isRequired": true,
+      "constraintNames": {
+        "sqlServer": "FK_IEPServicePrescription_Student",
+        "postgreSql": "FK_3d4921_Student"
       },
       "potentiallyLogical": false
     },

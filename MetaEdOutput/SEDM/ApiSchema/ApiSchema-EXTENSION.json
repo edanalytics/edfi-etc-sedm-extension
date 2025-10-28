@@ -851,6 +851,19 @@
               "path": "$.iepGoalID",
               "type": "string"
             },
+            "Student": {
+              "isDescriptor": false,
+              "isReference": true,
+              "projectName": "SEDM",
+              "referenceJsonPaths": [
+                {
+                  "identityJsonPath": "$.studentUniqueId",
+                  "referenceJsonPath": "$.studentReference.studentUniqueId",
+                  "type": "string"
+                }
+              ],
+              "resourceName": "Student"
+            },
             "StudentIEPAssociation": {
               "isDescriptor": false,
               "isReference": true,
@@ -882,8 +895,12 @@
           },
           "equalityConstraints": [
             {
+              "sourceJsonPath": "$.studentIEPAssociationReference.studentUniqueId",
+              "targetJsonPath": "$.studentReference.studentUniqueId"
+            },
+            {
               "sourceJsonPath": "$.ideaEventReference.studentUniqueId",
-              "targetJsonPath": "$.studentIEPAssociationReference.studentUniqueId"
+              "targetJsonPath": "$.studentReference.studentUniqueId"
             }
           ],
           "identityJsonPaths": [
@@ -891,7 +908,8 @@
             "$.studentIEPAssociationReference.educationOrganizationId",
             "$.studentIEPAssociationReference.iepFinalizedDate",
             "$.studentIEPAssociationReference.studentIEPAssociationID",
-            "$.studentIEPAssociationReference.studentUniqueId"
+            "$.studentIEPAssociationReference.studentUniqueId",
+            "$.studentReference.studentUniqueId"
           ],
           "isDescriptor": false,
           "isResourceExtension": false,
@@ -992,9 +1010,25 @@
                   "studentIEPAssociationID"
                 ],
                 "type": "object"
+              },
+              "studentReference": {
+                "additionalProperties": false,
+                "properties": {
+                  "studentUniqueId": {
+                    "description": "A unique alphanumeric code assigned to a student.",
+                    "maxLength": 32,
+                    "pattern": "^(?!\\s)(.*\\S)$",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "studentUniqueId"
+                ],
+                "type": "object"
               }
             },
             "required": [
+              "studentReference",
               "studentIEPAssociationReference",
               "iepGoalID",
               "iepGoalDescriptor",
@@ -1177,6 +1211,11 @@
                   "identityJsonPath": "$.studentIEPAssociationReference.studentUniqueId",
                   "referenceJsonPath": "$.iepServicePrescriptionReference.studentUniqueId",
                   "type": "string"
+                },
+                {
+                  "identityJsonPath": "$.studentReference.studentUniqueId",
+                  "referenceJsonPath": "$.iepServicePrescriptionReference.studentUniqueId",
+                  "type": "string"
                 }
               ],
               "resourceName": "IEPServicePrescription"
@@ -1215,6 +1254,19 @@
               "resourceName": "ServiceProviderDescriptor",
               "type": "string"
             },
+            "Student": {
+              "isDescriptor": false,
+              "isReference": true,
+              "projectName": "SEDM",
+              "referenceJsonPaths": [
+                {
+                  "identityJsonPath": "$.studentUniqueId",
+                  "referenceJsonPath": "$.studentReference.studentUniqueId",
+                  "type": "string"
+                }
+              ],
+              "resourceName": "Student"
+            },
             "StudentIEPAssociation": {
               "isDescriptor": false,
               "isReference": true,
@@ -1246,12 +1298,16 @@
           },
           "equalityConstraints": [
             {
+              "sourceJsonPath": "$.studentIEPAssociationReference.studentUniqueId",
+              "targetJsonPath": "$.studentReference.studentUniqueId"
+            },
+            {
               "sourceJsonPath": "$.iepServicePrescriptionReference.studentUniqueId",
-              "targetJsonPath": "$.studentIEPAssociationReference.studentUniqueId"
+              "targetJsonPath": "$.studentReference.studentUniqueId"
             },
             {
               "sourceJsonPath": "$.ideaEventReference.studentUniqueId",
-              "targetJsonPath": "$.studentIEPAssociationReference.studentUniqueId"
+              "targetJsonPath": "$.studentReference.studentUniqueId"
             },
             {
               "sourceJsonPath": "$.studentIEPAssociationReference.iepFinalizedDate",
@@ -1273,7 +1329,8 @@
             "$.studentIEPAssociationReference.educationOrganizationId",
             "$.studentIEPAssociationReference.iepFinalizedDate",
             "$.studentIEPAssociationReference.studentIEPAssociationID",
-            "$.studentIEPAssociationReference.studentUniqueId"
+            "$.studentIEPAssociationReference.studentUniqueId",
+            "$.studentReference.studentUniqueId"
           ],
           "isDescriptor": false,
           "isResourceExtension": false,
@@ -1402,9 +1459,9 @@
                 "required": [
                   "servicePrescriptionDescriptor",
                   "servicePrescriptionDate",
+                  "studentUniqueId",
                   "iepFinalizedDate",
                   "educationOrganizationId",
-                  "studentUniqueId",
                   "studentIEPAssociationID"
                 ],
                 "type": "object"
@@ -1469,9 +1526,25 @@
                   "studentIEPAssociationID"
                 ],
                 "type": "object"
+              },
+              "studentReference": {
+                "additionalProperties": false,
+                "properties": {
+                  "studentUniqueId": {
+                    "description": "A unique alphanumeric code assigned to a student.",
+                    "maxLength": 32,
+                    "pattern": "^(?!\\s)(.*\\S)$",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "studentUniqueId"
+                ],
+                "type": "object"
               }
             },
             "required": [
+              "studentReference",
               "iepServiceDeliveryID",
               "studentIEPAssociationReference",
               "serviceDeliveryDescriptor",
@@ -1685,6 +1758,19 @@
               ],
               "resourceName": "Staff"
             },
+            "Student": {
+              "isDescriptor": false,
+              "isReference": true,
+              "projectName": "SEDM",
+              "referenceJsonPaths": [
+                {
+                  "identityJsonPath": "$.studentUniqueId",
+                  "referenceJsonPath": "$.studentReference.studentUniqueId",
+                  "type": "string"
+                }
+              ],
+              "resourceName": "Student"
+            },
             "StudentIEPAssociation": {
               "isDescriptor": false,
               "isReference": true,
@@ -1716,8 +1802,12 @@
           },
           "equalityConstraints": [
             {
+              "sourceJsonPath": "$.studentIEPAssociationReference.studentUniqueId",
+              "targetJsonPath": "$.studentReference.studentUniqueId"
+            },
+            {
               "sourceJsonPath": "$.ideaEventReference.studentUniqueId",
-              "targetJsonPath": "$.studentIEPAssociationReference.studentUniqueId"
+              "targetJsonPath": "$.studentReference.studentUniqueId"
             }
           ],
           "identityJsonPaths": [
@@ -1726,7 +1816,8 @@
             "$.studentIEPAssociationReference.educationOrganizationId",
             "$.studentIEPAssociationReference.iepFinalizedDate",
             "$.studentIEPAssociationReference.studentIEPAssociationID",
-            "$.studentIEPAssociationReference.studentUniqueId"
+            "$.studentIEPAssociationReference.studentUniqueId",
+            "$.studentReference.studentUniqueId"
           ],
           "isDescriptor": false,
           "isResourceExtension": false,
@@ -1868,9 +1959,25 @@
                   "studentIEPAssociationID"
                 ],
                 "type": "object"
+              },
+              "studentReference": {
+                "additionalProperties": false,
+                "properties": {
+                  "studentUniqueId": {
+                    "description": "A unique alphanumeric code assigned to a student.",
+                    "maxLength": 32,
+                    "pattern": "^(?!\\s)(.*\\S)$",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "studentUniqueId"
+                ],
+                "type": "object"
               }
             },
             "required": [
+              "studentReference",
               "studentIEPAssociationReference",
               "servicePrescriptionDescriptor",
               "servicePrescriptionDate",
@@ -2757,8 +2864,8 @@
               }
             },
             "required": [
-              "studentIEPAssociationReference",
               "studentReference",
+              "studentIEPAssociationReference",
               "iepServicingEducationOrganizationReference",
               "s"
             ],
@@ -2790,7 +2897,7 @@
             ],
             "studentUniqueId": [
               {
-                "path": "$.studentReference.studentUniqueId",
+                "path": "$.studentIEPAssociationReference.studentUniqueId",
                 "type": "string"
               }
             ]
@@ -3421,8 +3528,8 @@
               }
             },
             "required": [
-              "studentIEPAssociationReference",
               "studentReference",
+              "studentIEPAssociationReference",
               "iepServicingEducationOrganizationReference",
               "s"
             ],
@@ -3455,7 +3562,7 @@
             ],
             "studentUniqueId": [
               {
-                "path": "$.studentReference.studentUniqueId",
+                "path": "$.studentIEPAssociationReference.studentUniqueId",
                 "type": "string"
               }
             ]

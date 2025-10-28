@@ -66,6 +66,10 @@ REFERENCES sedm.IEPGoalDescriptor (IEPGoalDescriptorId)
 CREATE INDEX FK_dcdf59_IEPGoalDescriptor
 ON sedm.IEPGoal (IEPGoalDescriptorId ASC);
 
+ALTER TABLE sedm.IEPGoal ADD CONSTRAINT FK_dcdf59_Student FOREIGN KEY (StudentUSI)
+REFERENCES edfi.Student (StudentUSI)
+;
+
 ALTER TABLE sedm.IEPGoal ADD CONSTRAINT FK_dcdf59_StudentIEPAssociation FOREIGN KEY (IEPFinalizedDate, IEPServicingEducationOrganizationId, StudentIEPAssociationID, StudentUSI)
 REFERENCES sedm.StudentIEPAssociation (IEPFinalizedDate, IEPServicingEducationOrganizationId, StudentIEPAssociationID, StudentUSI)
 ;
@@ -112,6 +116,13 @@ REFERENCES edfi.Staff (StaffUSI)
 
 CREATE INDEX FK_35f795_Staff
 ON sedm.IEPServiceDelivery (ServiceDeliveryStaffUSI ASC);
+
+ALTER TABLE sedm.IEPServiceDelivery ADD CONSTRAINT FK_35f795_Student FOREIGN KEY (StudentUSI)
+REFERENCES edfi.Student (StudentUSI)
+;
+
+CREATE INDEX FK_35f795_Student
+ON sedm.IEPServiceDelivery (StudentUSI ASC);
 
 ALTER TABLE sedm.IEPServiceDelivery ADD CONSTRAINT FK_35f795_StudentIEPAssociation FOREIGN KEY (IEPFinalizedDate, IEPServicingEducationOrganizationId, StudentIEPAssociationID, StudentUSI)
 REFERENCES sedm.StudentIEPAssociation (IEPFinalizedDate, IEPServicingEducationOrganizationId, StudentIEPAssociationID, StudentUSI)
@@ -173,6 +184,13 @@ REFERENCES edfi.Staff (StaffUSI)
 
 CREATE INDEX FK_3d4921_Staff
 ON sedm.IEPServicePrescription (StaffUSI ASC);
+
+ALTER TABLE sedm.IEPServicePrescription ADD CONSTRAINT FK_3d4921_Student FOREIGN KEY (StudentUSI)
+REFERENCES edfi.Student (StudentUSI)
+;
+
+CREATE INDEX FK_3d4921_Student
+ON sedm.IEPServicePrescription (StudentUSI ASC);
 
 ALTER TABLE sedm.IEPServicePrescription ADD CONSTRAINT FK_3d4921_StudentIEPAssociation FOREIGN KEY (IEPFinalizedDate, IEPServicingEducationOrganizationId, StudentIEPAssociationID, StudentUSI)
 REFERENCES sedm.StudentIEPAssociation (IEPFinalizedDate, IEPServicingEducationOrganizationId, StudentIEPAssociationID, StudentUSI)

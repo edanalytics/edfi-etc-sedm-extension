@@ -1,8 +1,12 @@
 Domain Entity IEPGoal
     documentation "A goal prescribed to a student as part of their IEP."
+    domain entity EdFi.Student
+        documentation "A reference to the student."
+        is part of identity
     association StudentIEPAssociation
         documentation "The student IEP for which the goal is prescribed."
         is part of identity
+        merge StudentIEPAssociation.Student.StudentUniqueId with Student.StudentUniqueId
     string IEPGoalID
         documentation "A unique identifier assigned by the provider of IEP services."
         is part of identity
@@ -23,4 +27,4 @@ Domain Entity IEPGoal
     domain entity IDEAEvent
         documentation "The IDEA event related to setting and achieving this goal."
         is optional
-        merge IDEAEvent.Student.StudentUniqueId with StudentIEPAssociation.Student.StudentUniqueId
+        merge IDEAEvent.Student.StudentUniqueId with Student.StudentUniqueId

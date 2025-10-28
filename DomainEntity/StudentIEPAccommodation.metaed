@@ -1,12 +1,12 @@
 Domain Entity StudentIEPAccommodation
     documentation "The accommodations prescribed to a student as part of their IEP."
+    domain entity EdFi.Student
+        documentation "A reference to the student."
+        is part of identity
     association StudentIEPAssociation
         documentation "The student IEP for which the accommodations are prescribed."
         is part of identity
         merge StudentIEPAssociation.Student.StudentUniqueId with Student.StudentUniqueId
-    domain entity EdFi.Student
-        documentation "A reference to the student."
-        is part of identity
     domain entity EdFi.EducationOrganization
         documentation "The identifier assigned to the education organization (usually District/LEA) providing IEP Services."
         is part of identity
