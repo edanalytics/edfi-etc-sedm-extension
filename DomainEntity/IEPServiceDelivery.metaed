@@ -9,7 +9,7 @@ Domain Entity IEPServiceDelivery
         max length 1024
     association StudentIEPAssociation
         documentation "The student and IEP associated with the delivery of prescribed services."
-        is part of identity
+        is required
         merge StudentIEPAssociation.Student.StudentUniqueId with Student.StudentUniqueId
     descriptor ServiceDelivery 
         documentation "The type of services delivered to the student."
@@ -20,7 +20,7 @@ Domain Entity IEPServiceDelivery
     domain entity IEPServicePrescription
         documentation "Identifies the service prescribed for the student."
         is optional
-        merge IEPServicePrescription.StudentIEPAssociation.Student.StudentUniqueId with Student.StudentUniqueId
+        merge IEPServicePrescription.Student.StudentUniqueId with Student.StudentUniqueId
     descriptor ServiceProvider
         documentation "Indicates service provider type, including specialist, internal staff, external staff, etc."
         is optional

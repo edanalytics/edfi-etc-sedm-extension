@@ -53,13 +53,7 @@ GO
 -- Extended Properties [sedm].[IEPGoal] --
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A goal prescribed to a student as part of their IEP.', @level0type=N'SCHEMA', @level0name=N'sedm', @level1type=N'TABLE', @level1name=N'IEPGoal'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date the most recent IEP was finalized.  Note: Date interpretation may vary. Ed-Fi recommends inclusive dates, but states may define dates as inclusive or exclusive. For calculations, align with local guidelines.', @level0type=N'SCHEMA', @level0name=N'sedm', @level1type=N'TABLE', @level1name=N'IEPGoal', @level2type=N'COLUMN', @level2name=N'IEPFinalizedDate'
-GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique identifier assigned by the provider of IEP services.', @level0type=N'SCHEMA', @level0name=N'sedm', @level1type=N'TABLE', @level1name=N'IEPGoal', @level2type=N'COLUMN', @level2name=N'IEPGoalID'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to an education organization.', @level0type=N'SCHEMA', @level0name=N'sedm', @level1type=N'TABLE', @level1name=N'IEPGoal', @level2type=N'COLUMN', @level2name=N'IEPServicingEducationOrganizationId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique identifier assigned by the provider or source system of IEP services.', @level0type=N'SCHEMA', @level0name=N'sedm', @level1type=N'TABLE', @level1name=N'IEPGoal', @level2type=N'COLUMN', @level2name=N'StudentIEPAssociationID'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a student.', @level0type=N'SCHEMA', @level0name=N'sedm', @level1type=N'TABLE', @level1name=N'IEPGoal', @level2type=N'COLUMN', @level2name=N'StudentUSI'
 GO
@@ -73,9 +67,15 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The IDEA event
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique identifier for the event record as assigned by the provider of IEP services.', @level0type=N'SCHEMA', @level0name=N'sedm', @level1type=N'TABLE', @level1name=N'IEPGoal', @level2type=N'COLUMN', @level2name=N'IDEAEventID'
 GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date the most recent IEP was finalized.  Note: Date interpretation may vary. Ed-Fi recommends inclusive dates, but states may define dates as inclusive or exclusive. For calculations, align with local guidelines.', @level0type=N'SCHEMA', @level0name=N'sedm', @level1type=N'TABLE', @level1name=N'IEPGoal', @level2type=N'COLUMN', @level2name=N'IEPFinalizedDate'
+GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A focused goal prescribed as part of the IEP. Examples include Academic Goal, Behavioral Goal, Attendance Goal.', @level0type=N'SCHEMA', @level0name=N'sedm', @level1type=N'TABLE', @level1name=N'IEPGoal', @level2type=N'COLUMN', @level2name=N'IEPGoalDescriptorId'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Instructions or other details specific to the student and/or provider for achieving the stated goal.', @level0type=N'SCHEMA', @level0name=N'sedm', @level1type=N'TABLE', @level1name=N'IEPGoal', @level2type=N'COLUMN', @level2name=N'IEPGoalDetails'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to an education organization.', @level0type=N'SCHEMA', @level0name=N'sedm', @level1type=N'TABLE', @level1name=N'IEPGoal', @level2type=N'COLUMN', @level2name=N'IEPServicingEducationOrganizationId'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique identifier assigned by the provider or source system of IEP services.', @level0type=N'SCHEMA', @level0name=N'sedm', @level1type=N'TABLE', @level1name=N'IEPGoal', @level2type=N'COLUMN', @level2name=N'StudentIEPAssociationID'
 GO
 
 -- Extended Properties [sedm].[IEPGoalDescriptor] --
@@ -87,17 +87,11 @@ GO
 -- Extended Properties [sedm].[IEPServiceDelivery] --
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Services delivered to a student as prescribed by their IEP.', @level0type=N'SCHEMA', @level0name=N'sedm', @level1type=N'TABLE', @level1name=N'IEPServiceDelivery'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date the most recent IEP was finalized.  Note: Date interpretation may vary. Ed-Fi recommends inclusive dates, but states may define dates as inclusive or exclusive. For calculations, align with local guidelines.', @level0type=N'SCHEMA', @level0name=N'sedm', @level1type=N'TABLE', @level1name=N'IEPServiceDelivery', @level2type=N'COLUMN', @level2name=N'IEPFinalizedDate'
-GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique identifier assigned by the provider of IEP services for the delivery record.', @level0type=N'SCHEMA', @level0name=N'sedm', @level1type=N'TABLE', @level1name=N'IEPServiceDelivery', @level2type=N'COLUMN', @level2name=N'IEPServiceDeliveryID'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to an education organization.', @level0type=N'SCHEMA', @level0name=N'sedm', @level1type=N'TABLE', @level1name=N'IEPServiceDelivery', @level2type=N'COLUMN', @level2name=N'IEPServicingEducationOrganizationId'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date when prescribed services were delivered for a student.', @level0type=N'SCHEMA', @level0name=N'sedm', @level1type=N'TABLE', @level1name=N'IEPServiceDelivery', @level2type=N'COLUMN', @level2name=N'ServiceDeliveryDate'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The type of services delivered to the student.', @level0type=N'SCHEMA', @level0name=N'sedm', @level1type=N'TABLE', @level1name=N'IEPServiceDelivery', @level2type=N'COLUMN', @level2name=N'ServiceDeliveryDescriptorId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique identifier assigned by the provider or source system of IEP services.', @level0type=N'SCHEMA', @level0name=N'sedm', @level1type=N'TABLE', @level1name=N'IEPServiceDelivery', @level2type=N'COLUMN', @level2name=N'StudentIEPAssociationID'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a student.', @level0type=N'SCHEMA', @level0name=N'sedm', @level1type=N'TABLE', @level1name=N'IEPServiceDelivery', @level2type=N'COLUMN', @level2name=N'StudentUSI'
 GO
@@ -107,6 +101,10 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The IDEA event
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique identifier for the event record as assigned by the provider of IEP services.', @level0type=N'SCHEMA', @level0name=N'sedm', @level1type=N'TABLE', @level1name=N'IEPServiceDelivery', @level2type=N'COLUMN', @level2name=N'IDEAEventID'
 GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date the most recent IEP was finalized.  Note: Date interpretation may vary. Ed-Fi recommends inclusive dates, but states may define dates as inclusive or exclusive. For calculations, align with local guidelines.', @level0type=N'SCHEMA', @level0name=N'sedm', @level1type=N'TABLE', @level1name=N'IEPServiceDelivery', @level2type=N'COLUMN', @level2name=N'IEPFinalizedDate'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to an education organization.', @level0type=N'SCHEMA', @level0name=N'sedm', @level1type=N'TABLE', @level1name=N'IEPServiceDelivery', @level2type=N'COLUMN', @level2name=N'IEPServicingEducationOrganizationId'
+GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a staff.', @level0type=N'SCHEMA', @level0name=N'sedm', @level1type=N'TABLE', @level1name=N'IEPServiceDelivery', @level2type=N'COLUMN', @level2name=N'ServiceDeliveryStaffUSI'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date the service was prescribed.', @level0type=N'SCHEMA', @level0name=N'sedm', @level1type=N'TABLE', @level1name=N'IEPServiceDelivery', @level2type=N'COLUMN', @level2name=N'ServicePrescriptionDate'
@@ -115,21 +113,17 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The type of se
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Indicates service provider type, including specialist, internal staff, external staff, etc.', @level0type=N'SCHEMA', @level0name=N'sedm', @level1type=N'TABLE', @level1name=N'IEPServiceDelivery', @level2type=N'COLUMN', @level2name=N'ServiceProviderDescriptorId'
 GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique identifier assigned by the provider or source system of IEP services.', @level0type=N'SCHEMA', @level0name=N'sedm', @level1type=N'TABLE', @level1name=N'IEPServiceDelivery', @level2type=N'COLUMN', @level2name=N'StudentIEPAssociationID'
+GO
 
 -- Extended Properties [sedm].[IEPServiceDeliveryExternalServiceProvider] --
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The external service provider organization or individual that delivered the prescribed service to the student.', @level0type=N'SCHEMA', @level0name=N'sedm', @level1type=N'TABLE', @level1name=N'IEPServiceDeliveryExternalServiceProvider'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date the most recent IEP was finalized.  Note: Date interpretation may vary. Ed-Fi recommends inclusive dates, but states may define dates as inclusive or exclusive. For calculations, align with local guidelines.', @level0type=N'SCHEMA', @level0name=N'sedm', @level1type=N'TABLE', @level1name=N'IEPServiceDeliveryExternalServiceProvider', @level2type=N'COLUMN', @level2name=N'IEPFinalizedDate'
-GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique identifier assigned by the provider of IEP services for the delivery record.', @level0type=N'SCHEMA', @level0name=N'sedm', @level1type=N'TABLE', @level1name=N'IEPServiceDeliveryExternalServiceProvider', @level2type=N'COLUMN', @level2name=N'IEPServiceDeliveryID'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to an education organization.', @level0type=N'SCHEMA', @level0name=N'sedm', @level1type=N'TABLE', @level1name=N'IEPServiceDeliveryExternalServiceProvider', @level2type=N'COLUMN', @level2name=N'IEPServicingEducationOrganizationId'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date when prescribed services were delivered for a student.', @level0type=N'SCHEMA', @level0name=N'sedm', @level1type=N'TABLE', @level1name=N'IEPServiceDeliveryExternalServiceProvider', @level2type=N'COLUMN', @level2name=N'ServiceDeliveryDate'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The type of services delivered to the student.', @level0type=N'SCHEMA', @level0name=N'sedm', @level1type=N'TABLE', @level1name=N'IEPServiceDeliveryExternalServiceProvider', @level2type=N'COLUMN', @level2name=N'ServiceDeliveryDescriptorId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique identifier assigned by the provider or source system of IEP services.', @level0type=N'SCHEMA', @level0name=N'sedm', @level1type=N'TABLE', @level1name=N'IEPServiceDeliveryExternalServiceProvider', @level2type=N'COLUMN', @level2name=N'StudentIEPAssociationID'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a student.', @level0type=N'SCHEMA', @level0name=N'sedm', @level1type=N'TABLE', @level1name=N'IEPServiceDeliveryExternalServiceProvider', @level2type=N'COLUMN', @level2name=N'StudentUSI'
 GO
@@ -147,15 +141,9 @@ GO
 -- Extended Properties [sedm].[IEPServicePrescription] --
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The service prescribed to a student as part of their IEP.', @level0type=N'SCHEMA', @level0name=N'sedm', @level1type=N'TABLE', @level1name=N'IEPServicePrescription'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date the most recent IEP was finalized.  Note: Date interpretation may vary. Ed-Fi recommends inclusive dates, but states may define dates as inclusive or exclusive. For calculations, align with local guidelines.', @level0type=N'SCHEMA', @level0name=N'sedm', @level1type=N'TABLE', @level1name=N'IEPServicePrescription', @level2type=N'COLUMN', @level2name=N'IEPFinalizedDate'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to an education organization.', @level0type=N'SCHEMA', @level0name=N'sedm', @level1type=N'TABLE', @level1name=N'IEPServicePrescription', @level2type=N'COLUMN', @level2name=N'IEPServicingEducationOrganizationId'
-GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date the service was prescribed.', @level0type=N'SCHEMA', @level0name=N'sedm', @level1type=N'TABLE', @level1name=N'IEPServicePrescription', @level2type=N'COLUMN', @level2name=N'ServicePrescriptionDate'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The type of service prescribed. Examples include: Auditory Specialist, Vocational Therapy.', @level0type=N'SCHEMA', @level0name=N'sedm', @level1type=N'TABLE', @level1name=N'IEPServicePrescription', @level2type=N'COLUMN', @level2name=N'ServicePrescriptionDescriptorId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique identifier assigned by the provider or source system of IEP services.', @level0type=N'SCHEMA', @level0name=N'sedm', @level1type=N'TABLE', @level1name=N'IEPServicePrescription', @level2type=N'COLUMN', @level2name=N'StudentIEPAssociationID'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a student.', @level0type=N'SCHEMA', @level0name=N'sedm', @level1type=N'TABLE', @level1name=N'IEPServicePrescription', @level2type=N'COLUMN', @level2name=N'StudentUSI'
 GO
@@ -177,11 +165,17 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The IDEA event
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique identifier for the event record as assigned by the provider of IEP services.', @level0type=N'SCHEMA', @level0name=N'sedm', @level1type=N'TABLE', @level1name=N'IEPServicePrescription', @level2type=N'COLUMN', @level2name=N'IDEAEventID'
 GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date the most recent IEP was finalized.  Note: Date interpretation may vary. Ed-Fi recommends inclusive dates, but states may define dates as inclusive or exclusive. For calculations, align with local guidelines.', @level0type=N'SCHEMA', @level0name=N'sedm', @level1type=N'TABLE', @level1name=N'IEPServicePrescription', @level2type=N'COLUMN', @level2name=N'IEPFinalizedDate'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to an education organization.', @level0type=N'SCHEMA', @level0name=N'sedm', @level1type=N'TABLE', @level1name=N'IEPServicePrescription', @level2type=N'COLUMN', @level2name=N'IEPServicingEducationOrganizationId'
+GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The location type where the prescribed service is to be provided. Examples include: Home, Hospital, School.', @level0type=N'SCHEMA', @level0name=N'sedm', @level1type=N'TABLE', @level1name=N'IEPServicePrescription', @level2type=N'COLUMN', @level2name=N'ServiceLocationTypeDescriptorId'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to an education organization.', @level0type=N'SCHEMA', @level0name=N'sedm', @level1type=N'TABLE', @level1name=N'IEPServicePrescription', @level2type=N'COLUMN', @level2name=N'ServiceProvidingEducationOrganizationId'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a staff.', @level0type=N'SCHEMA', @level0name=N'sedm', @level1type=N'TABLE', @level1name=N'IEPServicePrescription', @level2type=N'COLUMN', @level2name=N'StaffUSI'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique identifier assigned by the provider or source system of IEP services.', @level0type=N'SCHEMA', @level0name=N'sedm', @level1type=N'TABLE', @level1name=N'IEPServicePrescription', @level2type=N'COLUMN', @level2name=N'StudentIEPAssociationID'
 GO
 
 -- Extended Properties [sedm].[IEPStatusDescriptor] --
@@ -229,23 +223,19 @@ GO
 -- Extended Properties [sedm].[StudentIEPAccommodation] --
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The accommodations prescribed to a student as part of their IEP.', @level0type=N'SCHEMA', @level0name=N'sedm', @level1type=N'TABLE', @level1name=N'StudentIEPAccommodation'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date the most recent IEP was finalized.  Note: Date interpretation may vary. Ed-Fi recommends inclusive dates, but states may define dates as inclusive or exclusive. For calculations, align with local guidelines.', @level0type=N'SCHEMA', @level0name=N'sedm', @level1type=N'TABLE', @level1name=N'StudentIEPAccommodation', @level2type=N'COLUMN', @level2name=N'IEPFinalizedDate'
-GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to an education organization.', @level0type=N'SCHEMA', @level0name=N'sedm', @level1type=N'TABLE', @level1name=N'StudentIEPAccommodation', @level2type=N'COLUMN', @level2name=N'IEPServicingEducationOrganizationId'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique identifier assigned by the provider or source system of IEP services.', @level0type=N'SCHEMA', @level0name=N'sedm', @level1type=N'TABLE', @level1name=N'StudentIEPAccommodation', @level2type=N'COLUMN', @level2name=N'StudentIEPAssociationID'
-GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a student.', @level0type=N'SCHEMA', @level0name=N'sedm', @level1type=N'TABLE', @level1name=N'StudentIEPAccommodation', @level2type=N'COLUMN', @level2name=N'StudentUSI'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date the most recent IEP was finalized.  Note: Date interpretation may vary. Ed-Fi recommends inclusive dates, but states may define dates as inclusive or exclusive. For calculations, align with local guidelines.', @level0type=N'SCHEMA', @level0name=N'sedm', @level1type=N'TABLE', @level1name=N'StudentIEPAccommodation', @level2type=N'COLUMN', @level2name=N'IEPFinalizedDate'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique identifier assigned by the provider or source system of IEP services.', @level0type=N'SCHEMA', @level0name=N'sedm', @level1type=N'TABLE', @level1name=N'StudentIEPAccommodation', @level2type=N'COLUMN', @level2name=N'StudentIEPAssociationID'
 GO
 
 -- Extended Properties [sedm].[StudentIEPAccommodation] --
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The special variation(s) to be used in how various services (in general) are presented, how they are administered, or how the student is allowed to respond. This generally refers to changes that do not substantially alter the content that the service renders. The proper use of accommodations does not substantially change academic level or performance criteria.', @level0type=N'SCHEMA', @level0name=N'sedm', @level1type=N'TABLE', @level1name=N'StudentIEPAccommodation'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date the most recent IEP was finalized.  Note: Date interpretation may vary. Ed-Fi recommends inclusive dates, but states may define dates as inclusive or exclusive. For calculations, align with local guidelines.', @level0type=N'SCHEMA', @level0name=N'sedm', @level1type=N'TABLE', @level1name=N'StudentIEPAccommodation', @level2type=N'COLUMN', @level2name=N'IEPFinalizedDate'
-GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to an education organization.', @level0type=N'SCHEMA', @level0name=N'sedm', @level1type=N'TABLE', @level1name=N'StudentIEPAccommodation', @level2type=N'COLUMN', @level2name=N'IEPServicingEducationOrganizationId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique identifier assigned by the provider or source system of IEP services.', @level0type=N'SCHEMA', @level0name=N'sedm', @level1type=N'TABLE', @level1name=N'StudentIEPAccommodation', @level2type=N'COLUMN', @level2name=N'StudentIEPAssociationID'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a student.', @level0type=N'SCHEMA', @level0name=N'sedm', @level1type=N'TABLE', @level1name=N'StudentIEPAccommodation', @level2type=N'COLUMN', @level2name=N'StudentUSI'
 GO
@@ -305,23 +295,19 @@ GO
 -- Extended Properties [sedm].[StudentIEPDisability] --
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The disabilities prescribed to a student as part of their IEP.', @level0type=N'SCHEMA', @level0name=N'sedm', @level1type=N'TABLE', @level1name=N'StudentIEPDisability'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date the most recent IEP was finalized.  Note: Date interpretation may vary. Ed-Fi recommends inclusive dates, but states may define dates as inclusive or exclusive. For calculations, align with local guidelines.', @level0type=N'SCHEMA', @level0name=N'sedm', @level1type=N'TABLE', @level1name=N'StudentIEPDisability', @level2type=N'COLUMN', @level2name=N'IEPFinalizedDate'
-GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to an education organization.', @level0type=N'SCHEMA', @level0name=N'sedm', @level1type=N'TABLE', @level1name=N'StudentIEPDisability', @level2type=N'COLUMN', @level2name=N'IEPServicingEducationOrganizationId'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique identifier assigned by the provider or source system of IEP services.', @level0type=N'SCHEMA', @level0name=N'sedm', @level1type=N'TABLE', @level1name=N'StudentIEPDisability', @level2type=N'COLUMN', @level2name=N'StudentIEPAssociationID'
-GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a student.', @level0type=N'SCHEMA', @level0name=N'sedm', @level1type=N'TABLE', @level1name=N'StudentIEPDisability', @level2type=N'COLUMN', @level2name=N'StudentUSI'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date the most recent IEP was finalized.  Note: Date interpretation may vary. Ed-Fi recommends inclusive dates, but states may define dates as inclusive or exclusive. For calculations, align with local guidelines.', @level0type=N'SCHEMA', @level0name=N'sedm', @level1type=N'TABLE', @level1name=N'StudentIEPDisability', @level2type=N'COLUMN', @level2name=N'IEPFinalizedDate'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique identifier assigned by the provider or source system of IEP services.', @level0type=N'SCHEMA', @level0name=N'sedm', @level1type=N'TABLE', @level1name=N'StudentIEPDisability', @level2type=N'COLUMN', @level2name=N'StudentIEPAssociationID'
 GO
 
 -- Extended Properties [sedm].[StudentIEPDisability] --
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The disability condition(s) that best describes an individual''s impairment, as related to special education services received.', @level0type=N'SCHEMA', @level0name=N'sedm', @level1type=N'TABLE', @level1name=N'StudentIEPDisability'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date the most recent IEP was finalized.  Note: Date interpretation may vary. Ed-Fi recommends inclusive dates, but states may define dates as inclusive or exclusive. For calculations, align with local guidelines.', @level0type=N'SCHEMA', @level0name=N'sedm', @level1type=N'TABLE', @level1name=N'StudentIEPDisability', @level2type=N'COLUMN', @level2name=N'IEPFinalizedDate'
-GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to an education organization.', @level0type=N'SCHEMA', @level0name=N'sedm', @level1type=N'TABLE', @level1name=N'StudentIEPDisability', @level2type=N'COLUMN', @level2name=N'IEPServicingEducationOrganizationId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique identifier assigned by the provider or source system of IEP services.', @level0type=N'SCHEMA', @level0name=N'sedm', @level1type=N'TABLE', @level1name=N'StudentIEPDisability', @level2type=N'COLUMN', @level2name=N'StudentIEPAssociationID'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a student.', @level0type=N'SCHEMA', @level0name=N'sedm', @level1type=N'TABLE', @level1name=N'StudentIEPDisability', @level2type=N'COLUMN', @level2name=N'StudentUSI'
 GO
@@ -337,11 +323,7 @@ GO
 -- Extended Properties [sedm].[StudentIEPDisabilityDesignation] --
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Whether the disability is IDEA, Section 504, or other disability designation.', @level0type=N'SCHEMA', @level0name=N'sedm', @level1type=N'TABLE', @level1name=N'StudentIEPDisabilityDesignation'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date the most recent IEP was finalized.  Note: Date interpretation may vary. Ed-Fi recommends inclusive dates, but states may define dates as inclusive or exclusive. For calculations, align with local guidelines.', @level0type=N'SCHEMA', @level0name=N'sedm', @level1type=N'TABLE', @level1name=N'StudentIEPDisabilityDesignation', @level2type=N'COLUMN', @level2name=N'IEPFinalizedDate'
-GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to an education organization.', @level0type=N'SCHEMA', @level0name=N'sedm', @level1type=N'TABLE', @level1name=N'StudentIEPDisabilityDesignation', @level2type=N'COLUMN', @level2name=N'IEPServicingEducationOrganizationId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique identifier assigned by the provider or source system of IEP services.', @level0type=N'SCHEMA', @level0name=N'sedm', @level1type=N'TABLE', @level1name=N'StudentIEPDisabilityDesignation', @level2type=N'COLUMN', @level2name=N'StudentIEPAssociationID'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a student.', @level0type=N'SCHEMA', @level0name=N'sedm', @level1type=N'TABLE', @level1name=N'StudentIEPDisabilityDesignation', @level2type=N'COLUMN', @level2name=N'StudentUSI'
 GO

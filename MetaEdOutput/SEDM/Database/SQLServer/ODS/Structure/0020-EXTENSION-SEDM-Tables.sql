@@ -75,27 +75,24 @@ GO
 
 -- Table [sedm].[IEPGoal] --
 CREATE TABLE [sedm].[IEPGoal] (
-    [IEPFinalizedDate] [DATE] NOT NULL,
-    [IEPGoalID] [NVARCHAR](30) NOT NULL,
-    [IEPServicingEducationOrganizationId] [BIGINT] NOT NULL,
-    [StudentIEPAssociationID] [NVARCHAR](1024) NOT NULL,
+    [IEPGoalID] [NVARCHAR](256) NOT NULL,
     [StudentUSI] [INT] NOT NULL,
     [EducationOrganizationId] [BIGINT] NULL,
     [GoalAchievementPeriodBeginDate] [DATE] NULL,
     [GoalAchievementPeriodEndDate] [DATE] NULL,
     [IDEAEventDescriptorId] [INT] NULL,
     [IDEAEventID] [NVARCHAR](1024) NULL,
+    [IEPFinalizedDate] [DATE] NOT NULL,
     [IEPGoalDescriptorId] [INT] NOT NULL,
     [IEPGoalDetails] [NVARCHAR](2048) NOT NULL,
+    [IEPServicingEducationOrganizationId] [BIGINT] NOT NULL,
+    [StudentIEPAssociationID] [NVARCHAR](1024) NOT NULL,
     [Discriminator] [NVARCHAR](128) NULL,
     [CreateDate] [DATETIME2] NOT NULL,
     [LastModifiedDate] [DATETIME2] NOT NULL,
     [Id] [UNIQUEIDENTIFIER] NOT NULL,
     CONSTRAINT [IEPGoal_PK] PRIMARY KEY CLUSTERED (
-        [IEPFinalizedDate] ASC,
         [IEPGoalID] ASC,
-        [IEPServicingEducationOrganizationId] ASC,
-        [StudentIEPAssociationID] ASC,
         [StudentUSI] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
@@ -118,31 +115,28 @@ GO
 
 -- Table [sedm].[IEPServiceDelivery] --
 CREATE TABLE [sedm].[IEPServiceDelivery] (
-    [IEPFinalizedDate] [DATE] NOT NULL,
     [IEPServiceDeliveryID] [NVARCHAR](1024) NOT NULL,
-    [IEPServicingEducationOrganizationId] [BIGINT] NOT NULL,
     [ServiceDeliveryDate] [DATE] NOT NULL,
     [ServiceDeliveryDescriptorId] [INT] NOT NULL,
-    [StudentIEPAssociationID] [NVARCHAR](1024) NOT NULL,
     [StudentUSI] [INT] NOT NULL,
     [EducationOrganizationId] [BIGINT] NULL,
     [IDEAEventDescriptorId] [INT] NULL,
     [IDEAEventID] [NVARCHAR](1024) NULL,
+    [IEPFinalizedDate] [DATE] NOT NULL,
+    [IEPServicingEducationOrganizationId] [BIGINT] NOT NULL,
     [ServiceDeliveryStaffUSI] [INT] NULL,
     [ServicePrescriptionDate] [DATE] NULL,
     [ServicePrescriptionDescriptorId] [INT] NULL,
     [ServiceProviderDescriptorId] [INT] NULL,
+    [StudentIEPAssociationID] [NVARCHAR](1024) NOT NULL,
     [Discriminator] [NVARCHAR](128) NULL,
     [CreateDate] [DATETIME2] NOT NULL,
     [LastModifiedDate] [DATETIME2] NOT NULL,
     [Id] [UNIQUEIDENTIFIER] NOT NULL,
     CONSTRAINT [IEPServiceDelivery_PK] PRIMARY KEY CLUSTERED (
-        [IEPFinalizedDate] ASC,
         [IEPServiceDeliveryID] ASC,
-        [IEPServicingEducationOrganizationId] ASC,
         [ServiceDeliveryDate] ASC,
         [ServiceDeliveryDescriptorId] ASC,
-        [StudentIEPAssociationID] ASC,
         [StudentUSI] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
@@ -156,12 +150,9 @@ GO
 
 -- Table [sedm].[IEPServiceDeliveryExternalServiceProvider] --
 CREATE TABLE [sedm].[IEPServiceDeliveryExternalServiceProvider] (
-    [IEPFinalizedDate] [DATE] NOT NULL,
     [IEPServiceDeliveryID] [NVARCHAR](1024) NOT NULL,
-    [IEPServicingEducationOrganizationId] [BIGINT] NOT NULL,
     [ServiceDeliveryDate] [DATE] NOT NULL,
     [ServiceDeliveryDescriptorId] [INT] NOT NULL,
-    [StudentIEPAssociationID] [NVARCHAR](1024) NOT NULL,
     [StudentUSI] [INT] NOT NULL,
     [ProviderCode] [NVARCHAR](1024) NOT NULL,
     [ProviderFirstName] [NVARCHAR](1024) NOT NULL,
@@ -170,12 +161,9 @@ CREATE TABLE [sedm].[IEPServiceDeliveryExternalServiceProvider] (
     [ProviderMiddleName] [NVARCHAR](1024) NULL,
     [CreateDate] [DATETIME2] NOT NULL,
     CONSTRAINT [IEPServiceDeliveryExternalServiceProvider_PK] PRIMARY KEY CLUSTERED (
-        [IEPFinalizedDate] ASC,
         [IEPServiceDeliveryID] ASC,
-        [IEPServicingEducationOrganizationId] ASC,
         [ServiceDeliveryDate] ASC,
         [ServiceDeliveryDescriptorId] ASC,
-        [StudentIEPAssociationID] ASC,
         [StudentUSI] ASC,
         [ProviderCode] ASC,
         [ProviderFirstName] ASC,
@@ -188,11 +176,8 @@ GO
 
 -- Table [sedm].[IEPServicePrescription] --
 CREATE TABLE [sedm].[IEPServicePrescription] (
-    [IEPFinalizedDate] [DATE] NOT NULL,
-    [IEPServicingEducationOrganizationId] [BIGINT] NOT NULL,
     [ServicePrescriptionDate] [DATE] NOT NULL,
     [ServicePrescriptionDescriptorId] [INT] NOT NULL,
-    [StudentIEPAssociationID] [NVARCHAR](1024) NOT NULL,
     [StudentUSI] [INT] NOT NULL,
     [BeginDate] [DATE] NOT NULL,
     [DurationMinutes] [DECIMAL](5, 2) NOT NULL,
@@ -203,19 +188,19 @@ CREATE TABLE [sedm].[IEPServicePrescription] (
     [FrequencyValue] [DECIMAL](5, 2) NOT NULL,
     [IDEAEventDescriptorId] [INT] NULL,
     [IDEAEventID] [NVARCHAR](1024) NULL,
+    [IEPFinalizedDate] [DATE] NOT NULL,
+    [IEPServicingEducationOrganizationId] [BIGINT] NOT NULL,
     [ServiceLocationTypeDescriptorId] [INT] NOT NULL,
     [ServiceProvidingEducationOrganizationId] [BIGINT] NULL,
     [StaffUSI] [INT] NULL,
+    [StudentIEPAssociationID] [NVARCHAR](1024) NOT NULL,
     [Discriminator] [NVARCHAR](128) NULL,
     [CreateDate] [DATETIME2] NOT NULL,
     [LastModifiedDate] [DATETIME2] NOT NULL,
     [Id] [UNIQUEIDENTIFIER] NOT NULL,
     CONSTRAINT [IEPServicePrescription_PK] PRIMARY KEY CLUSTERED (
-        [IEPFinalizedDate] ASC,
-        [IEPServicingEducationOrganizationId] ASC,
         [ServicePrescriptionDate] ASC,
         [ServicePrescriptionDescriptorId] ASC,
-        [StudentIEPAssociationID] ASC,
         [StudentUSI] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
@@ -292,18 +277,16 @@ GO
 
 -- Table [sedm].[StudentIEPAccommodation] --
 CREATE TABLE [sedm].[StudentIEPAccommodation] (
-    [IEPFinalizedDate] [DATE] NOT NULL,
     [IEPServicingEducationOrganizationId] [BIGINT] NOT NULL,
-    [StudentIEPAssociationID] [NVARCHAR](1024) NOT NULL,
     [StudentUSI] [INT] NOT NULL,
+    [IEPFinalizedDate] [DATE] NOT NULL,
+    [StudentIEPAssociationID] [NVARCHAR](1024) NOT NULL,
     [Discriminator] [NVARCHAR](128) NULL,
     [CreateDate] [DATETIME2] NOT NULL,
     [LastModifiedDate] [DATETIME2] NOT NULL,
     [Id] [UNIQUEIDENTIFIER] NOT NULL,
     CONSTRAINT [StudentIEPAccommodation_PK] PRIMARY KEY CLUSTERED (
-        [IEPFinalizedDate] ASC,
         [IEPServicingEducationOrganizationId] ASC,
-        [StudentIEPAssociationID] ASC,
         [StudentUSI] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
@@ -317,16 +300,12 @@ GO
 
 -- Table [sedm].[StudentIEPAccommodation] --
 CREATE TABLE [sedm].[StudentIEPAccommodation] (
-    [IEPFinalizedDate] [DATE] NOT NULL,
     [IEPServicingEducationOrganizationId] [BIGINT] NOT NULL,
-    [StudentIEPAssociationID] [NVARCHAR](1024) NOT NULL,
     [StudentUSI] [INT] NOT NULL,
     [AccommodationDescriptorId] [INT] NOT NULL,
     [CreateDate] [DATETIME2] NOT NULL,
     CONSTRAINT [StudentIEPAccommodation_PK] PRIMARY KEY CLUSTERED (
-        [IEPFinalizedDate] ASC,
         [IEPServicingEducationOrganizationId] ASC,
-        [StudentIEPAssociationID] ASC,
         [StudentUSI] ASC,
         [AccommodationDescriptorId] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
@@ -396,18 +375,16 @@ GO
 
 -- Table [sedm].[StudentIEPDisability] --
 CREATE TABLE [sedm].[StudentIEPDisability] (
-    [IEPFinalizedDate] [DATE] NOT NULL,
     [IEPServicingEducationOrganizationId] [BIGINT] NOT NULL,
-    [StudentIEPAssociationID] [NVARCHAR](1024) NOT NULL,
     [StudentUSI] [INT] NOT NULL,
+    [IEPFinalizedDate] [DATE] NOT NULL,
+    [StudentIEPAssociationID] [NVARCHAR](1024) NOT NULL,
     [Discriminator] [NVARCHAR](128) NULL,
     [CreateDate] [DATETIME2] NOT NULL,
     [LastModifiedDate] [DATETIME2] NOT NULL,
     [Id] [UNIQUEIDENTIFIER] NOT NULL,
     CONSTRAINT [StudentIEPDisability_PK] PRIMARY KEY CLUSTERED (
-        [IEPFinalizedDate] ASC,
         [IEPServicingEducationOrganizationId] ASC,
-        [StudentIEPAssociationID] ASC,
         [StudentUSI] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
@@ -421,9 +398,7 @@ GO
 
 -- Table [sedm].[StudentIEPDisability] --
 CREATE TABLE [sedm].[StudentIEPDisability] (
-    [IEPFinalizedDate] [DATE] NOT NULL,
     [IEPServicingEducationOrganizationId] [BIGINT] NOT NULL,
-    [StudentIEPAssociationID] [NVARCHAR](1024) NOT NULL,
     [StudentUSI] [INT] NOT NULL,
     [DisabilityDescriptorId] [INT] NOT NULL,
     [DisabilityDeterminationSourceTypeDescriptorId] [INT] NULL,
@@ -431,9 +406,7 @@ CREATE TABLE [sedm].[StudentIEPDisability] (
     [OrderOfDisability] [INT] NULL,
     [CreateDate] [DATETIME2] NOT NULL,
     CONSTRAINT [StudentIEPDisability_PK] PRIMARY KEY CLUSTERED (
-        [IEPFinalizedDate] ASC,
         [IEPServicingEducationOrganizationId] ASC,
-        [StudentIEPAssociationID] ASC,
         [StudentUSI] ASC,
         [DisabilityDescriptorId] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
@@ -444,17 +417,13 @@ GO
 
 -- Table [sedm].[StudentIEPDisabilityDesignation] --
 CREATE TABLE [sedm].[StudentIEPDisabilityDesignation] (
-    [IEPFinalizedDate] [DATE] NOT NULL,
     [IEPServicingEducationOrganizationId] [BIGINT] NOT NULL,
-    [StudentIEPAssociationID] [NVARCHAR](1024) NOT NULL,
     [StudentUSI] [INT] NOT NULL,
     [DisabilityDescriptorId] [INT] NOT NULL,
     [DisabilityDesignationDescriptorId] [INT] NOT NULL,
     [CreateDate] [DATETIME2] NOT NULL,
     CONSTRAINT [StudentIEPDisabilityDesignation_PK] PRIMARY KEY CLUSTERED (
-        [IEPFinalizedDate] ASC,
         [IEPServicingEducationOrganizationId] ASC,
-        [StudentIEPAssociationID] ASC,
         [StudentUSI] ASC,
         [DisabilityDescriptorId] ASC,
         [DisabilityDesignationDescriptorId] ASC

@@ -5,7 +5,7 @@ Domain Entity StudentIEPDisability
         is part of identity
     association StudentIEPAssociation
         documentation "The student IEP for which the disability is prescribed."
-        is part of identity
+        is required
         merge StudentIEPAssociation.Student.StudentUniqueId with Student.StudentUniqueId
     domain entity EdFi.EducationOrganization
         documentation "The identifier assigned to the education organization (usually District/LEA) providing IEP Services."

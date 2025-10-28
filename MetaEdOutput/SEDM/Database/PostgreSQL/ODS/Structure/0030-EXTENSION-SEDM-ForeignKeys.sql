@@ -89,12 +89,12 @@ REFERENCES sedm.IDEAEvent (EducationOrganizationId, IDEAEventDescriptorId, IDEAE
 CREATE INDEX FK_35f795_IDEAEvent
 ON sedm.IEPServiceDelivery (EducationOrganizationId ASC, IDEAEventDescriptorId ASC, IDEAEventID ASC, StudentUSI ASC);
 
-ALTER TABLE sedm.IEPServiceDelivery ADD CONSTRAINT FK_35f795_IEPServicePrescription FOREIGN KEY (IEPFinalizedDate, IEPServicingEducationOrganizationId, ServicePrescriptionDate, ServicePrescriptionDescriptorId, StudentIEPAssociationID, StudentUSI)
-REFERENCES sedm.IEPServicePrescription (IEPFinalizedDate, IEPServicingEducationOrganizationId, ServicePrescriptionDate, ServicePrescriptionDescriptorId, StudentIEPAssociationID, StudentUSI)
+ALTER TABLE sedm.IEPServiceDelivery ADD CONSTRAINT FK_35f795_IEPServicePrescription FOREIGN KEY (ServicePrescriptionDate, ServicePrescriptionDescriptorId, StudentUSI)
+REFERENCES sedm.IEPServicePrescription (ServicePrescriptionDate, ServicePrescriptionDescriptorId, StudentUSI)
 ;
 
 CREATE INDEX FK_35f795_IEPServicePrescription
-ON sedm.IEPServiceDelivery (IEPFinalizedDate ASC, IEPServicingEducationOrganizationId ASC, ServicePrescriptionDate ASC, ServicePrescriptionDescriptorId ASC, StudentIEPAssociationID ASC, StudentUSI ASC);
+ON sedm.IEPServiceDelivery (ServicePrescriptionDate ASC, ServicePrescriptionDescriptorId ASC, StudentUSI ASC);
 
 ALTER TABLE sedm.IEPServiceDelivery ADD CONSTRAINT FK_35f795_ServiceDeliveryDescriptor FOREIGN KEY (ServiceDeliveryDescriptorId)
 REFERENCES sedm.ServiceDeliveryDescriptor (ServiceDeliveryDescriptorId)
@@ -131,8 +131,8 @@ REFERENCES sedm.StudentIEPAssociation (IEPFinalizedDate, IEPServicingEducationOr
 CREATE INDEX FK_35f795_StudentIEPAssociation
 ON sedm.IEPServiceDelivery (IEPFinalizedDate ASC, IEPServicingEducationOrganizationId ASC, StudentIEPAssociationID ASC, StudentUSI ASC);
 
-ALTER TABLE sedm.IEPServiceDeliveryExternalServiceProvider ADD CONSTRAINT FK_1f5076_IEPServiceDelivery FOREIGN KEY (IEPFinalizedDate, IEPServiceDeliveryID, IEPServicingEducationOrganizationId, ServiceDeliveryDate, ServiceDeliveryDescriptorId, StudentIEPAssociationID, StudentUSI)
-REFERENCES sedm.IEPServiceDelivery (IEPFinalizedDate, IEPServiceDeliveryID, IEPServicingEducationOrganizationId, ServiceDeliveryDate, ServiceDeliveryDescriptorId, StudentIEPAssociationID, StudentUSI)
+ALTER TABLE sedm.IEPServiceDeliveryExternalServiceProvider ADD CONSTRAINT FK_1f5076_IEPServiceDelivery FOREIGN KEY (IEPServiceDeliveryID, ServiceDeliveryDate, ServiceDeliveryDescriptorId, StudentUSI)
+REFERENCES sedm.IEPServiceDelivery (IEPServiceDeliveryID, ServiceDeliveryDate, ServiceDeliveryDescriptorId, StudentUSI)
 ON DELETE CASCADE
 ;
 
@@ -249,6 +249,9 @@ ALTER TABLE sedm.StudentIEPAccommodation ADD CONSTRAINT FK_9be3b5_StudentIEPAsso
 REFERENCES sedm.StudentIEPAssociation (IEPFinalizedDate, IEPServicingEducationOrganizationId, StudentIEPAssociationID, StudentUSI)
 ;
 
+CREATE INDEX FK_9be3b5_StudentIEPAssociation
+ON sedm.StudentIEPAccommodation (IEPFinalizedDate ASC, IEPServicingEducationOrganizationId ASC, StudentIEPAssociationID ASC, StudentUSI ASC);
+
 ALTER TABLE sedm.StudentIEPAccommodation ADD CONSTRAINT FK_d47c83_AccommodationDescriptor FOREIGN KEY (AccommodationDescriptorId)
 REFERENCES edfi.AccommodationDescriptor (AccommodationDescriptorId)
 ;
@@ -256,8 +259,8 @@ REFERENCES edfi.AccommodationDescriptor (AccommodationDescriptorId)
 CREATE INDEX FK_d47c83_AccommodationDescriptor
 ON sedm.StudentIEPAccommodation (AccommodationDescriptorId ASC);
 
-ALTER TABLE sedm.StudentIEPAccommodation ADD CONSTRAINT FK_d47c83_StudentIEPAccommodation FOREIGN KEY (IEPFinalizedDate, IEPServicingEducationOrganizationId, StudentIEPAssociationID, StudentUSI)
-REFERENCES sedm.StudentIEPAccommodation (IEPFinalizedDate, IEPServicingEducationOrganizationId, StudentIEPAssociationID, StudentUSI)
+ALTER TABLE sedm.StudentIEPAccommodation ADD CONSTRAINT FK_d47c83_StudentIEPAccommodation FOREIGN KEY (IEPServicingEducationOrganizationId, StudentUSI)
+REFERENCES sedm.StudentIEPAccommodation (IEPServicingEducationOrganizationId, StudentUSI)
 ON DELETE CASCADE
 ;
 
@@ -320,6 +323,9 @@ ALTER TABLE sedm.StudentIEPDisability ADD CONSTRAINT FK_9fbb10_StudentIEPAssocia
 REFERENCES sedm.StudentIEPAssociation (IEPFinalizedDate, IEPServicingEducationOrganizationId, StudentIEPAssociationID, StudentUSI)
 ;
 
+CREATE INDEX FK_9fbb10_StudentIEPAssociation
+ON sedm.StudentIEPDisability (IEPFinalizedDate ASC, IEPServicingEducationOrganizationId ASC, StudentIEPAssociationID ASC, StudentUSI ASC);
+
 ALTER TABLE sedm.StudentIEPDisability ADD CONSTRAINT FK_1a487a_DisabilityDescriptor FOREIGN KEY (DisabilityDescriptorId)
 REFERENCES edfi.DisabilityDescriptor (DisabilityDescriptorId)
 ;
@@ -334,8 +340,8 @@ REFERENCES edfi.DisabilityDeterminationSourceTypeDescriptor (DisabilityDetermina
 CREATE INDEX FK_1a487a_DisabilityDeterminationSourceTypeDescriptor
 ON sedm.StudentIEPDisability (DisabilityDeterminationSourceTypeDescriptorId ASC);
 
-ALTER TABLE sedm.StudentIEPDisability ADD CONSTRAINT FK_1a487a_StudentIEPDisability FOREIGN KEY (IEPFinalizedDate, IEPServicingEducationOrganizationId, StudentIEPAssociationID, StudentUSI)
-REFERENCES sedm.StudentIEPDisability (IEPFinalizedDate, IEPServicingEducationOrganizationId, StudentIEPAssociationID, StudentUSI)
+ALTER TABLE sedm.StudentIEPDisability ADD CONSTRAINT FK_1a487a_StudentIEPDisability FOREIGN KEY (IEPServicingEducationOrganizationId, StudentUSI)
+REFERENCES sedm.StudentIEPDisability (IEPServicingEducationOrganizationId, StudentUSI)
 ON DELETE CASCADE
 ;
 
@@ -346,8 +352,8 @@ REFERENCES edfi.DisabilityDesignationDescriptor (DisabilityDesignationDescriptor
 CREATE INDEX FK_9ad1d8_DisabilityDesignationDescriptor
 ON sedm.StudentIEPDisabilityDesignation (DisabilityDesignationDescriptorId ASC);
 
-ALTER TABLE sedm.StudentIEPDisabilityDesignation ADD CONSTRAINT FK_9ad1d8_StudentIEPDisability FOREIGN KEY (IEPFinalizedDate, IEPServicingEducationOrganizationId, StudentIEPAssociationID, StudentUSI, DisabilityDescriptorId)
-REFERENCES sedm.StudentIEPDisability (IEPFinalizedDate, IEPServicingEducationOrganizationId, StudentIEPAssociationID, StudentUSI, DisabilityDescriptorId)
+ALTER TABLE sedm.StudentIEPDisabilityDesignation ADD CONSTRAINT FK_9ad1d8_StudentIEPDisability FOREIGN KEY (IEPServicingEducationOrganizationId, StudentUSI, DisabilityDescriptorId)
+REFERENCES sedm.StudentIEPDisability (IEPServicingEducationOrganizationId, StudentUSI, DisabilityDescriptorId)
 ON DELETE CASCADE
 ;
 

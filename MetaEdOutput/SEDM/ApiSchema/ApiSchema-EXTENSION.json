@@ -905,10 +905,6 @@
           ],
           "identityJsonPaths": [
             "$.iepGoalID",
-            "$.studentIEPAssociationReference.educationOrganizationId",
-            "$.studentIEPAssociationReference.iepFinalizedDate",
-            "$.studentIEPAssociationReference.studentIEPAssociationID",
-            "$.studentIEPAssociationReference.studentUniqueId",
             "$.studentReference.studentUniqueId"
           ],
           "isDescriptor": false,
@@ -974,7 +970,7 @@
               },
               "iepGoalID": {
                 "description": "A unique identifier assigned by the provider of IEP services.",
-                "maxLength": 30,
+                "maxLength": 256,
                 "pattern": "^(?!\\s)(.*\\S)$",
                 "type": "string"
               },
@@ -1029,8 +1025,8 @@
             },
             "required": [
               "studentReference",
-              "studentIEPAssociationReference",
               "iepGoalID",
+              "studentIEPAssociationReference",
               "iepGoalDescriptor",
               "iepGoalDetails"
             ],
@@ -1193,26 +1189,6 @@
                   "type": "string"
                 },
                 {
-                  "identityJsonPath": "$.studentIEPAssociationReference.educationOrganizationId",
-                  "referenceJsonPath": "$.iepServicePrescriptionReference.educationOrganizationId",
-                  "type": "number"
-                },
-                {
-                  "identityJsonPath": "$.studentIEPAssociationReference.iepFinalizedDate",
-                  "referenceJsonPath": "$.iepServicePrescriptionReference.iepFinalizedDate",
-                  "type": "date"
-                },
-                {
-                  "identityJsonPath": "$.studentIEPAssociationReference.studentIEPAssociationID",
-                  "referenceJsonPath": "$.iepServicePrescriptionReference.studentIEPAssociationID",
-                  "type": "string"
-                },
-                {
-                  "identityJsonPath": "$.studentIEPAssociationReference.studentUniqueId",
-                  "referenceJsonPath": "$.iepServicePrescriptionReference.studentUniqueId",
-                  "type": "string"
-                },
-                {
                   "identityJsonPath": "$.studentReference.studentUniqueId",
                   "referenceJsonPath": "$.iepServicePrescriptionReference.studentUniqueId",
                   "type": "string"
@@ -1308,28 +1284,12 @@
             {
               "sourceJsonPath": "$.ideaEventReference.studentUniqueId",
               "targetJsonPath": "$.studentReference.studentUniqueId"
-            },
-            {
-              "sourceJsonPath": "$.studentIEPAssociationReference.iepFinalizedDate",
-              "targetJsonPath": "$.iepServicePrescriptionReference.iepFinalizedDate"
-            },
-            {
-              "sourceJsonPath": "$.studentIEPAssociationReference.educationOrganizationId",
-              "targetJsonPath": "$.iepServicePrescriptionReference.educationOrganizationId"
-            },
-            {
-              "sourceJsonPath": "$.studentIEPAssociationReference.studentIEPAssociationID",
-              "targetJsonPath": "$.iepServicePrescriptionReference.studentIEPAssociationID"
             }
           ],
           "identityJsonPaths": [
             "$.iepServiceDeliveryID",
             "$.serviceDeliveryDate",
             "$.serviceDeliveryDescriptor",
-            "$.studentIEPAssociationReference.educationOrganizationId",
-            "$.studentIEPAssociationReference.iepFinalizedDate",
-            "$.studentIEPAssociationReference.studentIEPAssociationID",
-            "$.studentIEPAssociationReference.studentUniqueId",
             "$.studentReference.studentUniqueId"
           ],
           "isDescriptor": false,
@@ -1425,15 +1385,6 @@
               "iepServicePrescriptionReference": {
                 "additionalProperties": false,
                 "properties": {
-                  "educationOrganizationId": {
-                    "description": "The identifier assigned to an education organization.",
-                    "type": "integer"
-                  },
-                  "iepFinalizedDate": {
-                    "description": "The date the most recent IEP was finalized.  Note: Date interpretation may vary. Ed-Fi recommends inclusive dates, but states may define dates as inclusive or exclusive. For calculations, align with local guidelines.",
-                    "format": "date",
-                    "type": "string"
-                  },
                   "servicePrescriptionDate": {
                     "description": "The date the service was prescribed.",
                     "format": "date",
@@ -1441,12 +1392,6 @@
                   },
                   "servicePrescriptionDescriptor": {
                     "description": "The type of service prescribed. Examples include: Auditory Specialist, Vocational Therapy.",
-                    "type": "string"
-                  },
-                  "studentIEPAssociationID": {
-                    "description": "A unique identifier assigned by the provider or source system of IEP services.",
-                    "maxLength": 1024,
-                    "pattern": "^(?!\\s)(.*\\S)$",
                     "type": "string"
                   },
                   "studentUniqueId": {
@@ -1459,10 +1404,7 @@
                 "required": [
                   "servicePrescriptionDescriptor",
                   "servicePrescriptionDate",
-                  "studentUniqueId",
-                  "iepFinalizedDate",
-                  "educationOrganizationId",
-                  "studentIEPAssociationID"
+                  "studentUniqueId"
                 ],
                 "type": "object"
               },
@@ -1555,7 +1497,6 @@
           },
           "numericJsonPaths": [
             "$.ideaEventReference.educationOrganizationId",
-            "$.iepServicePrescriptionReference.educationOrganizationId",
             "$.studentIEPAssociationReference.educationOrganizationId"
           ],
           "queryFieldMapping": {
@@ -1579,7 +1520,7 @@
             ],
             "iepFinalizedDate": [
               {
-                "path": "$.iepServicePrescriptionReference.iepFinalizedDate",
+                "path": "$.studentIEPAssociationReference.iepFinalizedDate",
                 "type": "date"
               }
             ],
@@ -1627,7 +1568,7 @@
             ],
             "studentIEPAssociationID": [
               {
-                "path": "$.iepServicePrescriptionReference.studentIEPAssociationID",
+                "path": "$.studentIEPAssociationReference.studentIEPAssociationID",
                 "type": "string"
               }
             ],
@@ -1813,10 +1754,6 @@
           "identityJsonPaths": [
             "$.servicePrescriptionDate",
             "$.servicePrescriptionDescriptor",
-            "$.studentIEPAssociationReference.educationOrganizationId",
-            "$.studentIEPAssociationReference.iepFinalizedDate",
-            "$.studentIEPAssociationReference.studentIEPAssociationID",
-            "$.studentIEPAssociationReference.studentUniqueId",
             "$.studentReference.studentUniqueId"
           ],
           "isDescriptor": false,
@@ -2768,10 +2705,6 @@
           ],
           "identityJsonPaths": [
             "$.iepServicingEducationOrganizationReference.educationOrganizationId",
-            "$.studentIEPAssociationReference.educationOrganizationId",
-            "$.studentIEPAssociationReference.iepFinalizedDate",
-            "$.studentIEPAssociationReference.studentIEPAssociationID",
-            "$.studentIEPAssociationReference.studentUniqueId",
             "$.studentReference.studentUniqueId"
           ],
           "isDescriptor": false,
@@ -3401,10 +3334,6 @@
           ],
           "identityJsonPaths": [
             "$.iepServicingEducationOrganizationReference.educationOrganizationId",
-            "$.studentIEPAssociationReference.educationOrganizationId",
-            "$.studentIEPAssociationReference.iepFinalizedDate",
-            "$.studentIEPAssociationReference.studentIEPAssociationID",
-            "$.studentIEPAssociationReference.studentUniqueId",
             "$.studentReference.studentUniqueId"
           ],
           "isDescriptor": false,

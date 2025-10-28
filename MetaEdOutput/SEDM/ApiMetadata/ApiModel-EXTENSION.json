@@ -656,7 +656,7 @@
           "propertyType": {
             "dbType": "String",
             "minLength": 0,
-            "maxLength": 30,
+            "maxLength": 256,
             "precision": 0,
             "scale": 0,
             "isNullable": false
@@ -691,10 +691,7 @@
         {
           "identifierName": "IEPGoal_PK",
           "identifyingPropertyNames": [
-            "IEPFinalizedDate",
             "IEPGoalID",
-            "IEPServicingEducationOrganizationId",
-            "StudentIEPAssociationID",
             "StudentUSI"
           ],
           "isPrimary": true,
@@ -845,12 +842,9 @@
         {
           "identifierName": "IEPServiceDelivery_PK",
           "identifyingPropertyNames": [
-            "IEPFinalizedDate",
             "IEPServiceDeliveryID",
-            "IEPServicingEducationOrganizationId",
             "ServiceDeliveryDate",
             "ServiceDeliveryDescriptorId",
-            "StudentIEPAssociationID",
             "StudentUSI"
           ],
           "isPrimary": true,
@@ -996,12 +990,9 @@
         {
           "identifierName": "IEPServiceDeliveryExternalServiceProvider_PK",
           "identifyingPropertyNames": [
-            "IEPFinalizedDate",
             "IEPServiceDeliveryID",
-            "IEPServicingEducationOrganizationId",
             "ServiceDeliveryDate",
             "ServiceDeliveryDescriptorId",
-            "StudentIEPAssociationID",
             "StudentUSI",
             "ProviderCode",
             "ProviderFirstName",
@@ -1170,11 +1161,8 @@
         {
           "identifierName": "IEPServicePrescription_PK",
           "identifyingPropertyNames": [
-            "IEPFinalizedDate",
-            "IEPServicingEducationOrganizationId",
             "ServicePrescriptionDate",
             "ServicePrescriptionDescriptorId",
-            "StudentIEPAssociationID",
             "StudentUSI"
           ],
           "isPrimary": true,
@@ -1405,9 +1393,7 @@
         {
           "identifierName": "StudentIEPAccommodation_PK",
           "identifyingPropertyNames": [
-            "IEPFinalizedDate",
             "IEPServicingEducationOrganizationId",
-            "StudentIEPAssociationID",
             "StudentUSI",
             "AccommodationDescriptorId"
           ],
@@ -1452,9 +1438,7 @@
         {
           "identifierName": "StudentIEPAccommodation_PK",
           "identifyingPropertyNames": [
-            "IEPFinalizedDate",
             "IEPServicingEducationOrganizationId",
-            "StudentIEPAssociationID",
             "StudentUSI",
             "AccommodationDescriptorId"
           ],
@@ -1835,9 +1819,7 @@
         {
           "identifierName": "StudentIEPDisability_PK",
           "identifyingPropertyNames": [
-            "IEPFinalizedDate",
             "IEPServicingEducationOrganizationId",
-            "StudentIEPAssociationID",
             "StudentUSI",
             "DisabilityDescriptorId"
           ],
@@ -1917,9 +1899,7 @@
         {
           "identifierName": "StudentIEPDisability_PK",
           "identifyingPropertyNames": [
-            "IEPFinalizedDate",
             "IEPServicingEducationOrganizationId",
-            "StudentIEPAssociationID",
             "StudentUSI",
             "DisabilityDescriptorId"
           ],
@@ -1964,9 +1944,7 @@
         {
           "identifierName": "StudentIEPDisabilityDesignation_PK",
           "identifyingPropertyNames": [
-            "IEPFinalizedDate",
             "IEPServicingEducationOrganizationId",
-            "StudentIEPAssociationID",
             "StudentUSI",
             "DisabilityDescriptorId",
             "DisabilityDesignationDescriptorId"
@@ -2894,7 +2872,7 @@
             "isNullable": false
           },
           "description": "The date the most recent IEP was finalized.  Note: Date interpretation may vary. Ed-Fi recommends inclusive dates, but states may define dates as inclusive or exclusive. For calculations, align with local guidelines.",
-          "isIdentifying": true,
+          "isIdentifying": false,
           "isServerAssigned": false,
           "columnNames": {
             "sqlServer": "IEPFinalizedDate",
@@ -2911,7 +2889,7 @@
             "isNullable": false
           },
           "description": "The identifier assigned to an education organization.",
-          "isIdentifying": true,
+          "isIdentifying": false,
           "isServerAssigned": false,
           "columnNames": {
             "sqlServer": "IEPServicingEducationOrganizationId",
@@ -2929,7 +2907,7 @@
             "isNullable": false
           },
           "description": "A unique identifier assigned by the provider or source system of IEP services.",
-          "isIdentifying": true,
+          "isIdentifying": false,
           "isServerAssigned": false,
           "columnNames": {
             "sqlServer": "StudentIEPAssociationID",
@@ -2946,7 +2924,7 @@
             "isNullable": false
           },
           "description": "A unique alphanumeric code assigned to a student.",
-          "isIdentifying": true,
+          "isIdentifying": false,
           "isServerAssigned": false,
           "columnNames": {
             "sqlServer": "StudentUSI",
@@ -2970,7 +2948,7 @@
             "isNullable": false
           },
           "description": "The date the most recent IEP was finalized.  Note: Date interpretation may vary. Ed-Fi recommends inclusive dates, but states may define dates as inclusive or exclusive. For calculations, align with local guidelines.",
-          "isIdentifying": true,
+          "isIdentifying": false,
           "isServerAssigned": false,
           "columnNames": {
             "sqlServer": "IEPFinalizedDate",
@@ -2987,7 +2965,7 @@
             "isNullable": false
           },
           "description": "The identifier assigned to an education organization.",
-          "isIdentifying": true,
+          "isIdentifying": false,
           "isServerAssigned": false,
           "columnNames": {
             "sqlServer": "IEPServicingEducationOrganizationId",
@@ -3005,7 +2983,7 @@
             "isNullable": false
           },
           "description": "A unique identifier assigned by the provider or source system of IEP services.",
-          "isIdentifying": true,
+          "isIdentifying": false,
           "isServerAssigned": false,
           "columnNames": {
             "sqlServer": "StudentIEPAssociationID",
@@ -3022,7 +3000,7 @@
             "isNullable": false
           },
           "description": "A unique alphanumeric code assigned to a student.",
-          "isIdentifying": true,
+          "isIdentifying": false,
           "isServerAssigned": false,
           "columnNames": {
             "sqlServer": "StudentUSI",
@@ -3030,7 +3008,7 @@
           }
         }
       ],
-      "isIdentifying": true,
+      "isIdentifying": false,
       "isRequired": true,
       "constraintNames": {
         "sqlServer": "FK_IEPGoal_StudentIEPAssociation",
@@ -3274,41 +3252,6 @@
       },
       "primaryEntityProperties": [
         {
-          "propertyName": "IEPFinalizedDate",
-          "propertyType": {
-            "dbType": "Date",
-            "minLength": 0,
-            "maxLength": 0,
-            "precision": 0,
-            "scale": 0,
-            "isNullable": false
-          },
-          "description": "The date the most recent IEP was finalized.  Note: Date interpretation may vary. Ed-Fi recommends inclusive dates, but states may define dates as inclusive or exclusive. For calculations, align with local guidelines.",
-          "isIdentifying": false,
-          "isServerAssigned": false,
-          "columnNames": {
-            "sqlServer": "IEPFinalizedDate",
-            "postgreSql": "IEPFinalizedDate"
-          }
-        },
-        {
-          "propertyName": "IEPServicingEducationOrganizationId",
-          "propertyType": {
-            "dbType": "Int64",
-            "maxLength": 0,
-            "precision": 10,
-            "scale": 0,
-            "isNullable": false
-          },
-          "description": "The identifier assigned to an education organization.",
-          "isIdentifying": false,
-          "isServerAssigned": false,
-          "columnNames": {
-            "sqlServer": "IEPServicingEducationOrganizationId",
-            "postgreSql": "IEPServicingEducationOrganizationId"
-          }
-        },
-        {
           "propertyName": "ServicePrescriptionDate",
           "propertyType": {
             "dbType": "Date",
@@ -3341,24 +3284,6 @@
           "columnNames": {
             "sqlServer": "ServicePrescriptionDescriptorId",
             "postgreSql": "ServicePrescriptionDescriptorId"
-          }
-        },
-        {
-          "propertyName": "StudentIEPAssociationID",
-          "propertyType": {
-            "dbType": "String",
-            "minLength": 0,
-            "maxLength": 1024,
-            "precision": 0,
-            "scale": 0,
-            "isNullable": false
-          },
-          "description": "A unique identifier assigned by the provider or source system of IEP services.",
-          "isIdentifying": false,
-          "isServerAssigned": false,
-          "columnNames": {
-            "sqlServer": "StudentIEPAssociationID",
-            "postgreSql": "StudentIEPAssociationID"
           }
         },
         {
@@ -3385,41 +3310,6 @@
       },
       "secondaryEntityProperties": [
         {
-          "propertyName": "IEPFinalizedDate",
-          "propertyType": {
-            "dbType": "Date",
-            "minLength": 0,
-            "maxLength": 0,
-            "precision": 0,
-            "scale": 0,
-            "isNullable": false
-          },
-          "description": "The date the most recent IEP was finalized.  Note: Date interpretation may vary. Ed-Fi recommends inclusive dates, but states may define dates as inclusive or exclusive. For calculations, align with local guidelines.",
-          "isIdentifying": false,
-          "isServerAssigned": false,
-          "columnNames": {
-            "sqlServer": "IEPFinalizedDate",
-            "postgreSql": "IEPFinalizedDate"
-          }
-        },
-        {
-          "propertyName": "IEPServicingEducationOrganizationId",
-          "propertyType": {
-            "dbType": "Int64",
-            "maxLength": 0,
-            "precision": 10,
-            "scale": 0,
-            "isNullable": false
-          },
-          "description": "The identifier assigned to an education organization.",
-          "isIdentifying": false,
-          "isServerAssigned": false,
-          "columnNames": {
-            "sqlServer": "IEPServicingEducationOrganizationId",
-            "postgreSql": "IEPServicingEducationOrganizationId"
-          }
-        },
-        {
           "propertyName": "ServicePrescriptionDate",
           "propertyType": {
             "dbType": "Date",
@@ -3452,24 +3342,6 @@
           "columnNames": {
             "sqlServer": "ServicePrescriptionDescriptorId",
             "postgreSql": "ServicePrescriptionDescriptorId"
-          }
-        },
-        {
-          "propertyName": "StudentIEPAssociationID",
-          "propertyType": {
-            "dbType": "String",
-            "minLength": 0,
-            "maxLength": 1024,
-            "precision": 0,
-            "scale": 0,
-            "isNullable": false
-          },
-          "description": "A unique identifier assigned by the provider or source system of IEP services.",
-          "isIdentifying": false,
-          "isServerAssigned": false,
-          "columnNames": {
-            "sqlServer": "StudentIEPAssociationID",
-            "postgreSql": "StudentIEPAssociationID"
           }
         },
         {
@@ -3760,7 +3632,7 @@
             "isNullable": false
           },
           "description": "The date the most recent IEP was finalized.  Note: Date interpretation may vary. Ed-Fi recommends inclusive dates, but states may define dates as inclusive or exclusive. For calculations, align with local guidelines.",
-          "isIdentifying": true,
+          "isIdentifying": false,
           "isServerAssigned": false,
           "columnNames": {
             "sqlServer": "IEPFinalizedDate",
@@ -3777,7 +3649,7 @@
             "isNullable": false
           },
           "description": "The identifier assigned to an education organization.",
-          "isIdentifying": true,
+          "isIdentifying": false,
           "isServerAssigned": false,
           "columnNames": {
             "sqlServer": "IEPServicingEducationOrganizationId",
@@ -3795,7 +3667,7 @@
             "isNullable": false
           },
           "description": "A unique identifier assigned by the provider or source system of IEP services.",
-          "isIdentifying": true,
+          "isIdentifying": false,
           "isServerAssigned": false,
           "columnNames": {
             "sqlServer": "StudentIEPAssociationID",
@@ -3812,7 +3684,7 @@
             "isNullable": false
           },
           "description": "A unique alphanumeric code assigned to a student.",
-          "isIdentifying": true,
+          "isIdentifying": false,
           "isServerAssigned": false,
           "columnNames": {
             "sqlServer": "StudentUSI",
@@ -3836,7 +3708,7 @@
             "isNullable": false
           },
           "description": "The date the most recent IEP was finalized.  Note: Date interpretation may vary. Ed-Fi recommends inclusive dates, but states may define dates as inclusive or exclusive. For calculations, align with local guidelines.",
-          "isIdentifying": true,
+          "isIdentifying": false,
           "isServerAssigned": false,
           "columnNames": {
             "sqlServer": "IEPFinalizedDate",
@@ -3853,7 +3725,7 @@
             "isNullable": false
           },
           "description": "The identifier assigned to an education organization.",
-          "isIdentifying": true,
+          "isIdentifying": false,
           "isServerAssigned": false,
           "columnNames": {
             "sqlServer": "IEPServicingEducationOrganizationId",
@@ -3871,7 +3743,7 @@
             "isNullable": false
           },
           "description": "A unique identifier assigned by the provider or source system of IEP services.",
-          "isIdentifying": true,
+          "isIdentifying": false,
           "isServerAssigned": false,
           "columnNames": {
             "sqlServer": "StudentIEPAssociationID",
@@ -3888,7 +3760,7 @@
             "isNullable": false
           },
           "description": "A unique alphanumeric code assigned to a student.",
-          "isIdentifying": true,
+          "isIdentifying": false,
           "isServerAssigned": false,
           "columnNames": {
             "sqlServer": "StudentUSI",
@@ -3896,7 +3768,7 @@
           }
         }
       ],
-      "isIdentifying": true,
+      "isIdentifying": false,
       "isRequired": true,
       "constraintNames": {
         "sqlServer": "FK_IEPServiceDelivery_StudentIEPAssociation",
@@ -3916,24 +3788,6 @@
       },
       "primaryEntityProperties": [
         {
-          "propertyName": "IEPFinalizedDate",
-          "propertyType": {
-            "dbType": "Date",
-            "minLength": 0,
-            "maxLength": 0,
-            "precision": 0,
-            "scale": 0,
-            "isNullable": false
-          },
-          "description": "The date the most recent IEP was finalized.  Note: Date interpretation may vary. Ed-Fi recommends inclusive dates, but states may define dates as inclusive or exclusive. For calculations, align with local guidelines.",
-          "isIdentifying": true,
-          "isServerAssigned": false,
-          "columnNames": {
-            "sqlServer": "IEPFinalizedDate",
-            "postgreSql": "IEPFinalizedDate"
-          }
-        },
-        {
           "propertyName": "IEPServiceDeliveryID",
           "propertyType": {
             "dbType": "String",
@@ -3949,23 +3803,6 @@
           "columnNames": {
             "sqlServer": "IEPServiceDeliveryID",
             "postgreSql": "IEPServiceDeliveryID"
-          }
-        },
-        {
-          "propertyName": "IEPServicingEducationOrganizationId",
-          "propertyType": {
-            "dbType": "Int64",
-            "maxLength": 0,
-            "precision": 10,
-            "scale": 0,
-            "isNullable": false
-          },
-          "description": "The identifier assigned to an education organization.",
-          "isIdentifying": true,
-          "isServerAssigned": false,
-          "columnNames": {
-            "sqlServer": "IEPServicingEducationOrganizationId",
-            "postgreSql": "IEPServicingEducationOrganizationId"
           }
         },
         {
@@ -4001,24 +3838,6 @@
           "columnNames": {
             "sqlServer": "ServiceDeliveryDescriptorId",
             "postgreSql": "ServiceDeliveryDescriptorId"
-          }
-        },
-        {
-          "propertyName": "StudentIEPAssociationID",
-          "propertyType": {
-            "dbType": "String",
-            "minLength": 0,
-            "maxLength": 1024,
-            "precision": 0,
-            "scale": 0,
-            "isNullable": false
-          },
-          "description": "A unique identifier assigned by the provider or source system of IEP services.",
-          "isIdentifying": true,
-          "isServerAssigned": false,
-          "columnNames": {
-            "sqlServer": "StudentIEPAssociationID",
-            "postgreSql": "StudentIEPAssociationID"
           }
         },
         {
@@ -4045,24 +3864,6 @@
       },
       "secondaryEntityProperties": [
         {
-          "propertyName": "IEPFinalizedDate",
-          "propertyType": {
-            "dbType": "Date",
-            "minLength": 0,
-            "maxLength": 0,
-            "precision": 0,
-            "scale": 0,
-            "isNullable": false
-          },
-          "description": "The date the most recent IEP was finalized.  Note: Date interpretation may vary. Ed-Fi recommends inclusive dates, but states may define dates as inclusive or exclusive. For calculations, align with local guidelines.",
-          "isIdentifying": true,
-          "isServerAssigned": false,
-          "columnNames": {
-            "sqlServer": "IEPFinalizedDate",
-            "postgreSql": "IEPFinalizedDate"
-          }
-        },
-        {
           "propertyName": "IEPServiceDeliveryID",
           "propertyType": {
             "dbType": "String",
@@ -4078,23 +3879,6 @@
           "columnNames": {
             "sqlServer": "IEPServiceDeliveryID",
             "postgreSql": "IEPServiceDeliveryID"
-          }
-        },
-        {
-          "propertyName": "IEPServicingEducationOrganizationId",
-          "propertyType": {
-            "dbType": "Int64",
-            "maxLength": 0,
-            "precision": 10,
-            "scale": 0,
-            "isNullable": false
-          },
-          "description": "The identifier assigned to an education organization.",
-          "isIdentifying": true,
-          "isServerAssigned": false,
-          "columnNames": {
-            "sqlServer": "IEPServicingEducationOrganizationId",
-            "postgreSql": "IEPServicingEducationOrganizationId"
           }
         },
         {
@@ -4130,24 +3914,6 @@
           "columnNames": {
             "sqlServer": "ServiceDeliveryDescriptorId",
             "postgreSql": "ServiceDeliveryDescriptorId"
-          }
-        },
-        {
-          "propertyName": "StudentIEPAssociationID",
-          "propertyType": {
-            "dbType": "String",
-            "minLength": 0,
-            "maxLength": 1024,
-            "precision": 0,
-            "scale": 0,
-            "isNullable": false
-          },
-          "description": "A unique identifier assigned by the provider or source system of IEP services.",
-          "isIdentifying": true,
-          "isServerAssigned": false,
-          "columnNames": {
-            "sqlServer": "StudentIEPAssociationID",
-            "postgreSql": "StudentIEPAssociationID"
           }
         },
         {
@@ -4782,7 +4548,7 @@
             "isNullable": false
           },
           "description": "The date the most recent IEP was finalized.  Note: Date interpretation may vary. Ed-Fi recommends inclusive dates, but states may define dates as inclusive or exclusive. For calculations, align with local guidelines.",
-          "isIdentifying": true,
+          "isIdentifying": false,
           "isServerAssigned": false,
           "columnNames": {
             "sqlServer": "IEPFinalizedDate",
@@ -4799,7 +4565,7 @@
             "isNullable": false
           },
           "description": "The identifier assigned to an education organization.",
-          "isIdentifying": true,
+          "isIdentifying": false,
           "isServerAssigned": false,
           "columnNames": {
             "sqlServer": "IEPServicingEducationOrganizationId",
@@ -4817,7 +4583,7 @@
             "isNullable": false
           },
           "description": "A unique identifier assigned by the provider or source system of IEP services.",
-          "isIdentifying": true,
+          "isIdentifying": false,
           "isServerAssigned": false,
           "columnNames": {
             "sqlServer": "StudentIEPAssociationID",
@@ -4834,7 +4600,7 @@
             "isNullable": false
           },
           "description": "A unique alphanumeric code assigned to a student.",
-          "isIdentifying": true,
+          "isIdentifying": false,
           "isServerAssigned": false,
           "columnNames": {
             "sqlServer": "StudentUSI",
@@ -4858,7 +4624,7 @@
             "isNullable": false
           },
           "description": "The date the most recent IEP was finalized.  Note: Date interpretation may vary. Ed-Fi recommends inclusive dates, but states may define dates as inclusive or exclusive. For calculations, align with local guidelines.",
-          "isIdentifying": true,
+          "isIdentifying": false,
           "isServerAssigned": false,
           "columnNames": {
             "sqlServer": "IEPFinalizedDate",
@@ -4875,7 +4641,7 @@
             "isNullable": false
           },
           "description": "The identifier assigned to an education organization.",
-          "isIdentifying": true,
+          "isIdentifying": false,
           "isServerAssigned": false,
           "columnNames": {
             "sqlServer": "IEPServicingEducationOrganizationId",
@@ -4893,7 +4659,7 @@
             "isNullable": false
           },
           "description": "A unique identifier assigned by the provider or source system of IEP services.",
-          "isIdentifying": true,
+          "isIdentifying": false,
           "isServerAssigned": false,
           "columnNames": {
             "sqlServer": "StudentIEPAssociationID",
@@ -4910,7 +4676,7 @@
             "isNullable": false
           },
           "description": "A unique alphanumeric code assigned to a student.",
-          "isIdentifying": true,
+          "isIdentifying": false,
           "isServerAssigned": false,
           "columnNames": {
             "sqlServer": "StudentUSI",
@@ -4918,7 +4684,7 @@
           }
         }
       ],
-      "isIdentifying": true,
+      "isIdentifying": false,
       "isRequired": true,
       "constraintNames": {
         "sqlServer": "FK_IEPServicePrescription_StudentIEPAssociation",
@@ -5538,24 +5304,6 @@
       },
       "primaryEntityProperties": [
         {
-          "propertyName": "IEPFinalizedDate",
-          "propertyType": {
-            "dbType": "Date",
-            "minLength": 0,
-            "maxLength": 0,
-            "precision": 0,
-            "scale": 0,
-            "isNullable": false
-          },
-          "description": "The date the most recent IEP was finalized.  Note: Date interpretation may vary. Ed-Fi recommends inclusive dates, but states may define dates as inclusive or exclusive. For calculations, align with local guidelines.",
-          "isIdentifying": true,
-          "isServerAssigned": false,
-          "columnNames": {
-            "sqlServer": "IEPFinalizedDate",
-            "postgreSql": "IEPFinalizedDate"
-          }
-        },
-        {
           "propertyName": "IEPServicingEducationOrganizationId",
           "propertyType": {
             "dbType": "Int64",
@@ -5570,24 +5318,6 @@
           "columnNames": {
             "sqlServer": "IEPServicingEducationOrganizationId",
             "postgreSql": "IEPServicingEducationOrganizationId"
-          }
-        },
-        {
-          "propertyName": "StudentIEPAssociationID",
-          "propertyType": {
-            "dbType": "String",
-            "minLength": 0,
-            "maxLength": 1024,
-            "precision": 0,
-            "scale": 0,
-            "isNullable": false
-          },
-          "description": "A unique identifier assigned by the provider or source system of IEP services.",
-          "isIdentifying": true,
-          "isServerAssigned": false,
-          "columnNames": {
-            "sqlServer": "StudentIEPAssociationID",
-            "postgreSql": "StudentIEPAssociationID"
           }
         },
         {
@@ -5614,24 +5344,6 @@
       },
       "secondaryEntityProperties": [
         {
-          "propertyName": "IEPFinalizedDate",
-          "propertyType": {
-            "dbType": "Date",
-            "minLength": 0,
-            "maxLength": 0,
-            "precision": 0,
-            "scale": 0,
-            "isNullable": false
-          },
-          "description": "The date the most recent IEP was finalized.  Note: Date interpretation may vary. Ed-Fi recommends inclusive dates, but states may define dates as inclusive or exclusive. For calculations, align with local guidelines.",
-          "isIdentifying": true,
-          "isServerAssigned": false,
-          "columnNames": {
-            "sqlServer": "IEPFinalizedDate",
-            "postgreSql": "IEPFinalizedDate"
-          }
-        },
-        {
           "propertyName": "IEPServicingEducationOrganizationId",
           "propertyType": {
             "dbType": "Int64",
@@ -5646,24 +5358,6 @@
           "columnNames": {
             "sqlServer": "IEPServicingEducationOrganizationId",
             "postgreSql": "IEPServicingEducationOrganizationId"
-          }
-        },
-        {
-          "propertyName": "StudentIEPAssociationID",
-          "propertyType": {
-            "dbType": "String",
-            "minLength": 0,
-            "maxLength": 1024,
-            "precision": 0,
-            "scale": 0,
-            "isNullable": false
-          },
-          "description": "A unique identifier assigned by the provider or source system of IEP services.",
-          "isIdentifying": true,
-          "isServerAssigned": false,
-          "columnNames": {
-            "sqlServer": "StudentIEPAssociationID",
-            "postgreSql": "StudentIEPAssociationID"
           }
         },
         {
@@ -5697,7 +5391,7 @@
         "schema": "sedm",
         "name": "FK_StudentIEPAccommodation_StudentIEPAssociation"
       },
-      "cardinality": "OneToOne",
+      "cardinality": "OneToZeroOrMore",
       "primaryEntityFullName": {
         "schema": "sedm",
         "name": "StudentIEPAssociation"
@@ -5714,7 +5408,7 @@
             "isNullable": false
           },
           "description": "The date the most recent IEP was finalized.  Note: Date interpretation may vary. Ed-Fi recommends inclusive dates, but states may define dates as inclusive or exclusive. For calculations, align with local guidelines.",
-          "isIdentifying": true,
+          "isIdentifying": false,
           "isServerAssigned": false,
           "columnNames": {
             "sqlServer": "IEPFinalizedDate",
@@ -5731,7 +5425,7 @@
             "isNullable": false
           },
           "description": "The identifier assigned to an education organization.",
-          "isIdentifying": true,
+          "isIdentifying": false,
           "isServerAssigned": false,
           "columnNames": {
             "sqlServer": "IEPServicingEducationOrganizationId",
@@ -5749,7 +5443,7 @@
             "isNullable": false
           },
           "description": "A unique identifier assigned by the provider or source system of IEP services.",
-          "isIdentifying": true,
+          "isIdentifying": false,
           "isServerAssigned": false,
           "columnNames": {
             "sqlServer": "StudentIEPAssociationID",
@@ -5766,7 +5460,7 @@
             "isNullable": false
           },
           "description": "A unique alphanumeric code assigned to a student.",
-          "isIdentifying": true,
+          "isIdentifying": false,
           "isServerAssigned": false,
           "columnNames": {
             "sqlServer": "StudentUSI",
@@ -5790,7 +5484,7 @@
             "isNullable": false
           },
           "description": "The date the most recent IEP was finalized.  Note: Date interpretation may vary. Ed-Fi recommends inclusive dates, but states may define dates as inclusive or exclusive. For calculations, align with local guidelines.",
-          "isIdentifying": true,
+          "isIdentifying": false,
           "isServerAssigned": false,
           "columnNames": {
             "sqlServer": "IEPFinalizedDate",
@@ -5807,7 +5501,7 @@
             "isNullable": false
           },
           "description": "The identifier assigned to an education organization.",
-          "isIdentifying": true,
+          "isIdentifying": false,
           "isServerAssigned": false,
           "columnNames": {
             "sqlServer": "IEPServicingEducationOrganizationId",
@@ -5825,7 +5519,7 @@
             "isNullable": false
           },
           "description": "A unique identifier assigned by the provider or source system of IEP services.",
-          "isIdentifying": true,
+          "isIdentifying": false,
           "isServerAssigned": false,
           "columnNames": {
             "sqlServer": "StudentIEPAssociationID",
@@ -5842,7 +5536,7 @@
             "isNullable": false
           },
           "description": "A unique alphanumeric code assigned to a student.",
-          "isIdentifying": true,
+          "isIdentifying": false,
           "isServerAssigned": false,
           "columnNames": {
             "sqlServer": "StudentUSI",
@@ -5850,7 +5544,7 @@
           }
         }
       ],
-      "isIdentifying": true,
+      "isIdentifying": false,
       "isRequired": true,
       "constraintNames": {
         "sqlServer": "FK_StudentIEPAccommodation_StudentIEPAssociation",
@@ -6733,7 +6427,7 @@
         "schema": "sedm",
         "name": "FK_StudentIEPDisability_StudentIEPAssociation"
       },
-      "cardinality": "OneToOne",
+      "cardinality": "OneToZeroOrMore",
       "primaryEntityFullName": {
         "schema": "sedm",
         "name": "StudentIEPAssociation"
@@ -6750,7 +6444,7 @@
             "isNullable": false
           },
           "description": "The date the most recent IEP was finalized.  Note: Date interpretation may vary. Ed-Fi recommends inclusive dates, but states may define dates as inclusive or exclusive. For calculations, align with local guidelines.",
-          "isIdentifying": true,
+          "isIdentifying": false,
           "isServerAssigned": false,
           "columnNames": {
             "sqlServer": "IEPFinalizedDate",
@@ -6767,7 +6461,7 @@
             "isNullable": false
           },
           "description": "The identifier assigned to an education organization.",
-          "isIdentifying": true,
+          "isIdentifying": false,
           "isServerAssigned": false,
           "columnNames": {
             "sqlServer": "IEPServicingEducationOrganizationId",
@@ -6785,7 +6479,7 @@
             "isNullable": false
           },
           "description": "A unique identifier assigned by the provider or source system of IEP services.",
-          "isIdentifying": true,
+          "isIdentifying": false,
           "isServerAssigned": false,
           "columnNames": {
             "sqlServer": "StudentIEPAssociationID",
@@ -6802,7 +6496,7 @@
             "isNullable": false
           },
           "description": "A unique alphanumeric code assigned to a student.",
-          "isIdentifying": true,
+          "isIdentifying": false,
           "isServerAssigned": false,
           "columnNames": {
             "sqlServer": "StudentUSI",
@@ -6826,7 +6520,7 @@
             "isNullable": false
           },
           "description": "The date the most recent IEP was finalized.  Note: Date interpretation may vary. Ed-Fi recommends inclusive dates, but states may define dates as inclusive or exclusive. For calculations, align with local guidelines.",
-          "isIdentifying": true,
+          "isIdentifying": false,
           "isServerAssigned": false,
           "columnNames": {
             "sqlServer": "IEPFinalizedDate",
@@ -6843,7 +6537,7 @@
             "isNullable": false
           },
           "description": "The identifier assigned to an education organization.",
-          "isIdentifying": true,
+          "isIdentifying": false,
           "isServerAssigned": false,
           "columnNames": {
             "sqlServer": "IEPServicingEducationOrganizationId",
@@ -6861,7 +6555,7 @@
             "isNullable": false
           },
           "description": "A unique identifier assigned by the provider or source system of IEP services.",
-          "isIdentifying": true,
+          "isIdentifying": false,
           "isServerAssigned": false,
           "columnNames": {
             "sqlServer": "StudentIEPAssociationID",
@@ -6878,7 +6572,7 @@
             "isNullable": false
           },
           "description": "A unique alphanumeric code assigned to a student.",
-          "isIdentifying": true,
+          "isIdentifying": false,
           "isServerAssigned": false,
           "columnNames": {
             "sqlServer": "StudentUSI",
@@ -6886,7 +6580,7 @@
           }
         }
       ],
-      "isIdentifying": true,
+      "isIdentifying": false,
       "isRequired": true,
       "constraintNames": {
         "sqlServer": "FK_StudentIEPDisability_StudentIEPAssociation",
@@ -6906,24 +6600,6 @@
       },
       "primaryEntityProperties": [
         {
-          "propertyName": "IEPFinalizedDate",
-          "propertyType": {
-            "dbType": "Date",
-            "minLength": 0,
-            "maxLength": 0,
-            "precision": 0,
-            "scale": 0,
-            "isNullable": false
-          },
-          "description": "The date the most recent IEP was finalized.  Note: Date interpretation may vary. Ed-Fi recommends inclusive dates, but states may define dates as inclusive or exclusive. For calculations, align with local guidelines.",
-          "isIdentifying": true,
-          "isServerAssigned": false,
-          "columnNames": {
-            "sqlServer": "IEPFinalizedDate",
-            "postgreSql": "IEPFinalizedDate"
-          }
-        },
-        {
           "propertyName": "IEPServicingEducationOrganizationId",
           "propertyType": {
             "dbType": "Int64",
@@ -6938,24 +6614,6 @@
           "columnNames": {
             "sqlServer": "IEPServicingEducationOrganizationId",
             "postgreSql": "IEPServicingEducationOrganizationId"
-          }
-        },
-        {
-          "propertyName": "StudentIEPAssociationID",
-          "propertyType": {
-            "dbType": "String",
-            "minLength": 0,
-            "maxLength": 1024,
-            "precision": 0,
-            "scale": 0,
-            "isNullable": false
-          },
-          "description": "A unique identifier assigned by the provider or source system of IEP services.",
-          "isIdentifying": true,
-          "isServerAssigned": false,
-          "columnNames": {
-            "sqlServer": "StudentIEPAssociationID",
-            "postgreSql": "StudentIEPAssociationID"
           }
         },
         {
@@ -6982,24 +6640,6 @@
       },
       "secondaryEntityProperties": [
         {
-          "propertyName": "IEPFinalizedDate",
-          "propertyType": {
-            "dbType": "Date",
-            "minLength": 0,
-            "maxLength": 0,
-            "precision": 0,
-            "scale": 0,
-            "isNullable": false
-          },
-          "description": "The date the most recent IEP was finalized.  Note: Date interpretation may vary. Ed-Fi recommends inclusive dates, but states may define dates as inclusive or exclusive. For calculations, align with local guidelines.",
-          "isIdentifying": true,
-          "isServerAssigned": false,
-          "columnNames": {
-            "sqlServer": "IEPFinalizedDate",
-            "postgreSql": "IEPFinalizedDate"
-          }
-        },
-        {
           "propertyName": "IEPServicingEducationOrganizationId",
           "propertyType": {
             "dbType": "Int64",
@@ -7014,24 +6654,6 @@
           "columnNames": {
             "sqlServer": "IEPServicingEducationOrganizationId",
             "postgreSql": "IEPServicingEducationOrganizationId"
-          }
-        },
-        {
-          "propertyName": "StudentIEPAssociationID",
-          "propertyType": {
-            "dbType": "String",
-            "minLength": 0,
-            "maxLength": 1024,
-            "precision": 0,
-            "scale": 0,
-            "isNullable": false
-          },
-          "description": "A unique identifier assigned by the provider or source system of IEP services.",
-          "isIdentifying": true,
-          "isServerAssigned": false,
-          "columnNames": {
-            "sqlServer": "StudentIEPAssociationID",
-            "postgreSql": "StudentIEPAssociationID"
           }
         },
         {
@@ -7132,24 +6754,6 @@
       },
       "primaryEntityProperties": [
         {
-          "propertyName": "IEPFinalizedDate",
-          "propertyType": {
-            "dbType": "Date",
-            "minLength": 0,
-            "maxLength": 0,
-            "precision": 0,
-            "scale": 0,
-            "isNullable": false
-          },
-          "description": "The date the most recent IEP was finalized.  Note: Date interpretation may vary. Ed-Fi recommends inclusive dates, but states may define dates as inclusive or exclusive. For calculations, align with local guidelines.",
-          "isIdentifying": true,
-          "isServerAssigned": false,
-          "columnNames": {
-            "sqlServer": "IEPFinalizedDate",
-            "postgreSql": "IEPFinalizedDate"
-          }
-        },
-        {
           "propertyName": "IEPServicingEducationOrganizationId",
           "propertyType": {
             "dbType": "Int64",
@@ -7164,24 +6768,6 @@
           "columnNames": {
             "sqlServer": "IEPServicingEducationOrganizationId",
             "postgreSql": "IEPServicingEducationOrganizationId"
-          }
-        },
-        {
-          "propertyName": "StudentIEPAssociationID",
-          "propertyType": {
-            "dbType": "String",
-            "minLength": 0,
-            "maxLength": 1024,
-            "precision": 0,
-            "scale": 0,
-            "isNullable": false
-          },
-          "description": "A unique identifier assigned by the provider or source system of IEP services.",
-          "isIdentifying": true,
-          "isServerAssigned": false,
-          "columnNames": {
-            "sqlServer": "StudentIEPAssociationID",
-            "postgreSql": "StudentIEPAssociationID"
           }
         },
         {
@@ -7225,24 +6811,6 @@
       },
       "secondaryEntityProperties": [
         {
-          "propertyName": "IEPFinalizedDate",
-          "propertyType": {
-            "dbType": "Date",
-            "minLength": 0,
-            "maxLength": 0,
-            "precision": 0,
-            "scale": 0,
-            "isNullable": false
-          },
-          "description": "The date the most recent IEP was finalized.  Note: Date interpretation may vary. Ed-Fi recommends inclusive dates, but states may define dates as inclusive or exclusive. For calculations, align with local guidelines.",
-          "isIdentifying": true,
-          "isServerAssigned": false,
-          "columnNames": {
-            "sqlServer": "IEPFinalizedDate",
-            "postgreSql": "IEPFinalizedDate"
-          }
-        },
-        {
           "propertyName": "IEPServicingEducationOrganizationId",
           "propertyType": {
             "dbType": "Int64",
@@ -7257,24 +6825,6 @@
           "columnNames": {
             "sqlServer": "IEPServicingEducationOrganizationId",
             "postgreSql": "IEPServicingEducationOrganizationId"
-          }
-        },
-        {
-          "propertyName": "StudentIEPAssociationID",
-          "propertyType": {
-            "dbType": "String",
-            "minLength": 0,
-            "maxLength": 1024,
-            "precision": 0,
-            "scale": 0,
-            "isNullable": false
-          },
-          "description": "A unique identifier assigned by the provider or source system of IEP services.",
-          "isIdentifying": true,
-          "isServerAssigned": false,
-          "columnNames": {
-            "sqlServer": "StudentIEPAssociationID",
-            "postgreSql": "StudentIEPAssociationID"
           }
         },
         {

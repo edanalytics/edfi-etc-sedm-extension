@@ -33,16 +33,10 @@ END IF;
 IF NOT EXISTS (SELECT 1 FROM information_schema.tables WHERE table_schema = 'tracked_changes_sedm' AND table_name = 'iepgoal') THEN
 CREATE TABLE tracked_changes_sedm.iepgoal
 (
-       oldiepfinalizeddate DATE NOT NULL,
-       oldiepgoalid VARCHAR(30) NOT NULL,
-       oldiepservicingeducationorganizationid BIGINT NOT NULL,
-       oldstudentiepassociationid VARCHAR(1024) NOT NULL,
+       oldiepgoalid VARCHAR(256) NOT NULL,
        oldstudentusi INT NOT NULL,
        oldstudentuniqueid VARCHAR(32) NOT NULL,
-       newiepfinalizeddate DATE NULL,
-       newiepgoalid VARCHAR(30) NULL,
-       newiepservicingeducationorganizationid BIGINT NULL,
-       newstudentiepassociationid VARCHAR(1024) NULL,
+       newiepgoalid VARCHAR(256) NULL,
        newstudentusi INT NULL,
        newstudentuniqueid VARCHAR(32) NULL,
        id uuid NOT NULL,
@@ -56,24 +50,18 @@ END IF;
 IF NOT EXISTS (SELECT 1 FROM information_schema.tables WHERE table_schema = 'tracked_changes_sedm' AND table_name = 'iepservicedelivery') THEN
 CREATE TABLE tracked_changes_sedm.iepservicedelivery
 (
-       oldiepfinalizeddate DATE NOT NULL,
        oldiepservicedeliveryid VARCHAR(1024) NOT NULL,
-       oldiepservicingeducationorganizationid BIGINT NOT NULL,
        oldservicedeliverydate DATE NOT NULL,
        oldservicedeliverydescriptorid INT NOT NULL,
        oldservicedeliverydescriptornamespace VARCHAR(255) NOT NULL,
        oldservicedeliverydescriptorcodevalue VARCHAR(50) NOT NULL,
-       oldstudentiepassociationid VARCHAR(1024) NOT NULL,
        oldstudentusi INT NOT NULL,
        oldstudentuniqueid VARCHAR(32) NOT NULL,
-       newiepfinalizeddate DATE NULL,
        newiepservicedeliveryid VARCHAR(1024) NULL,
-       newiepservicingeducationorganizationid BIGINT NULL,
        newservicedeliverydate DATE NULL,
        newservicedeliverydescriptorid INT NULL,
        newservicedeliverydescriptornamespace VARCHAR(255) NULL,
        newservicedeliverydescriptorcodevalue VARCHAR(50) NULL,
-       newstudentiepassociationid VARCHAR(1024) NULL,
        newstudentusi INT NULL,
        newstudentuniqueid VARCHAR(32) NULL,
        id uuid NOT NULL,
@@ -87,22 +75,16 @@ END IF;
 IF NOT EXISTS (SELECT 1 FROM information_schema.tables WHERE table_schema = 'tracked_changes_sedm' AND table_name = 'iepserviceprescription') THEN
 CREATE TABLE tracked_changes_sedm.iepserviceprescription
 (
-       oldiepfinalizeddate DATE NOT NULL,
-       oldiepservicingeducationorganizationid BIGINT NOT NULL,
        oldserviceprescriptiondate DATE NOT NULL,
        oldserviceprescriptiondescriptorid INT NOT NULL,
        oldserviceprescriptiondescriptornamespace VARCHAR(255) NOT NULL,
        oldserviceprescriptiondescriptorcodevalue VARCHAR(50) NOT NULL,
-       oldstudentiepassociationid VARCHAR(1024) NOT NULL,
        oldstudentusi INT NOT NULL,
        oldstudentuniqueid VARCHAR(32) NOT NULL,
-       newiepfinalizeddate DATE NULL,
-       newiepservicingeducationorganizationid BIGINT NULL,
        newserviceprescriptiondate DATE NULL,
        newserviceprescriptiondescriptorid INT NULL,
        newserviceprescriptiondescriptornamespace VARCHAR(255) NULL,
        newserviceprescriptiondescriptorcodevalue VARCHAR(50) NULL,
-       newstudentiepassociationid VARCHAR(1024) NULL,
        newstudentusi INT NULL,
        newstudentuniqueid VARCHAR(32) NULL,
        id uuid NOT NULL,
@@ -116,14 +98,10 @@ END IF;
 IF NOT EXISTS (SELECT 1 FROM information_schema.tables WHERE table_schema = 'tracked_changes_sedm' AND table_name = 'studentiepaccommodation') THEN
 CREATE TABLE tracked_changes_sedm.studentiepaccommodation
 (
-       oldiepfinalizeddate DATE NOT NULL,
        oldiepservicingeducationorganizationid BIGINT NOT NULL,
-       oldstudentiepassociationid VARCHAR(1024) NOT NULL,
        oldstudentusi INT NOT NULL,
        oldstudentuniqueid VARCHAR(32) NOT NULL,
-       newiepfinalizeddate DATE NULL,
        newiepservicingeducationorganizationid BIGINT NULL,
-       newstudentiepassociationid VARCHAR(1024) NULL,
        newstudentusi INT NULL,
        newstudentuniqueid VARCHAR(32) NULL,
        id uuid NOT NULL,
@@ -158,14 +136,10 @@ END IF;
 IF NOT EXISTS (SELECT 1 FROM information_schema.tables WHERE table_schema = 'tracked_changes_sedm' AND table_name = 'studentiepdisability') THEN
 CREATE TABLE tracked_changes_sedm.studentiepdisability
 (
-       oldiepfinalizeddate DATE NOT NULL,
        oldiepservicingeducationorganizationid BIGINT NOT NULL,
-       oldstudentiepassociationid VARCHAR(1024) NOT NULL,
        oldstudentusi INT NOT NULL,
        oldstudentuniqueid VARCHAR(32) NOT NULL,
-       newiepfinalizeddate DATE NULL,
        newiepservicingeducationorganizationid BIGINT NULL,
-       newstudentiepassociationid VARCHAR(1024) NULL,
        newstudentusi INT NULL,
        newstudentuniqueid VARCHAR(32) NULL,
        id uuid NOT NULL,

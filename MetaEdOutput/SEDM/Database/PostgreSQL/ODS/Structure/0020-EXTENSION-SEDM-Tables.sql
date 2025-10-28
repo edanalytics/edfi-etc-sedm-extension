@@ -51,23 +51,23 @@ CREATE TABLE sedm.IDEAEventDescriptor (
 
 -- Table sedm.IEPGoal --
 CREATE TABLE sedm.IEPGoal (
-    IEPFinalizedDate DATE NOT NULL,
-    IEPGoalID VARCHAR(30) NOT NULL,
-    IEPServicingEducationOrganizationId BIGINT NOT NULL,
-    StudentIEPAssociationID VARCHAR(1024) NOT NULL,
+    IEPGoalID VARCHAR(256) NOT NULL,
     StudentUSI INT NOT NULL,
     EducationOrganizationId BIGINT NULL,
     GoalAchievementPeriodBeginDate DATE NULL,
     GoalAchievementPeriodEndDate DATE NULL,
     IDEAEventDescriptorId INT NULL,
     IDEAEventID VARCHAR(1024) NULL,
+    IEPFinalizedDate DATE NOT NULL,
     IEPGoalDescriptorId INT NOT NULL,
     IEPGoalDetails VARCHAR(2048) NOT NULL,
+    IEPServicingEducationOrganizationId BIGINT NOT NULL,
+    StudentIEPAssociationID VARCHAR(1024) NOT NULL,
     Discriminator VARCHAR(128) NULL,
     CreateDate TIMESTAMP NOT NULL,
     LastModifiedDate TIMESTAMP NOT NULL,
     Id UUID NOT NULL,
-    CONSTRAINT IEPGoal_PK PRIMARY KEY (IEPFinalizedDate, IEPGoalID, IEPServicingEducationOrganizationId, StudentIEPAssociationID, StudentUSI)
+    CONSTRAINT IEPGoal_PK PRIMARY KEY (IEPGoalID, StudentUSI)
 );
 ALTER TABLE sedm.IEPGoal ALTER COLUMN CreateDate SET DEFAULT current_timestamp AT TIME ZONE 'UTC';
 ALTER TABLE sedm.IEPGoal ALTER COLUMN Id SET DEFAULT gen_random_uuid();
@@ -81,25 +81,25 @@ CREATE TABLE sedm.IEPGoalDescriptor (
 
 -- Table sedm.IEPServiceDelivery --
 CREATE TABLE sedm.IEPServiceDelivery (
-    IEPFinalizedDate DATE NOT NULL,
     IEPServiceDeliveryID VARCHAR(1024) NOT NULL,
-    IEPServicingEducationOrganizationId BIGINT NOT NULL,
     ServiceDeliveryDate DATE NOT NULL,
     ServiceDeliveryDescriptorId INT NOT NULL,
-    StudentIEPAssociationID VARCHAR(1024) NOT NULL,
     StudentUSI INT NOT NULL,
     EducationOrganizationId BIGINT NULL,
     IDEAEventDescriptorId INT NULL,
     IDEAEventID VARCHAR(1024) NULL,
+    IEPFinalizedDate DATE NOT NULL,
+    IEPServicingEducationOrganizationId BIGINT NOT NULL,
     ServiceDeliveryStaffUSI INT NULL,
     ServicePrescriptionDate DATE NULL,
     ServicePrescriptionDescriptorId INT NULL,
     ServiceProviderDescriptorId INT NULL,
+    StudentIEPAssociationID VARCHAR(1024) NOT NULL,
     Discriminator VARCHAR(128) NULL,
     CreateDate TIMESTAMP NOT NULL,
     LastModifiedDate TIMESTAMP NOT NULL,
     Id UUID NOT NULL,
-    CONSTRAINT IEPServiceDelivery_PK PRIMARY KEY (IEPFinalizedDate, IEPServiceDeliveryID, IEPServicingEducationOrganizationId, ServiceDeliveryDate, ServiceDeliveryDescriptorId, StudentIEPAssociationID, StudentUSI)
+    CONSTRAINT IEPServiceDelivery_PK PRIMARY KEY (IEPServiceDeliveryID, ServiceDeliveryDate, ServiceDeliveryDescriptorId, StudentUSI)
 );
 ALTER TABLE sedm.IEPServiceDelivery ALTER COLUMN CreateDate SET DEFAULT current_timestamp AT TIME ZONE 'UTC';
 ALTER TABLE sedm.IEPServiceDelivery ALTER COLUMN Id SET DEFAULT gen_random_uuid();
@@ -107,12 +107,9 @@ ALTER TABLE sedm.IEPServiceDelivery ALTER COLUMN LastModifiedDate SET DEFAULT cu
 
 -- Table sedm.IEPServiceDeliveryExternalServiceProvider --
 CREATE TABLE sedm.IEPServiceDeliveryExternalServiceProvider (
-    IEPFinalizedDate DATE NOT NULL,
     IEPServiceDeliveryID VARCHAR(1024) NOT NULL,
-    IEPServicingEducationOrganizationId BIGINT NOT NULL,
     ServiceDeliveryDate DATE NOT NULL,
     ServiceDeliveryDescriptorId INT NOT NULL,
-    StudentIEPAssociationID VARCHAR(1024) NOT NULL,
     StudentUSI INT NOT NULL,
     ProviderCode VARCHAR(1024) NOT NULL,
     ProviderFirstName VARCHAR(1024) NOT NULL,
@@ -120,17 +117,14 @@ CREATE TABLE sedm.IEPServiceDeliveryExternalServiceProvider (
     PrimaryProvider BOOLEAN NULL,
     ProviderMiddleName VARCHAR(1024) NULL,
     CreateDate TIMESTAMP NOT NULL,
-    CONSTRAINT IEPServiceDeliveryExternalServiceProvider_PK PRIMARY KEY (IEPFinalizedDate, IEPServiceDeliveryID, IEPServicingEducationOrganizationId, ServiceDeliveryDate, ServiceDeliveryDescriptorId, StudentIEPAssociationID, StudentUSI, ProviderCode, ProviderFirstName, ProviderLastSurname)
+    CONSTRAINT IEPServiceDeliveryExternalServiceProvider_PK PRIMARY KEY (IEPServiceDeliveryID, ServiceDeliveryDate, ServiceDeliveryDescriptorId, StudentUSI, ProviderCode, ProviderFirstName, ProviderLastSurname)
 );
 ALTER TABLE sedm.IEPServiceDeliveryExternalServiceProvider ALTER COLUMN CreateDate SET DEFAULT current_timestamp AT TIME ZONE 'UTC';
 
 -- Table sedm.IEPServicePrescription --
 CREATE TABLE sedm.IEPServicePrescription (
-    IEPFinalizedDate DATE NOT NULL,
-    IEPServicingEducationOrganizationId BIGINT NOT NULL,
     ServicePrescriptionDate DATE NOT NULL,
     ServicePrescriptionDescriptorId INT NOT NULL,
-    StudentIEPAssociationID VARCHAR(1024) NOT NULL,
     StudentUSI INT NOT NULL,
     BeginDate DATE NOT NULL,
     DurationMinutes DECIMAL(5, 2) NOT NULL,
@@ -141,14 +135,17 @@ CREATE TABLE sedm.IEPServicePrescription (
     FrequencyValue DECIMAL(5, 2) NOT NULL,
     IDEAEventDescriptorId INT NULL,
     IDEAEventID VARCHAR(1024) NULL,
+    IEPFinalizedDate DATE NOT NULL,
+    IEPServicingEducationOrganizationId BIGINT NOT NULL,
     ServiceLocationTypeDescriptorId INT NOT NULL,
     ServiceProvidingEducationOrganizationId BIGINT NULL,
     StaffUSI INT NULL,
+    StudentIEPAssociationID VARCHAR(1024) NOT NULL,
     Discriminator VARCHAR(128) NULL,
     CreateDate TIMESTAMP NOT NULL,
     LastModifiedDate TIMESTAMP NOT NULL,
     Id UUID NOT NULL,
-    CONSTRAINT IEPServicePrescription_PK PRIMARY KEY (IEPFinalizedDate, IEPServicingEducationOrganizationId, ServicePrescriptionDate, ServicePrescriptionDescriptorId, StudentIEPAssociationID, StudentUSI)
+    CONSTRAINT IEPServicePrescription_PK PRIMARY KEY (ServicePrescriptionDate, ServicePrescriptionDescriptorId, StudentUSI)
 );
 ALTER TABLE sedm.IEPServicePrescription ALTER COLUMN CreateDate SET DEFAULT current_timestamp AT TIME ZONE 'UTC';
 ALTER TABLE sedm.IEPServicePrescription ALTER COLUMN Id SET DEFAULT gen_random_uuid();
@@ -198,15 +195,15 @@ CREATE TABLE sedm.ServiceReasonDescriptor (
 
 -- Table sedm.StudentIEPAccommodation --
 CREATE TABLE sedm.StudentIEPAccommodation (
-    IEPFinalizedDate DATE NOT NULL,
     IEPServicingEducationOrganizationId BIGINT NOT NULL,
-    StudentIEPAssociationID VARCHAR(1024) NOT NULL,
     StudentUSI INT NOT NULL,
+    IEPFinalizedDate DATE NOT NULL,
+    StudentIEPAssociationID VARCHAR(1024) NOT NULL,
     Discriminator VARCHAR(128) NULL,
     CreateDate TIMESTAMP NOT NULL,
     LastModifiedDate TIMESTAMP NOT NULL,
     Id UUID NOT NULL,
-    CONSTRAINT StudentIEPAccommodation_PK PRIMARY KEY (IEPFinalizedDate, IEPServicingEducationOrganizationId, StudentIEPAssociationID, StudentUSI)
+    CONSTRAINT StudentIEPAccommodation_PK PRIMARY KEY (IEPServicingEducationOrganizationId, StudentUSI)
 );
 ALTER TABLE sedm.StudentIEPAccommodation ALTER COLUMN CreateDate SET DEFAULT current_timestamp AT TIME ZONE 'UTC';
 ALTER TABLE sedm.StudentIEPAccommodation ALTER COLUMN Id SET DEFAULT gen_random_uuid();
@@ -214,13 +211,11 @@ ALTER TABLE sedm.StudentIEPAccommodation ALTER COLUMN LastModifiedDate SET DEFAU
 
 -- Table sedm.StudentIEPAccommodation --
 CREATE TABLE sedm.StudentIEPAccommodation (
-    IEPFinalizedDate DATE NOT NULL,
     IEPServicingEducationOrganizationId BIGINT NOT NULL,
-    StudentIEPAssociationID VARCHAR(1024) NOT NULL,
     StudentUSI INT NOT NULL,
     AccommodationDescriptorId INT NOT NULL,
     CreateDate TIMESTAMP NOT NULL,
-    CONSTRAINT StudentIEPAccommodation_PK PRIMARY KEY (IEPFinalizedDate, IEPServicingEducationOrganizationId, StudentIEPAssociationID, StudentUSI, AccommodationDescriptorId)
+    CONSTRAINT StudentIEPAccommodation_PK PRIMARY KEY (IEPServicingEducationOrganizationId, StudentUSI, AccommodationDescriptorId)
 );
 ALTER TABLE sedm.StudentIEPAccommodation ALTER COLUMN CreateDate SET DEFAULT current_timestamp AT TIME ZONE 'UTC';
 
@@ -266,15 +261,15 @@ ALTER TABLE sedm.StudentIEPAssociationIDEAEvent ALTER COLUMN CreateDate SET DEFA
 
 -- Table sedm.StudentIEPDisability --
 CREATE TABLE sedm.StudentIEPDisability (
-    IEPFinalizedDate DATE NOT NULL,
     IEPServicingEducationOrganizationId BIGINT NOT NULL,
-    StudentIEPAssociationID VARCHAR(1024) NOT NULL,
     StudentUSI INT NOT NULL,
+    IEPFinalizedDate DATE NOT NULL,
+    StudentIEPAssociationID VARCHAR(1024) NOT NULL,
     Discriminator VARCHAR(128) NULL,
     CreateDate TIMESTAMP NOT NULL,
     LastModifiedDate TIMESTAMP NOT NULL,
     Id UUID NOT NULL,
-    CONSTRAINT StudentIEPDisability_PK PRIMARY KEY (IEPFinalizedDate, IEPServicingEducationOrganizationId, StudentIEPAssociationID, StudentUSI)
+    CONSTRAINT StudentIEPDisability_PK PRIMARY KEY (IEPServicingEducationOrganizationId, StudentUSI)
 );
 ALTER TABLE sedm.StudentIEPDisability ALTER COLUMN CreateDate SET DEFAULT current_timestamp AT TIME ZONE 'UTC';
 ALTER TABLE sedm.StudentIEPDisability ALTER COLUMN Id SET DEFAULT gen_random_uuid();
@@ -282,29 +277,25 @@ ALTER TABLE sedm.StudentIEPDisability ALTER COLUMN LastModifiedDate SET DEFAULT 
 
 -- Table sedm.StudentIEPDisability --
 CREATE TABLE sedm.StudentIEPDisability (
-    IEPFinalizedDate DATE NOT NULL,
     IEPServicingEducationOrganizationId BIGINT NOT NULL,
-    StudentIEPAssociationID VARCHAR(1024) NOT NULL,
     StudentUSI INT NOT NULL,
     DisabilityDescriptorId INT NOT NULL,
     DisabilityDeterminationSourceTypeDescriptorId INT NULL,
     DisabilityDiagnosis VARCHAR(80) NULL,
     OrderOfDisability INT NULL,
     CreateDate TIMESTAMP NOT NULL,
-    CONSTRAINT StudentIEPDisability_PK PRIMARY KEY (IEPFinalizedDate, IEPServicingEducationOrganizationId, StudentIEPAssociationID, StudentUSI, DisabilityDescriptorId)
+    CONSTRAINT StudentIEPDisability_PK PRIMARY KEY (IEPServicingEducationOrganizationId, StudentUSI, DisabilityDescriptorId)
 );
 ALTER TABLE sedm.StudentIEPDisability ALTER COLUMN CreateDate SET DEFAULT current_timestamp AT TIME ZONE 'UTC';
 
 -- Table sedm.StudentIEPDisabilityDesignation --
 CREATE TABLE sedm.StudentIEPDisabilityDesignation (
-    IEPFinalizedDate DATE NOT NULL,
     IEPServicingEducationOrganizationId BIGINT NOT NULL,
-    StudentIEPAssociationID VARCHAR(1024) NOT NULL,
     StudentUSI INT NOT NULL,
     DisabilityDescriptorId INT NOT NULL,
     DisabilityDesignationDescriptorId INT NOT NULL,
     CreateDate TIMESTAMP NOT NULL,
-    CONSTRAINT StudentIEPDisabilityDesignation_PK PRIMARY KEY (IEPFinalizedDate, IEPServicingEducationOrganizationId, StudentIEPAssociationID, StudentUSI, DisabilityDescriptorId, DisabilityDesignationDescriptorId)
+    CONSTRAINT StudentIEPDisabilityDesignation_PK PRIMARY KEY (IEPServicingEducationOrganizationId, StudentUSI, DisabilityDescriptorId, DisabilityDesignationDescriptorId)
 );
 ALTER TABLE sedm.StudentIEPDisabilityDesignation ALTER COLUMN CreateDate SET DEFAULT current_timestamp AT TIME ZONE 'UTC';
 

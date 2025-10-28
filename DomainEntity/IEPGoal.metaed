@@ -3,14 +3,14 @@ Domain Entity IEPGoal
     domain entity EdFi.Student
         documentation "A reference to the student."
         is part of identity
-    association StudentIEPAssociation
-        documentation "The student IEP for which the goal is prescribed."
-        is part of identity
-        merge StudentIEPAssociation.Student.StudentUniqueId with Student.StudentUniqueId
     string IEPGoalID
         documentation "A unique identifier assigned by the provider of IEP services."
         is part of identity
-        max length 30
+        max length 256
+    association StudentIEPAssociation
+        documentation "The student IEP for which the goal is prescribed."
+        is required
+        merge StudentIEPAssociation.Student.StudentUniqueId with Student.StudentUniqueId
     descriptor IEPGoal
         documentation "A focused goal prescribed as part of the IEP. Examples include Academic Goal, Behavioral Goal, Attendance Goal."
         is required

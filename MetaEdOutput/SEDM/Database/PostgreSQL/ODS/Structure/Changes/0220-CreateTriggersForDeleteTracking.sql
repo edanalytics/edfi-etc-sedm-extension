@@ -121,10 +121,10 @@ BEGIN
     SELECT INTO dj0 * FROM edfi.student j0 WHERE studentusi = old.studentusi;
 
     INSERT INTO tracked_changes_sedm.iepgoal(
-        oldiepfinalizeddate, oldiepgoalid, oldiepservicingeducationorganizationid, oldstudentiepassociationid, oldstudentusi, oldstudentuniqueid,
+        oldiepgoalid, oldstudentusi, oldstudentuniqueid,
         id, discriminator, changeversion)
     VALUES (
-        OLD.iepfinalizeddate, OLD.iepgoalid, OLD.iepservicingeducationorganizationid, OLD.studentiepassociationid, OLD.studentusi, dj0.studentuniqueid, 
+        OLD.iepgoalid, OLD.studentusi, dj0.studentuniqueid, 
         OLD.id, OLD.discriminator, nextval('changes.changeversionsequence'));
 
     RETURN NULL;
@@ -165,10 +165,10 @@ BEGIN
     SELECT INTO dj1 * FROM edfi.student j1 WHERE studentusi = old.studentusi;
 
     INSERT INTO tracked_changes_sedm.iepservicedelivery(
-        oldiepfinalizeddate, oldiepservicedeliveryid, oldiepservicingeducationorganizationid, oldservicedeliverydate, oldservicedeliverydescriptorid, oldservicedeliverydescriptornamespace, oldservicedeliverydescriptorcodevalue, oldstudentiepassociationid, oldstudentusi, oldstudentuniqueid,
+        oldiepservicedeliveryid, oldservicedeliverydate, oldservicedeliverydescriptorid, oldservicedeliverydescriptornamespace, oldservicedeliverydescriptorcodevalue, oldstudentusi, oldstudentuniqueid,
         id, discriminator, changeversion)
     VALUES (
-        OLD.iepfinalizeddate, OLD.iepservicedeliveryid, OLD.iepservicingeducationorganizationid, OLD.servicedeliverydate, OLD.servicedeliverydescriptorid, dj0.namespace, dj0.codevalue, OLD.studentiepassociationid, OLD.studentusi, dj1.studentuniqueid, 
+        OLD.iepservicedeliveryid, OLD.servicedeliverydate, OLD.servicedeliverydescriptorid, dj0.namespace, dj0.codevalue, OLD.studentusi, dj1.studentuniqueid, 
         OLD.id, OLD.discriminator, nextval('changes.changeversionsequence'));
 
     RETURN NULL;
@@ -192,10 +192,10 @@ BEGIN
     SELECT INTO dj1 * FROM edfi.student j1 WHERE studentusi = old.studentusi;
 
     INSERT INTO tracked_changes_sedm.iepserviceprescription(
-        oldiepfinalizeddate, oldiepservicingeducationorganizationid, oldserviceprescriptiondate, oldserviceprescriptiondescriptorid, oldserviceprescriptiondescriptornamespace, oldserviceprescriptiondescriptorcodevalue, oldstudentiepassociationid, oldstudentusi, oldstudentuniqueid,
+        oldserviceprescriptiondate, oldserviceprescriptiondescriptorid, oldserviceprescriptiondescriptornamespace, oldserviceprescriptiondescriptorcodevalue, oldstudentusi, oldstudentuniqueid,
         id, discriminator, changeversion)
     VALUES (
-        OLD.iepfinalizeddate, OLD.iepservicingeducationorganizationid, OLD.serviceprescriptiondate, OLD.serviceprescriptiondescriptorid, dj0.namespace, dj0.codevalue, OLD.studentiepassociationid, OLD.studentusi, dj1.studentuniqueid, 
+        OLD.serviceprescriptiondate, OLD.serviceprescriptiondescriptorid, dj0.namespace, dj0.codevalue, OLD.studentusi, dj1.studentuniqueid, 
         OLD.id, OLD.discriminator, nextval('changes.changeversionsequence'));
 
     RETURN NULL;
@@ -335,10 +335,10 @@ BEGIN
     SELECT INTO dj0 * FROM edfi.student j0 WHERE studentusi = old.studentusi;
 
     INSERT INTO tracked_changes_sedm.studentiepaccommodation(
-        oldiepfinalizeddate, oldiepservicingeducationorganizationid, oldstudentiepassociationid, oldstudentusi, oldstudentuniqueid,
+        oldiepservicingeducationorganizationid, oldstudentusi, oldstudentuniqueid,
         id, discriminator, changeversion)
     VALUES (
-        OLD.iepfinalizeddate, OLD.iepservicingeducationorganizationid, OLD.studentiepassociationid, OLD.studentusi, dj0.studentuniqueid, 
+        OLD.iepservicingeducationorganizationid, OLD.studentusi, dj0.studentuniqueid, 
         OLD.id, OLD.discriminator, nextval('changes.changeversionsequence'));
 
     RETURN NULL;
@@ -383,10 +383,10 @@ BEGIN
     SELECT INTO dj0 * FROM edfi.student j0 WHERE studentusi = old.studentusi;
 
     INSERT INTO tracked_changes_sedm.studentiepdisability(
-        oldiepfinalizeddate, oldiepservicingeducationorganizationid, oldstudentiepassociationid, oldstudentusi, oldstudentuniqueid,
+        oldiepservicingeducationorganizationid, oldstudentusi, oldstudentuniqueid,
         id, discriminator, changeversion)
     VALUES (
-        OLD.iepfinalizeddate, OLD.iepservicingeducationorganizationid, OLD.studentiepassociationid, OLD.studentusi, dj0.studentuniqueid, 
+        OLD.iepservicingeducationorganizationid, OLD.studentusi, dj0.studentuniqueid, 
         OLD.id, OLD.discriminator, nextval('changes.changeversionsequence'));
 
     RETURN NULL;

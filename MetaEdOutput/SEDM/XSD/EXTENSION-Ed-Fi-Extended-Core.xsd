@@ -90,14 +90,14 @@
               <xs:documentation>A reference to the student.</xs:documentation>
             </xs:annotation>
           </xs:element>
-          <xs:element name="StudentIEPAssociationReference" type="EXTENSION-StudentIEPAssociationReferenceType">
-            <xs:annotation>
-              <xs:documentation>The student IEP for which the goal is prescribed.</xs:documentation>
-            </xs:annotation>
-          </xs:element>
           <xs:element name="IEPGoalID" type="EXTENSION-IEPGoalID">
             <xs:annotation>
               <xs:documentation>A unique identifier assigned by the provider of IEP services.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="StudentIEPAssociationReference" type="EXTENSION-StudentIEPAssociationReferenceType">
+            <xs:annotation>
+              <xs:documentation>The student IEP for which the goal is prescribed.</xs:documentation>
             </xs:annotation>
           </xs:element>
           <xs:element name="IEPGoal" type="EXTENSION-IEPGoalDescriptorReferenceType">
@@ -684,11 +684,6 @@
           <xs:documentation>A reference to the student.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="StudentIEPAssociationReference" type="EXTENSION-StudentIEPAssociationReferenceType">
-        <xs:annotation>
-          <xs:documentation>The student IEP for which the goal is prescribed.</xs:documentation>
-        </xs:annotation>
-      </xs:element>
       <xs:element name="IEPGoalID" type="EXTENSION-IEPGoalID">
         <xs:annotation>
           <xs:documentation>A unique identifier assigned by the provider of IEP services.</xs:documentation>
@@ -731,11 +726,6 @@
       <xs:element name="IEPServiceDeliveryID" type="EXTENSION-IEPServiceDeliveryID">
         <xs:annotation>
           <xs:documentation>A unique identifier assigned by the provider of IEP services for the delivery record.</xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="StudentIEPAssociationReference" type="EXTENSION-StudentIEPAssociationReferenceType">
-        <xs:annotation>
-          <xs:documentation>The student and IEP associated with the delivery of prescribed services.</xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element name="ServiceDelivery" type="EXTENSION-ServiceDeliveryDescriptorReferenceType">
@@ -785,11 +775,6 @@
           <xs:documentation>A reference to the student.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="StudentIEPAssociationReference" type="EXTENSION-StudentIEPAssociationReferenceType">
-        <xs:annotation>
-          <xs:documentation>The student IEP for which the service is prescribed.</xs:documentation>
-        </xs:annotation>
-      </xs:element>
       <xs:element name="ServicePrescription" type="EXTENSION-ServicePrescriptionDescriptorReferenceType">
         <xs:annotation>
           <xs:documentation>The type of service prescribed. Examples include: Auditory Specialist, Vocational Therapy.</xs:documentation>
@@ -835,11 +820,6 @@
       <xs:element name="StudentReference" type="StudentReferenceType">
         <xs:annotation>
           <xs:documentation>A reference to the student.</xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="StudentIEPAssociationReference" type="EXTENSION-StudentIEPAssociationReferenceType">
-        <xs:annotation>
-          <xs:documentation>The student IEP for which the accommodations are prescribed.</xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element name="IEPServicingEducationOrganizationReference" type="EducationOrganizationReferenceType">
@@ -928,11 +908,6 @@
       <xs:element name="StudentReference" type="StudentReferenceType">
         <xs:annotation>
           <xs:documentation>A reference to the student.</xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="StudentIEPAssociationReference" type="EXTENSION-StudentIEPAssociationReferenceType">
-        <xs:annotation>
-          <xs:documentation>The student IEP for which the disability is prescribed.</xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element name="IEPServicingEducationOrganizationReference" type="EducationOrganizationReferenceType">
@@ -1166,7 +1141,7 @@
       </xs:appinfo>
     </xs:annotation>
     <xs:restriction base="xs:string">
-      <xs:maxLength value="30" />
+      <xs:maxLength value="256" />
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="EXTENSION-IEPServiceDeliveryID">

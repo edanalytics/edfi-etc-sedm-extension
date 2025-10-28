@@ -5,7 +5,7 @@ Domain Entity IEPServicePrescription
         is part of identity
     association StudentIEPAssociation
         documentation "The student IEP for which the service is prescribed."
-        is part of identity
+        is required
         merge StudentIEPAssociation.Student.StudentUniqueId with Student.StudentUniqueId
     descriptor ServicePrescription
         documentation "The type of service prescribed. Examples include: Auditory Specialist, Vocational Therapy."
