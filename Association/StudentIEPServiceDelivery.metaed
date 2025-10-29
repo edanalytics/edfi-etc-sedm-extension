@@ -2,9 +2,13 @@ Association StudentIEPServiceDelivery
     documentation "Services delivered to a student as prescribed by their IEP."
     domain entity EdFi.Student
         documentation "A reference to the student."
+    domain entity EdFi.EducationOrganization
+        documentation "The identifier assigned to the education organization (usually District/LEA) providing IEP Services."
     domain entity StudentIEP
         documentation "The student and IEP associated with the delivery of prescribed services."
+        is required
         merge StudentIEP.Student with Student
+        merge StudentIEP.EducationOrganization with EducationOrganization
     string IEPServiceDeliveryID
         documentation "A unique identifier assigned by the provider of IEP services for the delivery record."
         is part of identity

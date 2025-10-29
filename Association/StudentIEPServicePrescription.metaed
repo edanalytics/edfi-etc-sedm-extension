@@ -2,9 +2,13 @@ Association StudentIEPServicePrescription
     documentation "The service prescribed to a student as part of their IEP."
     domain entity EdFi.Student
         documentation "A reference to the student."
+    domain entity EdFi.EducationOrganization
+        documentation "The identifier assigned to the education organization (usually District/LEA) providing prescribed services."
     domain entity StudentIEP
         documentation "The student IEP for which the service is prescribed."
+        is required
         merge StudentIEP.Student with Student
+        merge StudentIEP.EducationOrganization with EducationOrganization
     descriptor ServicePrescription
         documentation "The type of service prescribed. Examples include: Auditory Specialist, Vocational Therapy."
         is part of identity
@@ -36,10 +40,6 @@ Association StudentIEPServicePrescription
     descriptor ServiceLocationType
         documentation "The location type where the prescribed service is to be provided. Examples include: Home, Hospital, School."
         is required
-    domain entity EdFi.EducationOrganization
-        documentation "The identifier assigned to the education organization (usually District/LEA) providing prescribed services."
-        is optional
-        role name ServiceProviding
     domain entity EdFi.Staff
         documentation "A reference to the staff member providing the prescribed service."
         is optional

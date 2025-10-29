@@ -2,9 +2,13 @@ Association StudentIEPGoal
     documentation "A goal prescribed to a student as part of their IEP."
     domain entity EdFi.Student
         documentation "A reference to the student."
+    domain entity EdFi.EducationOrganization
+        documentation "The identifier assigned to the education organization (usually District/LEA) providing IEP Services."
     domain entity StudentIEP
         documentation "The student IEP for which the goal is prescribed."
+        is part of identity
         merge StudentIEP.Student with Student
+        merge StudentIEP.EducationOrganization with EducationOrganization
     string IEPGoalID
         documentation "A unique identifier assigned by the provider of IEP services."
         is part of identity

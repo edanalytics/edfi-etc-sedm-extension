@@ -2,8 +2,7 @@ Domain Entity StudentIEP
     documentation "This association describes summary IEP data for a student receiving special education services."
     domain entity EdFi.EducationOrganization
         documentation "The identifier assigned to the education organization (usually District/LEA) providing IEP Services."
-        is part of identity
-        role name IEPServicing        
+        is part of identity        
     domain entity EdFi.Student
         documentation "A reference to the student."
         is part of identity
