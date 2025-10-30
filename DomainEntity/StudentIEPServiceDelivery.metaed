@@ -1,28 +1,22 @@
-Association StudentIEPServiceDelivery
+Domain Entity StudentIEPServiceDelivery
     documentation "Services delivered to a student as prescribed by their IEP."
-    domain entity EdFi.Student
-        documentation "A reference to the student."
-    domain entity EdFi.EducationOrganization
-        documentation "The identifier assigned to the education organization (usually District/LEA) providing IEP Services."
     domain entity StudentIEP
         documentation "The student and IEP associated with the delivery of prescribed services."
-        is required
-        merge StudentIEP.Student with Student
-        merge StudentIEP.EducationOrganization with EducationOrganization
+        is part of identity
     string IEPServiceDeliveryID
         documentation "A unique identifier assigned by the provider of IEP services for the delivery record."
         is part of identity
-        max length 1024
+        max length 128
     descriptor ServiceDelivery 
         documentation "The type of services delivered to the student."
         is part of identity
     date ServiceDeliveryDate 
         documentation "The date when prescribed services were delivered for a student."
         is part of identity
-    association StudentIEPServicePrescription
+    domain entity StudentIEPServicePrescription
         documentation "Identifies the service prescribed for the student."
         is optional
-        merge StudentIEPServicePrescription.Student with Student
+        merge StudentIEPServicePrescription.StudentIEP.Student with StudentIEP.Student
     descriptor ServiceProviderType
         documentation "Indicates service provider type, including specialist, internal staff, external staff, etc."
         is optional
@@ -32,7 +26,7 @@ Association StudentIEPServiceDelivery
     common ExternalServiceProvider
         documentation "The external service provider that delivered the prescribed service to the student."
         is optional collection
-    domain entity IDEAEvent
+    domain entity IdeaEvent
         documentation "A reference to one or more student IDEA events."
         is optional collection
-        merge IDEAEvent.Student with Student
+        merge IdeaEvent.Student with StudentIEP.Student

@@ -9,7 +9,7 @@ Domain Entity StudentIEP
     string StudentIEPAssociationID
         documentation "A unique identifier assigned by the provider or source system of IEP services."
         is part of identity
-        max length 1024
+        max length 128
     date IEPFinalizedDate
         documentation "The date the most recent IEP was finalized.  Note: Date interpretation may vary. Ed-Fi recommends inclusive dates, but states may define dates as inclusive or exclusive. For calculations, align with local guidelines."
         is part of identity
@@ -19,7 +19,7 @@ Domain Entity StudentIEP
     date IEPEndDate
         documentation "The effective end date of the most recent IEP.  Note: Date interpretation may vary. Ed-Fi recommends inclusive dates, but states may define dates as inclusive or exclusive. For calculations, align with local guidelines."
         is required
-    descriptor IEPStatus
+    descriptor IepStatus
         documentation "The current status of the most recent IEP."
         is required
     date IEPAmendedDate
@@ -43,8 +43,8 @@ Domain Entity StudentIEP
     shared decimal EdFi.HoursPerWeek named SpecialEducationHoursPerWeek
         documentation "Indicates the total number of hours of time per week specific to special education related services."
         is optional    
-    domain entity IDEAEvent
+    domain entity IdeaEvent
         documentation "A reference to one or more student IDEA events."
         is optional collection
-        merge IDEAEvent.Student with Student
+        merge IdeaEvent.Student with Student
  

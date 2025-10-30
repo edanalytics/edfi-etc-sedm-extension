@@ -1,4 +1,4 @@
-Domain Entity IDEAEvent
+Domain Entity IdeaEvent
     documentation "An IDEA related student event describing status, dates and narrative."
     domain entity EdFi.Student
         documentation "A reference to the student."
@@ -6,17 +6,17 @@ Domain Entity IDEAEvent
     string IDEAEventID
         documentation "A unique identifier for the event record as assigned by the provider of IEP services."
         is part of identity
-        max length 1024
+        max length 128
     domain entity EdFi.EducationOrganization
         documentation "The identifier assigned to the education organization (usually District/LEA) providing IDEA Services."
         is part of identity
-    descriptor IDEAEvent
+    descriptor IdeaEvent
         documentation "The IDEA event recorded for the student."
         is part of identity
-    date EventBeginDate
+    date BeginDate
         documentation "The date when the IDEA related event started."
         is required
-    date EventEndDate
+    date EndDate
         documentation "The date when the IDEA event concluded."
         is required
     descriptor EventReason

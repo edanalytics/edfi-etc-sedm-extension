@@ -1,2 +1,2 @@
-Descriptor IDEAEvent
+Descriptor IdeaEvent
     documentation "IDEA event type. Examples: Referral for Evaluation, IEP Approved, Parental COnsent Given, Evaluation Complete."
