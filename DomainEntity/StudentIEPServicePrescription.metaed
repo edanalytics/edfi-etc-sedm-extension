@@ -18,7 +18,7 @@ Domain Entity StudentIEPServicePrescription
     decimal DurationMinutes
         documentation "The length of time for the prescribed service in minutes."
         is required
-        total digits 5
+        total digits 9
         decimal places 2
     descriptor DurationPeriod
         documentation "The frequency period for the prescribed service duration. Examples include: Per Session, Per Week, Per Month."
@@ -26,7 +26,7 @@ Domain Entity StudentIEPServicePrescription
     decimal FrequencyValue
         documentation "The number of times the prescribed service is to be provided within the specified duration period."
         is required
-        total digits 5
+        total digits 9
         decimal places 2
     descriptor FrequencyPeriod
         documentation "The frequency period for the prescribed service. Examples include: Session, Week, Month."
