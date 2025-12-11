@@ -79,8 +79,6 @@ iepGoalDescriptors,uri://sedm.sc.gov/IepGoalDescriptor,Academic Achievement,Acad
 iepGoalDescriptors,uri://sedm.sc.gov/IepGoalDescriptor,Functional Performance,Functional Performance,Functional Performance,11/1/2025,,,
 iepGoalDescriptors,uri://sedm.sc.gov/IepGoalDescriptor,Transition - Functional Performance,Transition - Functional Performance,Transition - Functional Performance,11/1/2025,,,
 iepGoalDescriptors,uri://sedm.sc.gov/IepGoalDescriptor,Transition - Academic Achievement,Transition - Academic Achievement,Transition - Academic Achievement,11/1/2025,,,
-serviceTypeDescriptors,uri://sedm.sc.gov/ServiceTypeDescriptor,Related Services,Related Services,Related Services,11/1/2025,,,
-serviceTypeDescriptors,uri://sedm.sc.gov/ServiceTypeDescriptor,Special Ed Services,Special Ed Services,Special Ed Services,11/1/2025,,,
 servicePrescriptionDescriptors,uri://sedm.sc.gov/ServicePrescriptionDescriptor,Transportation,Transportation,Transportation,11/1/2025,,,
 servicePrescriptionDescriptors,uri://sedm.sc.gov/ServicePrescriptionDescriptor,Speech and Language (Special Education),Speech and Language (Special Education),Speech and Language (Special Education),11/1/2025,,,
 servicePrescriptionDescriptors,uri://sedm.sc.gov/ServicePrescriptionDescriptor,Reading,Reading,Reading,11/1/2025,,,
