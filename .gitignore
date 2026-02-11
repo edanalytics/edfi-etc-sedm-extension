@@ -3,3 +3,6 @@
 metaedoutput/
 LRECodes.csv
 *.py
+archive/
+automation/
+*.md
