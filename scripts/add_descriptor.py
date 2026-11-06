@@ -118,8 +118,8 @@ def append_rows(target: Path, rows):
     """Append rows to the target CSV. Handles BOM and header for new files."""
     file_exists = target.exists() and target.stat().st_size > 0
     mode = "a" if file_exists else "w"
-    # For append mode on utf-8-sig, we must use utf-8 to avoid writing a second BOM
-    encoding = "utf-8" if file_exists else "utf-8-sig"
+    # Write plain utf-8 (no BOM); readers use utf-8-sig so either works
+    encoding = "utf-8"
 
     # Ensure the file ends with a newline before appending
     if file_exists:
@@ -128,10 +128,10 @@ def append_rows(target: Path, rows):
             last_byte = f.read(1)
         if last_byte not in (b"\n", b"\r"):
             with open(target, "ab") as f:
-                f.write(b"\r\n")
+                f.write(b"\n")
 
     with open(target, mode, encoding=encoding, newline="") as f:
-        writer = csv.DictWriter(f, fieldnames=FIELDNAMES)
+        writer = csv.DictWriter(f, fieldnames=FIELDNAMES, lineterminator="\n")
         if not file_exists:
             writer.writeheader()
         writer.writerows(rows)
